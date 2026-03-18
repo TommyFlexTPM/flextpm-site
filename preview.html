@@ -27,7 +27,7 @@
 --mono:'JetBrains Mono','SF Mono',monospace;
 }
 
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
 body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;overflow-x:hidden;}
 
 /* NAV */
@@ -52,7 +52,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .section-wrap{max-width:1400px;margin:0 auto;}
 
 /* HERO — full width, two columns */
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;padding:clamp(3rem,6vw,6rem) clamp(1.25rem,4vw,4rem);max-width:1400px;margin:0 auto;position:relative;}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;padding:clamp(3rem,6vw,6rem) clamp(1.25rem,4vw,4rem);max-width:1400px;margin:0 auto;position:relative;overflow:hidden;}
 .hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:400px;background:radial-gradient(ellipse,rgba(59,130,246,0.08) 0%,transparent 70%);pointer-events:none;}
 .hero-text{position:relative;z-index:1;}
 .badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:100px;padding:6px 14px 6px 8px;font-size:12px;color:var(--text2);font-weight:500;margin-bottom:1.5rem;}
