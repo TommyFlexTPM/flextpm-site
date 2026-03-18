@@ -98,8 +98,8 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .section-tag{font-size:13px;font-weight:600;color:var(--accent2);margin-bottom:0.75rem;display:block;text-transform:uppercase;letter-spacing:0.5px;}
 h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.5px;margin-bottom:0.5rem;}
 .pricing-left p{color:var(--text2);font-size:clamp(15px,1.6vw,17px);font-weight:400;line-height:1.7;}
-.pricing-cards{display:flex;flex-direction:column;gap:16px;}
-.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;transition:border-color 0.2s;}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);display:flex;flex-direction:column;gap:1.5rem;transition:border-color 0.2s;}
 .price-card.featured{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);}
 .price-info{}
 .price-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);padding:4px 10px;border-radius:6px;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}
@@ -109,8 +109,8 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.5px;marg
 .price-features{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px;}
 .price-features li{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:6px;}
 .check{width:14px;height:14px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.price-action{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:1rem;}
-.price-btn{padding:12px 28px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);white-space:nowrap;}
+.price-action{margin-top:auto;}
+.price-btn{padding:12px 28px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);white-space:nowrap;display:block;text-align:center;width:100%;}
 .price-btn.primary{background:var(--accent);color:#fff;box-shadow:0 0 20px var(--accent-glow);}
 .price-btn.primary:hover{opacity:0.9;}
 .price-btn.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);}
@@ -142,10 +142,7 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .feat-row{grid-template-columns:1fr 1fr;}
 .pricing-section{grid-template-columns:1fr;gap:2rem;}
 .pricing-left{position:static;}
-.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.price-card{grid-template-columns:1fr;gap:1rem;}
-.price-action{flex-direction:row;align-items:center;}
-.price-btn{width:100%;text-align:center;}
+.pricing-cards{grid-template-columns:1fr 1fr;}
 .cta-section{grid-template-columns:1fr 1fr;}
 }
 
@@ -199,7 +196,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         <div class="ba-icon ba-icon-x"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div>
         <div class="ba-status ba-status-bad">No TPM detected</div>
         <ul class="ba-list">
-          <li class="ba-blocked">BitLocker unavailable</li>
+          <li class="ba-blocked">Security features locked</li>
           <li class="ba-blocked">Windows 11 blocked</li>
           <li class="ba-blocked">Compliance failed</li>
         </ul>
@@ -210,7 +207,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         <div class="ba-icon ba-icon-check"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg></div>
         <div class="ba-status ba-status-good">TPM 2.0 Ready</div>
         <ul class="ba-list">
-          <li class="ba-ok">BitLocker enabled</li>
+          <li class="ba-ok">Security features unlocked</li>
           <li class="ba-ok">Windows 11 compatible</li>
           <li class="ba-ok">Fully compliant</li>
         </ul>
@@ -225,7 +222,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
       <span class="feat-num">01</span>
       <div class="feat-content">
         <h3>Full TPM 2.0</h3>
-        <p>BitLocker, Windows Hello, attestation, compliance — everything that needs a TPM works like you have a hardware chip.</p>
+        <p>Windows Hello, attestation, compliance — everything that needs a TPM works like you have a hardware chip.</p>
       </div>
     </div>
     <div class="feat-block">
@@ -290,7 +287,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         </ul>
       </div>
       <div class="price-action">
-        <a href="#notify" class="price-btn secondary">Get FlexTPM Pro</a>
+        <a href="#notify" class="price-btn primary">Get FlexTPM Pro</a>
       </div>
     </div>
   </div>
