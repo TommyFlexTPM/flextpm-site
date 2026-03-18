@@ -1,0 +1,10 @@
+# Local Netlify folder
+.netlify
+
+# Sensitive / non-website files
+source_backup/
+installer/
+recovery/
+icons/
+*.exe
+index_teaser.html
