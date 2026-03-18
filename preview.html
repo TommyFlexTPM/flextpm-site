@@ -30,140 +30,126 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;overflow-x:hidden;}
 
-/* GLOW */
-.hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(59,130,246,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;}
-
 /* NAV */
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;background:rgba(9,9,11,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,4vw,4rem);height:60px;background:rgba(9,9,11,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .logo{font-size:15px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:10px;letter-spacing:-0.2px;}
 .logo-icon{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),#818cf8);border-radius:7px;display:flex;align-items:center;justify-content:center;}
 .logo-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .nav-right{display:flex;align-items:center;gap:1.5rem;}
 .nav-right a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.15s;}
 .nav-right a:hover{color:var(--text);}
-.nav-btn{background:var(--accent);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity 0.15s;}
+.nav-btn{background:var(--accent);color:#fff !important;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity 0.15s;}
 .nav-btn:hover{opacity:0.85;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
 .hamburger span{display:block;width:18px;height:2px;background:var(--text2);margin:4px 0;border-radius:2px;}
 
-/* HERO */
-.hero{position:relative;text-align:center;padding:4.5rem 2rem 3rem;max-width:720px;margin:0 auto;}
-.badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:100px;padding:6px 14px 6px 8px;font-size:12px;color:var(--text2);font-weight:500;margin-bottom:2rem;}
+/* Fluid padding & max-width helpers */
+.section-pad{padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
+.section-wrap{max-width:1400px;margin:0 auto;}
+
+/* HERO — full width, two columns */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;padding:clamp(3rem,6vw,6rem) clamp(1.25rem,4vw,4rem);max-width:1400px;margin:0 auto;position:relative;}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:400px;background:radial-gradient(ellipse,rgba(59,130,246,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-text{position:relative;z-index:1;}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:100px;padding:6px 14px 6px 8px;font-size:12px;color:var(--text2);font-weight:500;margin-bottom:1.5rem;}
 .badge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-h1{font-size:clamp(2.5rem,5.5vw,4rem);font-weight:700;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1.5rem;background:linear-gradient(180deg,#fff 40%,#71717a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero p{font-size:18px;color:var(--text2);max-width:480px;margin:0 auto 2.5rem;line-height:1.7;font-weight:400;}
-.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;}
+h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1.25rem;background:linear-gradient(180deg,#fff 40%,#71717a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-text p{font-size:clamp(15px,1.8vw,18px);color:var(--text2);line-height:1.7;font-weight:400;margin-bottom:2rem;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;box-shadow:0 0 20px var(--accent-glow);font-family:var(--font);border:none;cursor:pointer;display:inline-block;}
 .btn-primary:hover{opacity:0.9;box-shadow:0 0 30px rgba(59,130,246,0.25);transform:translateY(-1px);}
 .btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);cursor:pointer;display:inline-block;}
-.btn-secondary:hover{border-color:var(--border2);background:var(--surface3);transform:translateY(-1px);}
+.btn-secondary:hover{background:var(--surface3);transform:translateY(-1px);}
 
 /* TERMINAL */
-.terminal{max-width:500px;margin:0 auto;background:var(--surface);border:1px solid var(--border2);border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+.hero-visual{position:relative;z-index:1;}
+.terminal{background:var(--surface);border:1px solid var(--border2);border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.5);}
 .terminal-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface2);}
 .dot{width:10px;height:10px;border-radius:50%;}
 .dot-r{background:#ef4444;opacity:0.7;}.dot-y{background:#eab308;opacity:0.7;}.dot-g{background:#22c55e;opacity:0.7;}
 .terminal-title{font-size:12px;color:var(--text3);margin-left:8px;font-family:var(--mono);}
-.terminal-body{padding:18px 20px;font-family:var(--mono);font-size:13.5px;line-height:2;}
+.terminal-body{padding:clamp(14px,2vw,20px);font-family:var(--mono);font-size:clamp(12px,1.4vw,14px);line-height:2;}
 .t-prompt{color:var(--text3);}.t-cmd{color:var(--text);font-weight:500;}.t-key{color:var(--text2);}.t-val{color:var(--green);}.t-muted{color:var(--text3);font-size:12px;}
 .t-gap{display:block;height:2px;}
 
-/* DIVIDER */
-.divider{height:1px;background:var(--border);max-width:900px;margin:0 auto;}
+/* FEATURES — full bleed alternating rows */
+.features-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.feat-row{display:grid;grid-template-columns:1fr 1fr;max-width:1400px;margin:0 auto;border-bottom:1px solid var(--border);}
+.feat-row:last-child{border-bottom:none;}
+.feat-block{padding:clamp(2rem,3.5vw,3.5rem) clamp(1.25rem,4vw,4rem);display:flex;align-items:flex-start;gap:1.25rem;}
+.feat-block:first-child{border-right:1px solid var(--border);}
+.feat-num{font-family:var(--mono);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--surface3);line-height:1;flex-shrink:0;min-width:40px;}
+.feat-content h3{font-size:clamp(16px,1.8vw,20px);font-weight:600;margin-bottom:0.4rem;letter-spacing:-0.3px;}
+.feat-content p{font-size:clamp(14px,1.5vw,16px);color:var(--text2);line-height:1.65;font-weight:400;}
 
-/* SECTION */
-.section{padding:3.5rem 2rem;max-width:900px;margin:0 auto;}
+/* PRICING — offset layout */
+.pricing-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(2rem,4vw,5rem);align-items:start;}
+.pricing-left{position:sticky;top:100px;}
 .section-tag{font-size:13px;font-weight:600;color:var(--accent2);margin-bottom:0.75rem;display:block;text-transform:uppercase;letter-spacing:0.5px;}
-h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-0.5px;margin-bottom:0.5rem;}
-.section-desc{color:var(--text2);font-size:16px;font-weight:400;margin-bottom:2rem;}
-
-/* FEATURES */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;}
-.feat-card{background:var(--surface);padding:2rem;transition:background 0.2s;}
-.feat-card:hover{background:var(--surface2);}
-.feat-icon{width:40px;height:40px;background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
-.feat-icon svg{width:20px;height:20px;stroke:var(--accent2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.feat-card h3{font-size:15px;font-weight:600;margin-bottom:0.4rem;letter-spacing:-0.2px;}
-.feat-card p{font-size:14px;color:var(--text2);line-height:1.6;font-weight:400;}
-
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;margin:0 auto;}
-.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:2.5rem;position:relative;transition:border-color 0.2s;}
+h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.5px;margin-bottom:0.5rem;}
+.pricing-left p{color:var(--text2);font-size:clamp(15px,1.6vw,17px);font-weight:400;line-height:1.7;}
+.pricing-cards{display:flex;flex-direction:column;gap:16px;}
+.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;transition:border-color 0.2s;}
 .price-card.featured{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);}
-.price-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);padding:4px 10px;border-radius:6px;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.5px;}
-.price-amount{font-size:3.5rem;font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:0.2rem;}
-.price-period{font-size:14px;color:var(--text3);font-weight:400;margin-bottom:0.5rem;}
-.price-desc{font-size:14px;color:var(--text2);margin-bottom:1.5rem;font-weight:400;}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem;}
-.price-features li{font-size:14px;color:var(--text2);display:flex;align-items:center;gap:10px;font-weight:400;}
-.check{width:16px;height:16px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.price-btn{display:block;text-align:center;padding:12px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);}
+.price-info{}
+.price-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);padding:4px 10px;border-radius:6px;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}
+.price-amount{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-1.5px;line-height:1;margin-bottom:0.15rem;}
+.price-amount span{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:400;color:var(--text2);}
+.price-period{font-size:13px;color:var(--text3);margin-bottom:0.75rem;}
+.price-features{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px;}
+.price-features li{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:6px;}
+.check{width:14px;height:14px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.price-action{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:1rem;}
+.price-btn{padding:12px 28px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);white-space:nowrap;}
 .price-btn.primary{background:var(--accent);color:#fff;box-shadow:0 0 20px var(--accent-glow);}
 .price-btn.primary:hover{opacity:0.9;}
 .price-btn.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);}
 .price-btn.secondary:hover{background:var(--surface3);}
 
-/* FAQ */
-.faq-list{max-width:700px;margin:0 auto;}
-.faq-item{border-bottom:1px solid var(--border);}
-.faq-item:last-child{border-bottom:none;}
-.faq-q{width:100%;padding:1.25rem 0;font-size:15px;font-weight:500;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--font);transition:color 0.15s;}
-.faq-q:hover{color:var(--accent2);}
-.faq-arrow{width:16px;height:16px;stroke:var(--text3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform 0.25s;}
-.faq-a{display:none;padding:0 0 1.25rem;font-size:15px;color:var(--text2);line-height:1.7;font-weight:400;}
-.faq-item.open .faq-a{display:block;}
-.faq-item.open .faq-arrow{transform:rotate(180deg);}
-
 /* CTA */
-.cta-section{text-align:center;padding:3.5rem 2rem;max-width:600px;margin:0 auto;}
-.cta-section h2{margin-bottom:0.75rem;}
-.cta-section p{font-size:16px;color:var(--text2);margin-bottom:2rem;}
-.email-row{display:flex;gap:8px;justify-content:center;max-width:400px;margin:0 auto;}
+.cta-section{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);}
+.cta-left h2{margin-bottom:0.5rem;}
+.cta-left p{font-size:clamp(15px,1.6vw,17px);color:var(--text2);font-weight:400;}
+.email-row{display:flex;gap:8px;}
 .email-input{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.15s;}
 .email-input::placeholder{color:var(--text3);}
 .email-input:focus{border-color:var(--accent);}
-.fine-print{font-size:12px;color:var(--text3);margin-top:0.75rem;}
+.fine-print{font-size:12px;color:var(--text3);margin-top:0.6rem;}
 .form-error{font-size:12px;color:#ef4444;margin-top:0.5rem;display:none;}
 .form-success{font-size:14px;color:var(--green);margin-top:0.75rem;display:none;}
 
 /* FOOTER */
-footer{padding:2rem;border-top:1px solid var(--border);max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-left{font-size:13px;color:var(--text3);}
 .footer-left a{color:var(--text3);text-decoration:none;border-bottom:1px solid var(--border);}
-.footer-disclaimer{font-size:11px;color:var(--text3);opacity:0.5;max-width:900px;margin:0 auto;padding:0 2rem 2rem;line-height:1.6;}
+.footer-disclaimer{font-size:11px;color:var(--text3);opacity:0.4;max-width:1400px;margin:0 auto;padding:0 clamp(1.25rem,4vw,4rem) 2rem;line-height:1.6;}
 
-/* MOBILE */
-@media(max-width:768px){
-nav{padding:0 1.25rem;}
+/* TABLET — 600-900px */
+@media(max-width:900px){
 .nav-right a:not(.nav-btn){display:none;}
 .hamburger{display:block;}
-.nav-right{gap:1rem;}
-.hero{padding:4rem 1.5rem 3rem;}
-h1{font-size:2.2rem;letter-spacing:-1px;}
-.hero p{font-size:16px;}
-.hero-ctas{flex-direction:column;align-items:center;}
-.btn-primary,.btn-secondary{width:100%;max-width:280px;text-align:center;}
-.terminal{margin:0 -0.5rem;}
-.terminal-body{font-size:12.5px;padding:14px 16px;}
-.section{padding:3rem 1.5rem;}
-h2{font-size:1.5rem;}
-.features{grid-template-columns:1fr;border-radius:12px;}
-.feat-card{padding:1.5rem;}
-.pricing-grid{grid-template-columns:1fr;max-width:400px;}
-.price-card{padding:2rem;}
-.price-amount{font-size:2.8rem;}
-.faq-q{font-size:15px;padding:1rem 0;}
-.faq-a{font-size:14px;}
-.cta-section{padding:3rem 1.5rem;}
-.email-row{flex-direction:column;}
-.email-input{width:100%;}
-footer{flex-direction:column;text-align:center;gap:0.5rem;}
+.hero{grid-template-columns:1fr 1fr;}
+.feat-row{grid-template-columns:1fr 1fr;}
+.pricing-section{grid-template-columns:1fr;gap:2rem;}
+.pricing-left{position:static;}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.price-card{grid-template-columns:1fr;gap:1rem;}
+.price-action{flex-direction:row;align-items:center;}
+.price-btn{width:100%;text-align:center;}
+.cta-section{grid-template-columns:1fr 1fr;}
 }
 
-@media(max-width:380px){
-h1{font-size:1.9rem;}
-.hero p{font-size:15px;}
+/* SMALL TABLET — 600px and below */
+@media(max-width:600px){
+.hero{grid-template-columns:1fr;text-align:center;}
+.hero-ctas{justify-content:center;}
+.feat-row{grid-template-columns:1fr;}
+.feat-block:first-child{border-right:none;border-bottom:1px solid var(--border);}
+.pricing-cards{grid-template-columns:1fr;}
+.cta-section{grid-template-columns:1fr;}
+.email-row{flex-direction:column;}
+footer{flex-direction:column;text-align:center;gap:0.5rem;}
 }
 </style>
 </head>
@@ -180,7 +166,7 @@ h1{font-size:1.9rem;}
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#notify" class="nav-btn">Get Early Access</a>
-    <button class="hamburger" id="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('show')" aria-label="Menu">
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu')?.classList.toggle('show')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -188,117 +174,130 @@ h1{font-size:1.9rem;}
 
 <div class="hero">
   <div class="hero-glow"></div>
-  <div class="badge"><span class="badge-dot"></span> Now in development</div>
-  <h1>TPM 2.0 for any PC.</h1>
-  <p>A real Windows driver that gives any machine a fully functional TPM — no VM, no hacks, no maintenance.</p>
-  <div class="hero-ctas">
-    <a href="#notify" class="btn-primary">Get Early Access</a>
-    <a href="#pricing" class="btn-secondary">View Pricing</a>
-  </div>
-  <div class="terminal">
-    <div class="terminal-bar">
-      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-      <span class="terminal-title">PowerShell</span>
+  <div class="hero-text">
+    <div class="badge"><span class="badge-dot"></span> Now in development</div>
+    <h1>Software TPM 2.0<br>for any PC.</h1>
+    <p>A signed Windows driver that gives your machine a fully functional TPM. No VM, no registry hacks, no maintenance.</p>
+    <div class="hero-ctas">
+      <a href="#notify" class="btn-primary">Get Early Access</a>
+      <a href="#pricing" class="btn-secondary">View Pricing</a>
     </div>
-    <div class="terminal-body">
-      <span><span class="t-prompt">PS&gt; </span><span class="t-cmd">Get-Tpm</span></span>
-      <span class="t-gap"></span>
-      <span><span class="t-key">TpmPresent      </span><span class="t-val">True</span></span>
-      <span><span class="t-key">TpmReady        </span><span class="t-val">True</span></span>
-      <span><span class="t-key">ManufacturerId  </span><span class="t-val">SDTM</span></span>
-      <span><span class="t-key">TpmVersion      </span><span class="t-val">2.0</span></span>
-      <span class="t-gap"></span>
-      <span class="t-muted"># FlexTPM 2.0 Software TPM — active</span>
+  </div>
+  <div class="hero-visual">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <span class="terminal-title">PowerShell</span>
+      </div>
+      <div class="terminal-body">
+        <span><span class="t-prompt">PS&gt; </span><span class="t-cmd">Get-Tpm</span></span>
+        <span class="t-gap"></span>
+        <span><span class="t-key">TpmPresent      </span><span class="t-val">True</span></span>
+        <span><span class="t-key">TpmReady        </span><span class="t-val">True</span></span>
+        <span><span class="t-key">ManufacturerId  </span><span class="t-val">SDTM</span></span>
+        <span><span class="t-key">TpmVersion      </span><span class="t-val">2.0</span></span>
+        <span class="t-gap"></span>
+        <span class="t-muted"># FlexTPM active — all systems go</span>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="divider"></div>
-
-<div class="section" id="features">
-  <div style="text-align:center;margin-bottom:3rem;">
-    <span class="section-tag">Features</span>
-    <h2>Everything a hardware TPM does. In software.</h2>
+<div class="features-section" id="features">
+  <div class="feat-row">
+    <div class="feat-block">
+      <span class="feat-num">01</span>
+      <div class="feat-content">
+        <h3>Full TPM 2.0</h3>
+        <p>BitLocker, Windows Hello, attestation, compliance — everything that needs a TPM works like you have a hardware chip.</p>
+      </div>
+    </div>
+    <div class="feat-block">
+      <span class="feat-num">02</span>
+      <div class="feat-content">
+        <h3>Native driver, not a VM</h3>
+        <p>No virtual machine, no hypervisor, no emulation layer. A real Windows driver running in the native OS.</p>
+      </div>
+    </div>
   </div>
-  <div class="features">
-    <div class="feat-card">
-      <div class="feat-icon">
-        <svg viewBox="0 0 20 20"><path d="M10 2l6 3.5v5c0 3.5-2.5 6.5-6 8-3.5-1.5-6-4.5-6-8v-5L10 2z"/></svg>
+  <div class="feat-row">
+    <div class="feat-block">
+      <span class="feat-num">03</span>
+      <div class="feat-content">
+        <h3>Signed and trusted</h3>
+        <p>Microsoft-trusted code signing certificate. Works with Secure Boot on or off. No test signing required.</p>
       </div>
-      <h3>Full TPM 2.0</h3>
-      <p>BitLocker, Windows Hello, attestation, compliance checks — everything works.</p>
     </div>
-    <div class="feat-card">
-      <div class="feat-icon">
-        <svg viewBox="0 0 20 20"><rect x="3" y="5" width="14" height="10" rx="2"/><path d="M7 5V3.5a3 3 0 016 0V5"/></svg>
+    <div class="feat-block">
+      <span class="feat-num">04</span>
+      <div class="feat-content">
+        <h3>Zero maintenance</h3>
+        <p>Installs in one click, starts on every boot. Nothing to configure, nothing for Windows Update to break.</p>
       </div>
-      <h3>Signed and trusted</h3>
-      <p>Microsoft-trusted certificate. Works with Secure Boot on or off. No test signing.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">
-        <svg viewBox="0 0 20 20"><rect x="2" y="6" width="16" height="10" rx="2"/><path d="M6 6V4a4 4 0 018 0v2M10 12v2"/></svg>
-      </div>
-      <h3>Zero maintenance</h3>
-      <p>Installs once. Starts on every boot. Nothing to configure, nothing to break.</p>
     </div>
   </div>
 </div>
 
-<div class="divider"></div>
-
-<div class="section" id="pricing">
-  <div style="text-align:center;margin-bottom:3rem;">
+<div class="pricing-section" id="pricing">
+  <div class="pricing-left">
     <span class="section-tag">Pricing</span>
-    <h2>One-time purchase. Yours forever.</h2>
-    <p class="section-desc">No subscriptions. No recurring fees. Just buy it and use it.</p>
+    <h2>One-time purchase.<br>Yours forever.</h2>
+    <p>No subscriptions. No recurring fees. Buy it once, use it for life.</p>
   </div>
-  <div class="pricing-grid">
+  <div class="pricing-cards">
     <div class="price-card featured">
-      <span class="price-tag">Personal</span>
-      <div class="price-amount">$34<span style="font-size:1.5rem;font-weight:400;color:var(--text2);">.99</span></div>
-      <div class="price-period">one-time payment</div>
-      <div class="price-desc">One machine. One license. Everything included.</div>
-      <ul class="price-features">
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0 functionality</li>
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Any Windows PC</li>
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Lifetime license</li>
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Free updates</li>
-      </ul>
-      <a href="#notify" class="price-btn primary">Get FlexTPM</a>
+      <div class="price-info">
+        <span class="price-tag">Personal</span>
+        <div class="price-amount">$34<span>.99</span></div>
+        <div class="price-period">one-time payment</div>
+        <ul class="price-features">
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Any Windows PC</li>
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Lifetime license</li>
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Free updates</li>
+        </ul>
+      </div>
+      <div class="price-action">
+        <a href="#notify" class="price-btn primary">Get FlexTPM</a>
+      </div>
     </div>
     <div class="price-card">
-      <span class="price-tag">Pro</span>
-      <div class="price-amount">$79<span style="font-size:1.5rem;font-weight:400;color:var(--text2);">.99</span></div>
-      <div class="price-period">one-time payment</div>
-      <div class="price-desc">Up to 3 machines. Perfect for multi-machine setups.</div>
-      <ul class="price-features">
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Everything in Personal</li>
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Up to 3 machines</li>
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Priority support</li>
-        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Free updates</li>
-      </ul>
-      <a href="#notify" class="price-btn secondary">Get FlexTPM Pro</a>
+      <div class="price-info">
+        <span class="price-tag">Pro</span>
+        <div class="price-amount">$79<span>.99</span></div>
+        <div class="price-period">one-time payment</div>
+        <ul class="price-features">
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Everything in Personal</li>
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Up to 3 machines</li>
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Priority support</li>
+          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Free updates</li>
+        </ul>
+      </div>
+      <div class="price-action">
+        <a href="#notify" class="price-btn secondary">Get FlexTPM Pro</a>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="divider"></div>
-
 <div class="cta-section" id="notify">
-  <span class="section-tag">Early Access</span>
-  <h2>Be the first to know.</h2>
-  <p>Drop your email. We'll notify you when FlexTPM is ready.</p>
-  <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
-    <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
-    <div class="email-row">
-      <input type="email" name="email" class="email-input" placeholder="you@email.com" required/>
-      <button type="submit" class="btn-primary" id="submitBtn" style="white-space:nowrap;">Notify me</button>
-    </div>
-    <p class="fine-print">No spam. Unsubscribe anytime.</p>
-    <p class="form-error" id="formError">Something went wrong. Try again.</p>
-    <p class="form-success" id="formSuccess">You're on the list.</p>
-  </form>
+  <div class="cta-left">
+    <span class="section-tag">Early Access</span>
+    <h2>Be the first to know.</h2>
+    <p>Drop your email. We'll notify you when FlexTPM is ready to download.</p>
+  </div>
+  <div>
+    <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
+      <div class="email-row">
+        <input type="email" name="email" class="email-input" placeholder="you@email.com" required/>
+        <button type="submit" class="btn-primary" id="submitBtn" style="white-space:nowrap;">Notify me</button>
+      </div>
+      <p class="fine-print">No spam. Unsubscribe anytime.</p>
+      <p class="form-error" id="formError">Something went wrong. Try again.</p>
+      <p class="form-success" id="formSuccess">You're on the list.</p>
+    </form>
+  </div>
 </div>
 
 <footer>
@@ -308,13 +307,6 @@ h1{font-size:1.9rem;}
 <p class="footer-disclaimer">FlexTPM is provided "as is" without warranty of any kind. FlexTPM is not responsible for any damage, data loss, or system issues arising from use of this software. FlexTPM is a software TPM solution and does not replace dedicated hardware security modules. Use at your own risk.</p>
 
 <script>
-document.querySelectorAll('.faq-item').forEach(item=>{
-  item.querySelector('.faq-q').addEventListener('click',()=>{
-    const open=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-    if(!open)item.classList.add('open');
-  });
-});
 async function handleSubmit(e){
   e.preventDefault();
   const btn=document.getElementById('submitBtn');
