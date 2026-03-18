@@ -62,14 +62,25 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);cursor:pointer;display:inline-block;}
 .btn-secondary:hover{background:var(--surface3);transform:translateY(-1px);}
 
-/* TERMINAL */
+/* BEFORE / AFTER */
 .hero-visual{position:relative;z-index:1;}
-.terminal{background:var(--surface);border:1px solid var(--border2);border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.5);}
-.terminal-bar{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);background:var(--surface2);}
-.terminal-title{font-size:12px;color:var(--text3);font-family:var(--mono);}
-.terminal-body{padding:clamp(14px,2vw,20px);font-family:var(--mono);font-size:clamp(12px,1.4vw,14px);line-height:2;}
-.t-prompt{color:var(--text3);}.t-cmd{color:var(--text);font-weight:500;}.t-key{color:var(--text2);}.t-val{color:var(--green);}.t-muted{color:var(--text3);font-size:12px;}
-.t-gap{display:block;height:2px;}
+.before-after{display:flex;align-items:center;gap:clamp(8px,1.5vw,16px);}
+.ba-card{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:clamp(1.2rem,2vw,2rem);text-align:center;transition:transform 0.3s;}
+.ba-before{border-color:rgba(239,68,68,0.2);}
+.ba-after{border-color:rgba(34,197,94,0.25);box-shadow:0 0 30px rgba(34,197,94,0.08);}
+.ba-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:1rem;}
+.ba-label-good{color:var(--green);}
+.ba-icon{margin-bottom:0.75rem;}
+.ba-status{font-size:clamp(15px,1.6vw,18px);font-weight:600;margin-bottom:1rem;letter-spacing:-0.3px;}
+.ba-status-bad{color:#ef4444;}
+.ba-status-good{color:var(--green);}
+.ba-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:6px;}
+.ba-list li{font-size:clamp(12px,1.3vw,14px);display:flex;align-items:center;gap:8px;}
+.ba-blocked::before{content:'';width:6px;height:6px;border-radius:50%;background:#ef4444;flex-shrink:0;opacity:0.6;}
+.ba-blocked{color:var(--text3);}
+.ba-ok::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+.ba-ok{color:var(--text2);}
+.ba-arrow{color:var(--text3);flex-shrink:0;}
 
 /* FEATURES — full bleed alternating rows */
 .features-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -182,19 +193,27 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     </div>
   </div>
   <div class="hero-visual">
-    <div class="terminal">
-      <div class="terminal-bar">
-        <span class="terminal-title">Terminal</span>
+    <div class="before-after">
+      <div class="ba-card ba-before">
+        <div class="ba-label">Before</div>
+        <div class="ba-icon ba-icon-x"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div>
+        <div class="ba-status ba-status-bad">No TPM detected</div>
+        <ul class="ba-list">
+          <li class="ba-blocked">BitLocker unavailable</li>
+          <li class="ba-blocked">Windows 11 blocked</li>
+          <li class="ba-blocked">Compliance failed</li>
+        </ul>
       </div>
-      <div class="terminal-body">
-        <span><span class="t-prompt">&gt; </span><span class="t-cmd">Get-Tpm</span></span>
-        <span class="t-gap"></span>
-        <span><span class="t-key">TpmPresent      </span><span class="t-val">True</span></span>
-        <span><span class="t-key">TpmReady        </span><span class="t-val">True</span></span>
-        <span><span class="t-key">ManufacturerId  </span><span class="t-val">SDTM</span></span>
-        <span><span class="t-key">TpmVersion      </span><span class="t-val">2.0</span></span>
-        <span class="t-gap"></span>
-        <span class="t-muted"># FlexTPM active — all systems go</span>
+      <div class="ba-arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="ba-card ba-after">
+        <div class="ba-label ba-label-good">After</div>
+        <div class="ba-icon ba-icon-check"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg></div>
+        <div class="ba-status ba-status-good">TPM 2.0 Ready</div>
+        <ul class="ba-list">
+          <li class="ba-ok">BitLocker enabled</li>
+          <li class="ba-ok">Windows 11 compatible</li>
+          <li class="ba-ok">Fully compliant</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -258,7 +277,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         <a href="#notify" class="price-btn primary">Get FlexTPM</a>
       </div>
     </div>
-    <div class="price-card">
+    <div class="price-card featured">
       <div class="price-info">
         <span class="price-tag">Pro</span>
         <div class="price-amount">$79<span>.99</span></div>
