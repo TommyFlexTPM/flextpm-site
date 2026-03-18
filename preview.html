@@ -38,7 +38,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .nav-right{display:flex;align-items:center;gap:1.5rem;}
 .nav-right a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.15s;}
 .nav-right a:hover{color:var(--text);}
-.nav-btn{background:var(--accent);color:#fff !important;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity 0.15s;}
+.nav-btn{background:var(--accent);color:#fff !important;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:opacity 0.15s;}
 .nav-btn:hover{opacity:0.85;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
 .hamburger span{display:block;width:18px;height:2px;background:var(--text2);margin:4px 0;border-radius:2px;}
@@ -107,7 +107,7 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.5px;marg
 .pricing-left p{color:var(--text2);font-size:clamp(15px,1.6vw,17px);font-weight:400;line-height:1.7;}
 .pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .price-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);display:flex;flex-direction:column;gap:1.5rem;transition:border-color 0.2s;}
-.price-card.featured{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);}
+.price-card:hover{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);transform:translateY(-2px);}
 .price-info{}
 .price-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);padding:4px 10px;border-radius:6px;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}
 .price-amount{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-1.5px;line-height:1;margin-bottom:0.15rem;}
@@ -178,7 +178,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <div class="nav-right">
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
-    <a href="#notify" class="nav-btn">Get Early Access</a>
+    <a href="#pricing" class="nav-btn">Buy Now</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-menu')?.classList.toggle('show')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -192,7 +192,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     <h1>Software TPM 2.0<br>for any PC.</h1>
     <p>A signed Windows driver that gives your machine a fully functional TPM. No VM, no registry hacks, no maintenance.</p>
     <div class="hero-ctas">
-      <a href="#notify" class="btn-primary">Get Early Access</a>
+      <a href="#pricing" class="btn-primary">Buy Now</a>
       <a href="#pricing" class="btn-secondary">View Pricing</a>
     </div>
   </div>
@@ -278,7 +278,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     <p>No recurring fees. Pay once, get the full product.</p>
   </div>
   <div class="pricing-cards">
-    <div class="price-card featured">
+    <div class="price-card">
       <div class="price-info">
         <span class="price-tag">Personal</span>
         <div class="price-amount">$34<span>.99</span></div>
@@ -291,10 +291,10 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         </ul>
       </div>
       <div class="price-action">
-        <a href="#notify" class="price-btn primary">Get FlexTPM</a>
+        <a href="#" class="price-btn primary">Buy Now</a>
       </div>
     </div>
-    <div class="price-card featured">
+    <div class="price-card">
       <div class="price-info">
         <span class="price-tag">Pro</span>
         <div class="price-amount">$79<span>.99</span></div>
@@ -307,7 +307,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         </ul>
       </div>
       <div class="price-action">
-        <a href="#notify" class="price-btn primary">Get FlexTPM Pro</a>
+        <a href="#" class="price-btn primary">Buy Now</a>
       </div>
     </div>
   </div>
