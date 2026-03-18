@@ -8,3 +8,10 @@ recovery/
 icons/
 *.exe
 index_teaser.html
+SD_TPM_Business_Plan.txt
+FlexTPM_Summary.txt
+
+# iCloud conflict copies
+preview [0-9]*.html
+preview(*.html
+.gitignore 2

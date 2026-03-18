@@ -38,10 +38,12 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .nav-right{display:flex;align-items:center;gap:1.5rem;}
 .nav-right a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.15s;}
 .nav-right a:hover{color:var(--text);}
-.nav-btn{background:var(--accent);color:#fff !important;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:opacity 0.15s;}
-.nav-btn:hover{opacity:0.85;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
 .hamburger span{display:block;width:18px;height:2px;background:var(--text2);margin:4px 0;border-radius:2px;}
+.mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:1rem 0;z-index:99;flex-direction:column;}
+.mobile-menu.show{display:flex;}
+.mobile-menu a{color:var(--text2);text-decoration:none;font-size:15px;padding:0.75rem clamp(1.25rem,4vw,4rem);transition:background 0.15s,color 0.15s;}
+.mobile-menu a:hover{background:var(--surface2);color:var(--text);}
 
 /* Fluid padding & max-width helpers */
 .section-pad{padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
@@ -104,7 +106,8 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .compat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
 .compat-card{background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:clamp(1.2rem,2vw,2rem);text-align:center;transition:all 0.2s;}
 .compat-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.compat-icon{font-size:clamp(28px,3vw,40px);margin-bottom:0.75rem;display:block;}
+.compat-icon{margin-bottom:0.75rem;display:block;}
+.compat-icon svg{width:clamp(28px,3vw,40px);height:clamp(28px,3vw,40px);stroke:var(--accent2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .compat-card h4{font-size:clamp(14px,1.5vw,16px);font-weight:600;margin-bottom:0.3rem;letter-spacing:-0.2px;}
 .compat-card p{font-size:clamp(12px,1.3vw,14px);color:var(--text2);line-height:1.5;}
 
@@ -148,11 +151,11 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.5px;marg
 footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-left{font-size:13px;color:var(--text3);}
 .footer-left a{color:var(--text3);text-decoration:none;border-bottom:1px solid var(--border);}
-.footer-disclaimer{font-size:11px;color:var(--text3);opacity:0.4;max-width:1400px;margin:0 auto;padding:0 clamp(1.25rem,4vw,4rem) 2rem;line-height:1.6;}
+.footer-disclaimer{font-size:12px;color:var(--text2);opacity:0.7;max-width:1400px;margin:0 auto;padding:1.5rem clamp(1.25rem,4vw,4rem) 2rem;line-height:1.7;border-top:1px solid var(--border);}
 
 /* TABLET — 600-900px */
 @media(max-width:900px){
-.nav-right a:not(.nav-btn){display:none;}
+.nav-right a{display:none;}
 .hamburger{display:block;}
 .hero{grid-template-columns:1fr 1fr;}
 .feat-row{grid-template-columns:1fr 1fr;}
@@ -190,10 +193,15 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     <a href="#features">Features</a>
     <a href="#compatibility">Compatibility</a>
     <a href="#pricing">Pricing</a>
-    <a href="#pricing" class="nav-btn">Buy Now</a>
-    <button class="hamburger" onclick="document.querySelector('.mobile-menu')?.classList.toggle('show')" aria-label="Menu">
+    <!-- Buy Now removed from nav — only hero + pricing cards -->
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('show')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="this.parentElement.classList.remove('show')">Features</a>
+    <a href="#compatibility" onclick="this.parentElement.classList.remove('show')">Compatibility</a>
+    <a href="#pricing" onclick="this.parentElement.classList.remove('show')">Pricing</a>
   </div>
 </nav>
 
@@ -288,22 +296,22 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <h2>Works on more than you think.</h2>
   <div class="compat-grid">
     <div class="compat-card">
-      <span class="compat-icon">&#128187;</span>
+      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2M7 10h4"/></svg></span>
       <h4>Custom builds</h4>
       <p>Desktops and workstations without a TPM chip.</p>
     </div>
     <div class="compat-card">
-      <span class="compat-icon">&#127823;</span>
+      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/><path d="M8 16h8v4H8z"/><circle cx="12" cy="10" r="1" fill="var(--accent2)" stroke="none"/></svg></span>
       <h4>Mac + Boot Camp</h4>
       <p>Intel Macs running Windows through Boot Camp.</p>
     </div>
     <div class="compat-card">
-      <span class="compat-icon">&#128295;</span>
+      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/><circle cx="16" cy="14" r="1.5" fill="none"/></svg></span>
       <h4>Older hardware</h4>
       <p>Pre-2016 machines that never shipped with TPM.</p>
     </div>
     <div class="compat-card">
-      <span class="compat-icon">&#127760;</span>
+      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3"/><rect x="5" y="5" width="14" height="14" rx="1.5" stroke-dasharray="3 2"/><path d="M9 9h6M9 12h6M9 15h3"/></svg></span>
       <h4>Virtual machines</h4>
       <p>VMs on any host that need a TPM passthrough.</p>
     </div>
@@ -376,7 +384,14 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <span class="footer-left">FlexTPM &copy; 2026 &middot; Houston, TX</span>
   <span class="footer-left"><a href="mailto:support@flextpm.com">support@flextpm.com</a></span>
 </footer>
-<p class="footer-disclaimer">FlexTPM is provided "as is" without warranty of any kind. FlexTPM is not responsible for any damage, data loss, or system issues arising from use of this software. FlexTPM is a software TPM solution and does not replace dedicated hardware security modules. Use at your own risk.</p>
+<div class="footer-disclaimer">
+  <p style="margin-bottom:0.75rem;"><strong style="color:var(--text);font-weight:500;">Disclaimers</strong></p>
+  <p style="margin-bottom:0.5rem;">FlexTPM is provided "as is" without warranty of any kind, express or implied. The developer assumes no liability for any damage, data loss, or system instability arising from the use of this software.</p>
+  <p style="margin-bottom:0.5rem;">FlexTPM is a software-based TPM 2.0 solution and <strong style="font-weight:500;">does not replace a dedicated hardware TPM or hardware security module (HSM)</strong>. It is not intended for use in environments that require hardware-backed key isolation or tamper resistance.</p>
+  <p style="margin-bottom:0.5rem;">A system reboot is required after installation. License keys are hardware-locked to a single machine and are non-transferable.</p>
+  <p style="margin-bottom:0.5rem;">FlexTPM is not affiliated with, endorsed by, or associated with Apple Inc., Microsoft Corporation, or the Trusted Computing Group. All trademarks are property of their respective owners.</p>
+  <p>By installing FlexTPM, you agree to these terms. Use at your own risk.</p>
+</div>
 
 <script>
 async function handleSubmit(e){
