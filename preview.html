@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FlexTPM — TPM 2.0 for machines that need it most</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -20,124 +19,98 @@
 --mono:'DM Mono','SF Mono',ui-monospace,monospace;
 }
 
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:15px;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;}
 
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:56px;background:rgba(12,12,13,0.92);backdrop-filter:blur(24px);border-bottom:0.5px solid var(--border);}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:56px;background:rgba(12,12,13,0.92);backdrop-filter:blur(24px);border-bottom:0.5px solid var(--border);}
 .logo{font-size:15px;font-weight:500;letter-spacing:0.5px;color:var(--text);display:flex;align-items:center;gap:10px;}
 .logo-mark{width:26px;height:26px;border:0.5px solid var(--blue-border);background:var(--blue-bg);border-radius:6px;display:flex;align-items:center;justify-content:center;}
 .logo-mark svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .nav-links{display:flex;list-style:none;gap:2rem;}
-.nav-links a{color:var(--text3);text-decoration:none;font-size:13px;transition:color 0.15s;}
+.nav-links a{color:var(--text3);text-decoration:none;font-size:14px;transition:color 0.15s;}
 .nav-links a:hover{color:var(--text2);}
-.nav-cta{font-size:12.5px;font-weight:500;color:var(--blue);background:var(--blue-bg);border:0.5px solid var(--blue-border);padding:7px 16px;border-radius:5px;text-decoration:none;transition:opacity 0.15s;}
+.nav-cta{font-size:13px;font-weight:500;color:var(--blue);background:var(--blue-bg);border:0.5px solid var(--blue-border);padding:7px 16px;border-radius:5px;text-decoration:none;transition:opacity 0.15s;}
 .nav-cta:hover{opacity:0.75;}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:transparent;border:none;}
-.nav-hamburger:focus-visible{outline:2px solid var(--blue);border-radius:4px;}
 .nav-hamburger span{width:20px;height:1.5px;background:var(--text2);border-radius:2px;}
 
-.hero{text-align:center;padding:6rem 3rem 4rem;max-width:1100px;margin:0 auto;}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:11px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:1.5rem;opacity:0.85;}
-.eyebrow-line{width:24px;height:0.5px;background:var(--blue);opacity:0.4;}
-h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;letter-spacing:-1px;line-height:1.08;margin-bottom:1.25rem;color:var(--text);}
+/* HERO */
+.hero{text-align:center;padding:5rem 2rem 3rem;max-width:800px;margin:0 auto;}
+h1{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:300;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1.25rem;}
 h1 em{font-style:normal;color:var(--blue2);font-weight:300;}
-.hero-sub{font-size:15px;color:var(--text2);max-width:480px;margin:0 auto 2rem;line-height:1.7;font-weight:300;}
-.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;}
-.btn-blue{background:var(--blue-bg);color:var(--blue2);border:0.5px solid var(--blue-border);padding:10px 24px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:opacity 0.15s,transform 0.1s;display:inline-block;font-family:var(--font);}
+.hero-sub{font-size:17px;color:var(--text2);max-width:520px;margin:0 auto 2rem;line-height:1.7;font-weight:300;}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-blue{background:var(--blue-bg);color:var(--blue2);border:0.5px solid var(--blue-border);padding:11px 28px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;transition:opacity 0.15s,transform 0.1s;display:inline-block;font-family:var(--font);}
 .btn-blue:hover{opacity:0.75;transform:translateY(-1px);}
-.btn-ghost{background:transparent;color:var(--text2);border:0.5px solid var(--border2);padding:10px 24px;border-radius:6px;font-size:13px;font-weight:400;text-decoration:none;cursor:pointer;transition:border-color 0.15s,transform 0.1s;display:inline-block;font-family:var(--font);}
+.btn-ghost{background:transparent;color:var(--text2);border:0.5px solid var(--border2);padding:11px 28px;border-radius:6px;font-size:14px;font-weight:400;text-decoration:none;cursor:pointer;transition:border-color 0.15s,transform 0.1s;display:inline-block;font-family:var(--font);}
 .btn-ghost:hover{border-color:var(--border3);transform:translateY(-1px);}
 
-.hero-bottom{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:stretch;}
+/* TERMINAL */
+.terminal-wrap{max-width:540px;margin:0 auto;}
 .terminal{background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;overflow:hidden;text-align:left;}
 .terminal-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:0.5px solid var(--border);background:var(--bg3);}
 .dot{width:9px;height:9px;border-radius:50%;}
 .dot-r{background:#3a2020;}.dot-y{background:#3a3020;}.dot-g{background:#1e3020;}
 .terminal-label{font-size:11px;color:var(--text3);margin-left:8px;font-family:var(--mono);}
-.terminal-body{padding:14px 18px;font-family:var(--mono);font-size:12px;line-height:1.9;}
+.terminal-body{padding:16px 20px;font-family:var(--mono);font-size:13px;line-height:1.9;}
 .t-prompt{color:var(--text3);}.t-cmd{color:var(--text);}.t-key{color:var(--text2);}.t-val{color:var(--grn);}.t-comment{color:var(--text3);}
 .t-gap{display:block;height:4px;}
 
-.devmgr{background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;overflow:hidden;text-align:left;}
-.devmgr-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:0.5px solid var(--border);background:var(--bg3);}
-.devmgr-label{font-size:11px;color:var(--text3);margin-left:8px;font-family:var(--mono);}
-.devmgr-body{padding:12px 14px;}
-.devmgr-row{display:flex;align-items:center;gap:7px;padding:4px 0;color:var(--text2);font-size:12px;font-family:var(--mono);}
-.devmgr-row.indent1{padding-left:18px;}
-.devmgr-row.indent2{padding-left:36px;}
-.devmgr-row.active{color:var(--text);}
-.devmgr-row.highlight{color:var(--blue2);}
-.caret{font-size:9px;opacity:0.45;}
-.caret.open{color:var(--blue);opacity:0.9;}
-.devmgr-icon{width:13px;height:13px;flex-shrink:0;}
-.devmgr-badge{font-size:10px;background:var(--blue-bg);color:var(--blue2);border:0.5px solid var(--blue-border);padding:1px 6px;border-radius:3px;margin-left:4px;font-family:var(--font);}
-
-hr{border:none;border-top:0.5px solid var(--border);}
-.section{padding:3.5rem 3rem;max-width:1100px;margin:0 auto;}
+/* SECTIONS */
+.section{padding:3.5rem 2.5rem;max-width:900px;margin:0 auto;}
 .section-label{font-size:11px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);margin-bottom:0.5rem;display:block;opacity:0.75;}
-h2{font-size:1.5rem;font-weight:300;letter-spacing:-0.5px;margin-bottom:0.3rem;color:var(--text);}
-.section-sub{color:var(--text2);font-size:13.5px;font-weight:300;margin-bottom:1.75rem;}
+h2{font-size:1.75rem;font-weight:300;letter-spacing:-0.5px;margin-bottom:0.4rem;}
+.section-sub{color:var(--text2);font-size:15px;font-weight:300;margin-bottom:1.5rem;}
+hr{border:none;border-top:0.5px solid var(--border);max-width:900px;margin:0 auto;}
 
-.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:0.5px solid var(--border2);border-radius:10px;overflow:hidden;}
-.feat{padding:1.4rem;border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border);transition:background 0.2s;}
-.feat:hover{background:var(--bg2);}
-.feat-num{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.5px;margin-bottom:0.75rem;display:block;}
-.feat h3{font-size:13px;font-weight:500;color:var(--text);margin-bottom:0.35rem;}
-.feat p{font-size:12px;color:var(--text2);line-height:1.55;font-weight:300;}
+/* FEATURES — 3 cards */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.feat{background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.5rem;}
+.feat h3{font-size:15px;font-weight:500;margin-bottom:0.4rem;}
+.feat p{font-size:14px;color:var(--text2);line-height:1.6;font-weight:300;}
 
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
-.how-grid{display:flex;flex-direction:column;}
-.how-step{display:grid;grid-template-columns:44px 1fr;gap:0.75rem;padding:1.25rem 0;border-bottom:0.5px solid var(--border);}
-.how-step:last-child{border-bottom:none;}
-.how-num{font-family:var(--mono);font-size:11px;color:var(--text3);padding-top:2px;}
-.how-step h3{font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.3rem;}
-.how-step p{font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;}
-.how-step code{font-family:var(--mono);font-size:11px;background:var(--bg3);padding:1px 6px;border-radius:4px;color:var(--text2);border:0.5px solid var(--border2);}
+/* PRICING — 2 cards side by side */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pricing-card{background:var(--bg2);border:0.5px solid var(--border2);border-radius:12px;padding:2rem;display:flex;flex-direction:column;}
+.price-eyebrow{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:0.75rem;display:block;opacity:0.75;}
+.price-num{font-size:3rem;font-weight:300;letter-spacing:-2px;color:var(--text);line-height:1;margin-bottom:0.2rem;}
+.price-note{font-size:13px;color:var(--text3);font-weight:300;margin-bottom:1.25rem;}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;flex:1;}
+.price-list li{font-size:14px;color:var(--text2);font-weight:300;display:flex;align-items:flex-start;gap:9px;line-height:1.5;}
+.price-check{width:14px;height:14px;flex-shrink:0;margin-top:2px;stroke:var(--grn);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 
-.compat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.compat-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:8px;padding:1.1rem;}
-.compat-card h4{font-size:10px;font-weight:500;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.75rem;}
-.compat-card ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.compat-card li{font-size:12px;color:var(--text2);font-weight:300;display:flex;align-items:center;gap:7px;}
-.compat-card li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:0.4;flex-shrink:0;}
-
-.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
-.pricing-card{background:var(--bg2);border:0.5px solid var(--border2);border-radius:12px;padding:2rem;}
-.price-eyebrow{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;display:block;opacity:0.75;}
-.price-num{font-size:3rem;font-weight:300;letter-spacing:-2px;color:var(--text);line-height:1;margin-bottom:0.25rem;}
-.price-note{font-size:12px;color:var(--text3);font-weight:300;margin-bottom:1.5rem;}
-.price-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:1.75rem;}
-.price-list li{font-size:12.5px;color:var(--text2);font-weight:300;display:flex;align-items:flex-start;gap:9px;line-height:1.5;}
-.price-check{width:13px;height:13px;flex-shrink:0;margin-top:1px;stroke:var(--grn);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-
+/* FAQ */
 .faq-list{border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
 .faq-item{border-bottom:0.5px solid var(--border);}
 .faq-item:last-child{border-bottom:none;}
-.faq-q{width:100%;padding:0.9rem 1.25rem;font-size:13px;font-weight:400;color:var(--text2);display:flex;justify-content:space-between;align-items:center;gap:1rem;user-select:none;transition:color 0.15s,background 0.15s;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font);}
+.faq-q{width:100%;padding:1rem 1.25rem;font-size:15px;font-weight:400;color:var(--text2);display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color 0.15s,background 0.15s;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font);}
 .faq-q:hover{color:var(--text);background:var(--bg2);}
-.faq-q:focus-visible{outline:2px solid var(--blue);outline-offset:-2px;border-radius:4px;}
-.faq-arrow{width:13px;height:13px;stroke:var(--text3);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform 0.2s;}
-.faq-a{display:none;padding:0 1.25rem 0.9rem;font-size:12.5px;color:var(--text3);line-height:1.65;font-weight:300;}
+.faq-arrow{width:14px;height:14px;stroke:var(--text3);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform 0.2s;}
+.faq-a{display:none;padding:0 1.25rem 1rem;font-size:14px;color:var(--text3);line-height:1.65;font-weight:300;}
 .faq-item.open .faq-a{display:block;}
 .faq-item.open .faq-arrow{transform:rotate(180deg);}
 .faq-item.open .faq-q{color:var(--text);}
 
-.notify-section{padding:3rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
-.notify-left h2{margin-bottom:0.4rem;}
-.notify-left p{font-size:13.5px;color:var(--text2);font-weight:300;}
-.email-row{display:flex;gap:8px;flex-wrap:wrap;}
-.email-input{flex:1;min-width:180px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:6px;padding:9px 14px;font-size:13px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.15s;}
+/* EMAIL */
+.notify-section{padding:3rem 2.5rem;max-width:900px;margin:0 auto;text-align:center;}
+.notify-section h2{margin-bottom:0.4rem;}
+.notify-section p{font-size:15px;color:var(--text2);font-weight:300;margin-bottom:1.25rem;}
+.email-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.email-input{width:280px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:6px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.15s;}
 .email-input::placeholder{color:var(--text3);}
 .email-input:focus{border-color:var(--blue-border);}
-.fine-print{font-size:11px;color:var(--text3);margin-top:0.6rem;font-weight:300;}
-.form-error{font-size:11px;color:#f87171;margin-top:0.4rem;display:none;}
-.form-success{font-size:12px;color:var(--grn);margin-top:0.6rem;display:none;}
+.fine-print{font-size:12px;color:var(--text3);margin-top:0.6rem;font-weight:300;}
+.form-error{font-size:12px;color:#f87171;margin-top:0.5rem;display:none;}
+.form-success{font-size:14px;color:var(--grn);margin-top:0.75rem;display:none;}
 
-footer{padding:1.5rem 3rem;border-top:0.5px solid var(--border);}
+/* FOOTER */
+footer{padding:1.5rem 2.5rem;border-top:0.5px solid var(--border);max-width:900px;margin:0 auto;}
 .footer-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;}
 .footer-logo{font-size:13px;font-weight:500;color:var(--text3);}
-.footer-copy{font-size:11.5px;color:var(--text3);font-weight:300;}
-.footer-disclaimer{font-size:10.5px;color:var(--text3);font-weight:300;line-height:1.65;opacity:0.5;border-top:0.5px solid var(--border);padding-top:1rem;}
+.footer-copy{font-size:12px;color:var(--text3);font-weight:300;}
+.footer-disclaimer{font-size:11px;color:var(--text3);font-weight:300;line-height:1.65;opacity:0.5;border-top:0.5px solid var(--border);padding-top:1rem;}
 
+/* LIGHT MODE */
 @media(prefers-color-scheme:light){
 :root{
 --bg:#f8f8f7;--bg2:#ffffff;--bg3:#f0f0ee;
@@ -146,62 +119,39 @@ footer{padding:1.5rem 3rem;border-top:0.5px solid var(--border);}
 --blue:#1a6fd4;--blue2:#1558b0;--blue-bg:rgba(26,111,212,0.07);--blue-border:rgba(26,111,212,0.2);
 --grn:#16a34a;
 }
-body{background:var(--bg);}
-.terminal-body .t-val{color:#16a34a;}
-.terminal-body .t-comment{color:#9a9aa4;}
-.devmgr-row.highlight{color:var(--blue);}
-.devmgr-icon[stroke="#93c5fd"]{stroke:var(--blue);}
-.devmgr-badge{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-border);}
-.caret.open{color:var(--blue);}
 nav{background:rgba(248,248,247,0.92);}
 }
 
+/* MOBILE */
 @media(max-width:768px){
 nav{padding:0 1.25rem;}
 .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--bg2);border-bottom:0.5px solid var(--border);flex-direction:column;gap:0;padding:0.5rem 0;z-index:99;}
 .nav-links.open{display:flex;}
-.nav-links li a{display:block;padding:0.75rem 1.5rem;font-size:14px;}
+.nav-links li a{display:block;padding:0.75rem 1.5rem;font-size:15px;}
 .nav-cta{display:none;}
 .nav-hamburger{display:flex;}
-.hero{padding:2.5rem 1.25rem 1.5rem;}
+.hero{padding:3rem 1.25rem 2rem;}
+h1{font-size:2rem;letter-spacing:-0.5px;}
 .hero-sub{font-size:16px;}
-.hero-bottom{grid-template-columns:1fr;gap:0.75rem;}
-.terminal-body{padding:10px 14px;font-size:12px;line-height:1.7;}
-.devmgr-body{padding:8px 10px;}
-.devmgr-row{font-size:12px;padding:2px 0;}
-.section{padding:1.5rem 1.25rem;}
-.section-sub{margin-bottom:1rem;font-size:14px;}
-h2{font-size:1.35rem;}
-.features-grid{grid-template-columns:1fr 1fr;}
-.feat{border-right:none;padding:1rem;border-bottom:0.5px solid var(--border);}
-.feat:nth-child(odd){border-right:0.5px solid var(--border);}
-.feat-num{display:none;}
-.feat h3{font-size:13px;}
-.feat p{font-size:12.5px;}
-.two-col{grid-template-columns:1fr;gap:1.25rem;}
-.how-grid{grid-template-columns:1fr!important;gap:10px!important;}
-.compat-grid{grid-template-columns:1fr 1fr 1fr;gap:6px;}
-.compat-card{padding:0.75rem;}
-.compat-card h4{font-size:9px;margin-bottom:0.5rem;}
-.compat-card li{font-size:12px;}
-.faq-q{padding:0.7rem 1rem;font-size:13.5px;}
-.faq-a{padding:0 1rem 0.7rem;font-size:13px;}
-.pricing-stack{grid-template-columns:1fr!important;gap:10px!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;padding-bottom:8px;}
-.pricing-card{padding:1.1rem;}
-.price-eyebrow{font-size:9px;margin-bottom:0.6rem;}
-.price-num{font-size:1.75rem;}
-.price-note{font-size:11.5px;margin-bottom:1rem;}
-.price-list{margin-bottom:1.25rem;gap:6px;}
-.price-list li{font-size:12px;}
-.price-check{width:11px;height:11px;}
-.pricing-card .btn-blue,.pricing-card .btn-ghost{font-size:12.5px;padding:8px 16px;}
-.notify-section{grid-template-columns:1fr;gap:1rem;padding:1.5rem 1.25rem;}
-.notify-left p{font-size:14px;}
+.hero-ctas{margin-bottom:2rem;}
+.terminal-body{padding:12px 16px;font-size:12.5px;}
+.section{padding:2rem 1.25rem;}
+h2{font-size:1.4rem;}
+.features-grid{grid-template-columns:1fr;gap:10px;}
+.feat{padding:1.25rem;}
+.feat h3{font-size:15px;}
+.feat p{font-size:14px;}
+.pricing-grid{grid-template-columns:1fr;gap:10px;}
+.pricing-card{padding:1.5rem;}
+.price-num{font-size:2.5rem;}
+.price-list li{font-size:14px;}
+.faq-q{font-size:15px;padding:0.85rem 1rem;}
+.faq-a{font-size:14px;padding:0 1rem 0.85rem;}
+.notify-section{padding:2rem 1.25rem;}
+.email-input{width:100%;min-width:0;}
 footer{padding:1.25rem;}
-.footer-disclaimer{font-size:10px;}
 }
 </style>
-
 </head>
 <body>
 
@@ -214,7 +164,6 @@ footer{padding:1.25rem;}
   </div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#features">Features</a></li>
-    <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -229,9 +178,9 @@ footer{padding:1.25rem;}
   <p class="hero-sub">Your Mac or PC doesn't have a TPM chip. FlexTPM gives it one — a signed Windows driver that Windows recognizes and trusts as a real TPM 2.0 device.</p>
   <div class="hero-ctas">
     <a href="#notify" class="btn-blue">Get Early Access</a>
-    <a href="#how" class="btn-ghost">How it works</a>
+    <a href="#faq" class="btn-ghost">Learn more</a>
   </div>
-  <div class="hero-bottom">
+  <div class="terminal-wrap">
     <div class="terminal">
       <div class="terminal-bar">
         <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
@@ -245,26 +194,7 @@ footer{padding:1.25rem;}
         <span><span class="t-key">ManufacturerId  </span><span class="t-val">SDTM</span></span>
         <span><span class="t-key">TpmVersion      </span><span class="t-val">2.0</span></span>
         <span class="t-gap"></span>
-        <span class="t-comment"># FlexTPM 2.0 Software TPM Device</span>
-      </div>
-    </div>
-    <div class="devmgr">
-      <div class="devmgr-bar">
-        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        <span class="devmgr-label">Device Manager</span>
-      </div>
-      <div class="devmgr-body">
-        <div class="devmgr-row"><span class="caret">&#9654;</span><svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="2" width="11" height="9" rx="1"/><path d="M4 2V1M9 2V1"/></svg>This PC</div>
-        <div class="devmgr-row indent1"><span class="caret">&#9654;</span><svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="9" height="7" rx="1"/><path d="M5 3V2M8 3V2"/></svg>Processors</div>
-        <div class="devmgr-row indent1"><span class="caret">&#9654;</span><svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 4h9M2 9h9M4 2v9M9 2v9"/></svg>Network adapters</div>
-        <div class="devmgr-row indent1 active"><span class="caret open">&#9660;</span><svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 11V5l4-3 4 3v6H2z"/><rect x="4" y="7" width="2" height="4"/><rect x="7" y="7" width="2" height="4"/></svg>Security devices</div>
-        <div class="devmgr-row indent2 highlight">
-          <svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="#93c5fd" stroke-width="1.3"><rect x="2" y="3" width="9" height="7" rx="1"/><path d="M5 3V2M8 3V2"/><rect x="4" y="5.5" width="1.5" height="1.5" rx="0.3"/><rect x="7.5" y="5.5" width="1.5" height="1.5" rx="0.3"/></svg>
-          FlexTPM 2.0 Software TPM
-          <span class="devmgr-badge">active</span>
-        </div>
-        <div class="devmgr-row indent1"><span class="caret">&#9654;</span><svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="4" width="11" height="6" rx="1"/><path d="M4 4V3a2 2 0 014 0v1"/></svg>Storage controllers</div>
-        <div class="devmgr-row indent1"><span class="caret">&#9654;</span><svg class="devmgr-icon" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="9" height="9" rx="1"/><circle cx="6.5" cy="6.5" r="2"/></svg>System devices</div>
+        <span class="t-comment"># FlexTPM 2.0 Software TPM — active</span>
       </div>
     </div>
   </div>
@@ -273,52 +203,22 @@ footer{padding:1.25rem;}
 <hr>
 
 <div class="section" id="features">
-  <span class="section-label">Features</span>
-  <h2>A proper driver. Not a workaround.</h2>
-  <p class="section-sub">FlexTPM installs the right way and works the way Windows expects.</p>
+  <span class="section-label">Why FlexTPM</span>
+  <h2>A real driver. Not a workaround.</h2>
+  <p class="section-sub">Install once. BitLocker, Windows Hello, and compliance checks just work.</p>
   <div class="features-grid">
-    <div class="feat"><span class="feat-num">01</span><h3>Full TPM 2.0 functionality</h3><p>BitLocker, Windows Hello, security compliance — everything that requires a TPM works as if you had a hardware chip.</p></div>
-    <div class="feat"><span class="feat-num">02</span><h3>Native driver, not a VM</h3><p>No virtual machine, no hypervisor, no emulation layer. FlexTPM is a real Windows driver that runs in the native OS.</p></div>
-    <div class="feat"><span class="feat-num">03</span><h3>Safe by design</h3><p>Signed with a Microsoft-trusted certificate. No DLL replacement, no registry hacks, no changes to Windows internals.</p></div>
-    <div class="feat"><span class="feat-num">04</span><h3>Install once, done</h3><p>Nothing outside the FlexTPM folder is modified, so there is nothing for a Windows Update to overwrite. Set it up and forget about it.</p></div>
-  </div>
-</div>
-
-<hr>
-
-<div class="section" id="how">
-  <span class="section-label">How it works</span>
-  <h2>Installed like a driver. Recognized like hardware.</h2>
-  <p class="section-sub">Three steps. No configuration. Nothing to maintain.</p>
-  <div class="how-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-    <div class="how-card" style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.4rem;">
-      <span class="how-num" style="display:block;margin-bottom:0.75rem;">01</span>
-      <h3 style="font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.35rem;">Install the driver</h3>
-      <p style="font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;">Run the installer. The signed driver and <code>FlexTPM Engine</code> service install automatically. One reboot to activate.</p>
+    <div class="feat">
+      <h3>Full TPM 2.0</h3>
+      <p>BitLocker, Windows Hello, security compliance — everything that requires a TPM works as if you had a hardware chip.</p>
     </div>
-    <div class="how-card" style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.4rem;">
-      <span class="how-num" style="display:block;margin-bottom:0.75rem;">02</span>
-      <h3 style="font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.35rem;">Windows discovers a TPM</h3>
-      <p style="font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;">The driver presents a TPM device to Windows through the standard interface. It shows up in Device Manager, tpm.msc, and Get-Tpm as manufacturer <code>SDTM</code>.</p>
+    <div class="feat">
+      <h3>Native driver, not a VM</h3>
+      <p>No virtual machine, no hypervisor, no emulation. A real signed Windows driver that runs in the native OS.</p>
     </div>
-    <div class="how-card" style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.4rem;">
-      <span class="how-num" style="display:block;margin-bottom:0.75rem;">03</span>
-      <h3 style="font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.35rem;">Everything just works</h3>
-      <p style="font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;">BitLocker, Windows Hello, compliance checks — all unlocked. Starts on every boot. Nothing to configure or maintain.</p>
+    <div class="feat">
+      <h3>Safe and signed</h3>
+      <p>Microsoft-trusted certificate. No DLL replacement, no registry hacks, no changes to Windows system files.</p>
     </div>
-  </div>
-</div>
-
-<hr>
-
-<div class="section" id="compat">
-  <span class="section-label">Compatibility</span>
-  <h2>Works where you work</h2>
-  <p class="section-sub">Built for Boot Camp Macs and legacy PCs running Windows.</p>
-  <div class="compat-grid">
-    <div class="compat-card"><h4>Mac Hardware</h4><ul><li>MacBook Pro (Intel)</li><li>MacBook Air (Intel)</li><li>Mac mini (Intel)</li><li>iMac (Intel)</li><li>Mac Pro (Intel)</li></ul></div>
-    <div class="compat-card"><h4>Windows</h4><ul><li>Windows 11 (all editions)</li><li>Windows 10 (21H2+)</li><li>Secure Boot on or off</li></ul></div>
-    <div class="compat-card"><h4>Use Cases</h4><ul><li>Windows 11 upgrade</li><li>BitLocker encryption</li><li>Windows Hello</li><li>Security compliance</li></ul></div>
   </div>
 </div>
 
@@ -326,34 +226,31 @@ footer{padding:1.25rem;}
 
 <div class="section" id="pricing">
   <span class="section-label">Pricing</span>
-  <h2 style="margin-bottom:0.3rem;">Simple pricing</h2>
-  <p style="font-size:13px;color:var(--text2);font-weight:300;margin-bottom:1.25rem;">One-time purchase. No subscriptions.</p>
-
-  <div class="pricing-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:3rem;">
-
+  <h2>One-time purchase. No subscriptions.</h2>
+  <p class="section-sub">Buy it once, own it forever.</p>
+  <div class="pricing-grid">
     <div class="pricing-card" style="border-color:var(--blue-border);">
       <span class="price-eyebrow">Personal</span>
-      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.25rem;">
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.2rem;">
         <div class="price-num">$34.99</div>
-        <span style="font-size:12px;color:var(--text3);font-weight:300;">one-time</span>
+        <span style="font-size:13px;color:var(--text3);font-weight:300;">one-time</span>
       </div>
       <div class="price-note">Single machine. Hardware-locked license.</div>
       <ul class="price-list">
         <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Full TPM 2.0 functionality</li>
-        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Works on Boot Camp Macs and legacy PCs</li>
-        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Lifetime license, one machine</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Boot Camp Macs and legacy PCs</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Lifetime license</li>
         <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Free updates</li>
       </ul>
       <a href="#notify" class="btn-blue" style="display:block;text-align:center;">Get FlexTPM</a>
     </div>
-
     <div class="pricing-card">
       <span class="price-eyebrow">Pro</span>
-      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.25rem;">
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.2rem;">
         <div class="price-num">$79.99</div>
-        <span style="font-size:12px;color:var(--text3);font-weight:300;">one-time</span>
+        <span style="font-size:13px;color:var(--text3);font-weight:300;">one-time</span>
       </div>
-      <div class="price-note">Up to 3 machines. Ideal for developers and IT pros.</div>
+      <div class="price-note">Up to 3 machines. Ideal for multi-Mac setups.</div>
       <ul class="price-list">
         <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Everything in Personal</li>
         <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>License up to 3 machines</li>
@@ -362,44 +259,40 @@ footer{padding:1.25rem;}
       </ul>
       <a href="#notify" class="btn-blue" style="display:block;text-align:center;">Get FlexTPM</a>
     </div>
-
   </div>
+</div>
 
-  <div id="faq">
-    <span class="section-label">FAQ</span>
-    <h2 style="margin-bottom:1.25rem;">Common questions</h2>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-q">Is FlexTPM safe to install?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. FlexTPM is signed with a Microsoft-trusted code signing certificate and installs as a standard Windows driver. It makes no modifications to system files, Windows internals, or any files outside its own installation folder.</div></div>
-      <div class="faq-item"><button class="faq-q">Will it break after a Windows Update?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">FlexTPM does not modify any system files, so Windows Updates have nothing to overwrite. The driver re-registers on every boot through standard Windows mechanisms.</div></div>
-      <div class="faq-item"><button class="faq-q">Does it work with Secure Boot?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. Because FlexTPM is signed with a Microsoft-trusted certificate, Secure Boot does not block it. Works on or off.</div></div>
-      <div class="faq-item"><button class="faq-q">What data does FlexTPM collect?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">None. FlexTPM generates a Machine ID — a one-way hardware fingerprint (HWID) derived from your device's hardware configuration. This binding ensures one license works on one machine and cannot be shared or transferred. The Machine ID cannot be reversed to identify you or your hardware. We do not collect, store, or share any personal information. Your Machine ID and license file remain on your device.</div></div>
-      <div class="faq-item"><button class="faq-q">Does this work on Apple Silicon?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is designed for Intel Macs running Windows via Boot Camp. Apple Silicon Macs do not support Boot Camp and are not compatible at this time.</div></div>
-      <div class="faq-item"><button class="faq-q">Is this open source?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is a commercial product. The source code is proprietary.</div></div>
-      <div class="faq-item"><button class="faq-q">How do I verify it's working?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Open tpm.msc or run Get-Tpm in PowerShell. You should see TpmPresent = True with manufacturer ID SDTM. It also appears in Device Manager under Security Devices.</div></div>
-    </div>
+<hr>
+
+<div class="section" id="faq">
+  <span class="section-label">FAQ</span>
+  <h2 style="margin-bottom:1.25rem;">Common questions</h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q">Is FlexTPM safe to install?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. FlexTPM is signed with a Microsoft-trusted code signing certificate and installs as a standard Windows driver. It makes no modifications to system files, Windows internals, or any files outside its own installation folder.</div></div>
+    <div class="faq-item"><button class="faq-q">Will it break after a Windows Update?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">FlexTPM does not modify any system files, so Windows Updates have nothing to overwrite. The driver re-registers on every boot through standard Windows mechanisms.</div></div>
+    <div class="faq-item"><button class="faq-q">Does it work with Secure Boot?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. Because FlexTPM is signed with a Microsoft-trusted certificate, Secure Boot does not block it. Works with Secure Boot on or off.</div></div>
+    <div class="faq-item"><button class="faq-q">What data does FlexTPM collect?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">None. FlexTPM generates a Machine ID — a one-way hardware fingerprint derived from your device. This ensures one license per machine. The ID cannot be reversed to identify you. We do not collect or store any personal information.</div></div>
+    <div class="faq-item"><button class="faq-q">Does this work on Apple Silicon Macs?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is for Intel Macs running Windows via Boot Camp. Apple Silicon Macs do not support Boot Camp.</div></div>
+    <div class="faq-item"><button class="faq-q">How do I verify it's working?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Run Get-Tpm in PowerShell or open tpm.msc. You'll see TpmPresent = True with manufacturer SDTM. It also shows in Device Manager under Security Devices.</div></div>
   </div>
 </div>
 
 <hr>
 
 <div class="notify-section" id="notify">
-  <div class="notify-left">
-    <span class="section-label">Early Access</span>
-    <h2>Get notified</h2>
-    <p>Leave your email and we'll let you know when it's available.</p>
-  </div>
-  <div>
-    <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="_subject" value="FlexTPM Beta Waitlist Signup">
-      <div class="email-row">
-        <input type="email" name="email" class="email-input" placeholder="your@email.com" required/>
-        <button type="submit" class="btn-blue" id="submitBtn">Notify me</button>
-      </div>
-      <p class="fine-print">No spam. Unsubscribe anytime.</p>
-      <p class="form-error" id="formError">Something went wrong. Please try again.</p>
-      <p class="form-success" id="formSuccess">You are on the list. We will be in touch.</p>
-    </form>
-  </div>
+  <span class="section-label">Early Access</span>
+  <h2>Get notified</h2>
+  <p>Leave your email and we'll let you know when it's available.</p>
+  <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
+    <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
+    <div class="email-row">
+      <input type="email" name="email" class="email-input" placeholder="your@email.com" required/>
+      <button type="submit" class="btn-blue" id="submitBtn">Notify me</button>
+    </div>
+    <p class="fine-print">No spam. Unsubscribe anytime.</p>
+    <p class="form-error" id="formError">Something went wrong. Please try again.</p>
+    <p class="form-success" id="formSuccess">You're on the list. We'll be in touch.</p>
+  </form>
 </div>
 
 <hr>
@@ -407,9 +300,9 @@ footer{padding:1.25rem;}
 <footer>
   <div class="footer-top">
     <span class="footer-logo">FlexTPM</span>
-    <span class="footer-copy">FlexTPM, Houston TX &nbsp; &copy; 2026 &nbsp;&nbsp; Support: <a href="mailto:support@flextpm.com" style="color:var(--text3);text-decoration:none;border-bottom:0.5px solid var(--border2);">support@flextpm.com</a></span>
+    <span class="footer-copy">Houston, TX &nbsp;&copy; 2026 &nbsp;&nbsp; <a href="mailto:support@flextpm.com" style="color:var(--text3);text-decoration:none;border-bottom:0.5px solid var(--border2);">support@flextpm.com</a></span>
   </div>
-  <p class="footer-disclaimer">FlexTPM is provided "as is" without warranty of any kind. FlexTPM is not responsible for any damage, data loss, or system issues arising from the use of this software. FlexTPM is a software TPM solution and does not replace dedicated hardware security modules. A system reboot is required after installation to initialize the FlexTPM Engine and allow Windows TBS to discover the TPM device. Use at your own risk. By installing FlexTPM, you agree to these terms.</p>
+  <p class="footer-disclaimer">FlexTPM is provided "as is" without warranty of any kind. FlexTPM is not responsible for any damage, data loss, or system issues arising from the use of this software. FlexTPM is a software TPM solution and does not replace dedicated hardware security modules. A system reboot is required after installation to initialize the FlexTPM Engine. Use at your own risk.</p>
 </footer>
 
 <script>
@@ -417,7 +310,7 @@ function toggleNav(){
   const nav=document.getElementById('navLinks');
   const btn=document.getElementById('hamburger');
   const isOpen=nav.classList.toggle('open');
-  btn.setAttribute('aria-expanded', isOpen);
+  btn.setAttribute('aria-expanded',isOpen);
 }
 document.querySelectorAll('.nav-links a').forEach(a=>{
   a.addEventListener('click',()=>{
@@ -453,10 +346,9 @@ async function handleSubmit(e){
     if(res.ok){
       btn.style.display='none';
       form.querySelector('.email-input').style.display='none';
+      form.querySelector('.fine-print').style.display='none';
       success.style.display='block';
-    }else{
-      throw new Error('Form submission failed');
-    }
+    }else{throw new Error('fail');}
   }catch(err){
     error.style.display='block';
     btn.textContent='Notify me';
