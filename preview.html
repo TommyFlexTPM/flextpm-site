@@ -62,25 +62,32 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);cursor:pointer;display:inline-block;}
 .btn-secondary:hover{background:var(--surface3);transform:translateY(-1px);}
 
-/* BEFORE / AFTER */
+/* LAPTOP MOCKUPS */
 .hero-visual{position:relative;z-index:1;}
-.before-after{display:flex;align-items:center;gap:clamp(8px,1.5vw,16px);}
-.ba-card{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:clamp(1.2rem,2vw,2rem);text-align:center;transition:transform 0.3s;}
-.ba-before{border-color:rgba(239,68,68,0.2);}
-.ba-after{border-color:rgba(34,197,94,0.25);box-shadow:0 0 30px rgba(34,197,94,0.08);}
-.ba-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:1rem;}
-.ba-label-good{color:var(--green);}
-.ba-icon{margin-bottom:0.75rem;}
-.ba-status{font-size:clamp(15px,1.6vw,18px);font-weight:600;margin-bottom:1rem;letter-spacing:-0.3px;}
-.ba-status-bad{color:#ef4444;}
-.ba-status-good{color:var(--green);}
-.ba-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:6px;}
-.ba-list li{font-size:clamp(12px,1.3vw,14px);display:flex;align-items:center;gap:8px;}
-.ba-blocked::before{content:'';width:6px;height:6px;border-radius:50%;background:#ef4444;flex-shrink:0;opacity:0.6;}
-.ba-blocked{color:var(--text3);}
-.ba-ok::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
-.ba-ok{color:var(--text2);}
-.ba-arrow{color:var(--text3);flex-shrink:0;}
+.laptops{display:flex;align-items:flex-end;gap:clamp(12px,2vw,24px);}
+.laptop{flex:1;position:relative;}
+.laptop-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:10px;text-align:center;}
+.laptop-label.good{color:var(--green);}
+.laptop-screen{background:#0c0c0c;border:2px solid #333;border-bottom:none;border-radius:8px 8px 0 0;padding:0;overflow:hidden;aspect-ratio:16/11;}
+.laptop-base{height:10px;background:linear-gradient(180deg,#333 0%,#222 100%);border-radius:0 0 4px 4px;margin:0 -4px;position:relative;}
+.laptop-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:30%;height:3px;background:#444;border-radius:0 0 3px 3px;}
+.laptop-notch{height:6px;background:#1a1a1a;border-radius:0 0 6px 6px;width:20%;margin:0 auto;position:relative;top:-2px;}
+
+/* Device Manager UI inside screens */
+.dm{padding:clamp(6px,1vw,12px);height:100%;display:flex;flex-direction:column;font-family:'Segoe UI',var(--font);font-size:clamp(9px,1.1vw,12px);}
+.dm-titlebar{display:flex;align-items:center;gap:6px;padding:3px 6px;background:#1f1f1f;border-radius:4px 4px 0 0;margin:-clamp(6px,1vw,12px);margin-bottom:8px;padding:clamp(4px,0.6vw,8px) clamp(6px,1vw,12px);}
+.dm-title{color:#ccc;font-size:clamp(8px,1vw,11px);font-weight:400;}
+.dm-controls{margin-left:auto;display:flex;gap:8px;}
+.dm-controls span{color:#888;font-size:clamp(8px,1vw,10px);line-height:1;}
+.dm-tree{flex:1;padding:clamp(4px,0.8vw,8px);display:flex;flex-direction:column;gap:2px;}
+.dm-item{display:flex;align-items:center;gap:clamp(3px,0.5vw,6px);padding:2px 0;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dm-item.parent{color:var(--text);font-weight:500;}
+.dm-expand{color:var(--text3);font-size:clamp(7px,0.8vw,10px);width:12px;text-align:center;flex-shrink:0;}
+.dm-icon-tpm{width:clamp(10px,1.2vw,14px);height:clamp(10px,1.2vw,14px);flex-shrink:0;}
+.dm-missing{color:#ef4444;font-style:italic;opacity:0.7;}
+.dm-found{color:var(--green);}
+.dm-warn{display:flex;align-items:center;gap:4px;color:#ef4444;font-size:clamp(8px,0.9vw,10px);margin-top:auto;padding:clamp(4px,0.6vw,6px);background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.15);border-radius:4px;}
+.dm-ok{display:flex;align-items:center;gap:4px;color:var(--green);font-size:clamp(8px,0.9vw,10px);margin-top:auto;padding:clamp(4px,0.6vw,6px);background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);border-radius:4px;}
 
 /* FEATURES — full bleed alternating rows */
 .features-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -190,27 +197,40 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     </div>
   </div>
   <div class="hero-visual">
-    <div class="before-after">
-      <div class="ba-card ba-before">
-        <div class="ba-label">Before</div>
-        <div class="ba-icon ba-icon-x"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div>
-        <div class="ba-status ba-status-bad">No TPM detected</div>
-        <ul class="ba-list">
-          <li class="ba-blocked">Security features locked</li>
-          <li class="ba-blocked">Windows 11 blocked</li>
-          <li class="ba-blocked">Compliance failed</li>
-        </ul>
+    <div class="laptops">
+      <div class="laptop">
+        <div class="laptop-label">Before</div>
+        <div class="laptop-screen">
+          <div class="dm">
+            <div class="dm-titlebar">
+              <span class="dm-title">Device Manager</span>
+              <div class="dm-controls"><span>&#8212;</span><span>&#9633;</span><span>&times;</span></div>
+            </div>
+            <div class="dm-tree">
+              <div class="dm-item parent"><span class="dm-expand">&#9660;</span> <svg class="dm-icon-tpm" viewBox="0 0 16 16" fill="none" stroke="#888" stroke-width="1.2"><rect x="3" y="5" width="10" height="7" rx="1"/><path d="M5 5V3.5M8 5V3.5M11 5V3.5"/></svg> Security devices</div>
+              <div class="dm-item" style="padding-left:20px;"><span class="dm-missing">No TPM found</span></div>
+            </div>
+            <div class="dm-warn"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#ef4444" stroke-width="1.5"><path d="M8 2L1.5 13h13L8 2z"/><path d="M8 7v3M8 11.5v0"/></svg> TPM not detected</div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
       </div>
-      <div class="ba-arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="ba-card ba-after">
-        <div class="ba-label ba-label-good">After</div>
-        <div class="ba-icon ba-icon-check"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8,12 11,15 16,9"/></svg></div>
-        <div class="ba-status ba-status-good">TPM 2.0 Ready</div>
-        <ul class="ba-list">
-          <li class="ba-ok">Security features unlocked</li>
-          <li class="ba-ok">Windows 11 compatible</li>
-          <li class="ba-ok">Fully compliant</li>
-        </ul>
+      <div class="laptop">
+        <div class="laptop-label good">After</div>
+        <div class="laptop-screen">
+          <div class="dm">
+            <div class="dm-titlebar">
+              <span class="dm-title">Device Manager</span>
+              <div class="dm-controls"><span>&#8212;</span><span>&#9633;</span><span>&times;</span></div>
+            </div>
+            <div class="dm-tree">
+              <div class="dm-item parent"><span class="dm-expand">&#9660;</span> <svg class="dm-icon-tpm" viewBox="0 0 16 16" fill="none" stroke="#888" stroke-width="1.2"><rect x="3" y="5" width="10" height="7" rx="1"/><path d="M5 5V3.5M8 5V3.5M11 5V3.5"/></svg> Security devices</div>
+              <div class="dm-item" style="padding-left:20px;"><span class="dm-found">FlexTPM 2.0 Software Device</span></div>
+            </div>
+            <div class="dm-ok"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,11.5 13,4.5"/></svg> TPM 2.0 ready</div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
       </div>
     </div>
   </div>
