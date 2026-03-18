@@ -65,10 +65,13 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 /* TERMINAL */
 .hero-visual{position:relative;z-index:1;}
 .terminal{background:var(--surface);border:1px solid var(--border2);border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,0.5);}
-.terminal-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface2);}
-.dot{width:10px;height:10px;border-radius:50%;}
-.dot-r{background:#ef4444;opacity:0.7;}.dot-y{background:#eab308;opacity:0.7;}.dot-g{background:#22c55e;opacity:0.7;}
-.terminal-title{font-size:12px;color:var(--text3);margin-left:8px;font-family:var(--mono);}
+.terminal-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--surface2);}
+.win-icon{color:var(--text3);flex-shrink:0;}
+.terminal-title{font-size:12px;color:var(--text3);font-family:var(--mono);flex:1;}
+.win-controls{display:flex;gap:0;margin-left:auto;}
+.win-btn{display:flex;align-items:center;justify-content:center;width:28px;height:24px;font-size:13px;color:var(--text3);cursor:default;border-radius:0;}
+.win-btn:hover{background:rgba(255,255,255,0.08);}
+.win-close:hover{background:#e81123;color:#fff;}
 .terminal-body{padding:clamp(14px,2vw,20px);font-family:var(--mono);font-size:clamp(12px,1.4vw,14px);line-height:2;}
 .t-prompt{color:var(--text3);}.t-cmd{color:var(--text);font-weight:500;}.t-key{color:var(--text2);}.t-val{color:var(--green);}.t-muted{color:var(--text3);font-size:12px;}
 .t-gap{display:block;height:2px;}
@@ -186,8 +189,9 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <div class="hero-visual">
     <div class="terminal">
       <div class="terminal-bar">
-        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        <span class="terminal-title">PowerShell</span>
+        <svg class="win-icon" viewBox="0 0 16 16" width="14" height="14"><path d="M1 3.5L6.5 2.8V7.5H1ZM7.5 2.7L14 1.5V7.5H7.5ZM1 8.5H6.5V13.2L1 12.5ZM7.5 8.5H14V14.5L7.5 13.3Z" fill="currentColor"/></svg>
+        <span class="terminal-title">Windows PowerShell</span>
+        <div class="win-controls"><span class="win-btn">&#8212;</span><span class="win-btn">&#9633;</span><span class="win-btn win-close">&times;</span></div>
       </div>
       <div class="terminal-body">
         <span><span class="t-prompt">PS&gt; </span><span class="t-cmd">Get-Tpm</span></span>
