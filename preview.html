@@ -99,6 +99,15 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .feat-content h3{font-size:clamp(16px,1.8vw,20px);font-weight:600;margin-bottom:0.4rem;letter-spacing:-0.3px;}
 .feat-content p{font-size:clamp(14px,1.5vw,16px);color:var(--text2);line-height:1.65;font-weight:400;}
 
+/* COMPATIBILITY */
+.compat-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
+.compat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
+.compat-card{background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:clamp(1.2rem,2vw,2rem);text-align:center;transition:all 0.2s;}
+.compat-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.compat-icon{font-size:clamp(28px,3vw,40px);margin-bottom:0.75rem;display:block;}
+.compat-card h4{font-size:clamp(14px,1.5vw,16px);font-weight:600;margin-bottom:0.3rem;letter-spacing:-0.2px;}
+.compat-card p{font-size:clamp(12px,1.3vw,14px);color:var(--text2);line-height:1.5;}
+
 /* PRICING — offset layout */
 .pricing-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(2rem,4vw,5rem);align-items:start;}
 .pricing-left{position:sticky;top:100px;}
@@ -150,6 +159,7 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .pricing-section{grid-template-columns:1fr;gap:2rem;}
 .pricing-left{position:static;}
 .pricing-cards{grid-template-columns:1fr 1fr;}
+.compat-grid{grid-template-columns:repeat(2,1fr);}
 .cta-section{grid-template-columns:1fr 1fr;}
 }
 
@@ -160,6 +170,7 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .feat-row{grid-template-columns:1fr;}
 .feat-block:first-child{border-right:none;border-bottom:1px solid var(--border);}
 .pricing-cards{grid-template-columns:1fr;}
+.compat-grid{grid-template-columns:repeat(2,1fr);}
 .cta-section{grid-template-columns:1fr;}
 .email-row{flex-direction:column;}
 footer{flex-direction:column;text-align:center;gap:0.5rem;}
@@ -177,6 +188,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   </div>
   <div class="nav-right">
     <a href="#features">Features</a>
+    <a href="#compatibility">Compatibility</a>
     <a href="#pricing">Pricing</a>
     <a href="#pricing" class="nav-btn">Buy Now</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-menu')?.classList.toggle('show')" aria-label="Menu">
@@ -267,6 +279,33 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         <h3>Zero maintenance</h3>
         <p>Installs in one click, starts on every boot. Nothing to configure, nothing for Windows Update to break.</p>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="compat-section" id="compatibility">
+  <span class="section-tag">Compatibility</span>
+  <h2>Works on more than you think.</h2>
+  <div class="compat-grid">
+    <div class="compat-card">
+      <span class="compat-icon">&#128187;</span>
+      <h4>Custom builds</h4>
+      <p>Desktops and workstations without a TPM chip.</p>
+    </div>
+    <div class="compat-card">
+      <span class="compat-icon">&#127823;</span>
+      <h4>Mac + Boot Camp</h4>
+      <p>Intel Macs running Windows through Boot Camp.</p>
+    </div>
+    <div class="compat-card">
+      <span class="compat-icon">&#128295;</span>
+      <h4>Older hardware</h4>
+      <p>Pre-2016 machines that never shipped with TPM.</p>
+    </div>
+    <div class="compat-card">
+      <span class="compat-icon">&#127760;</span>
+      <h4>Virtual machines</h4>
+      <p>VMs on any host that need a TPM passthrough.</p>
     </div>
   </div>
 </div>
