@@ -47,7 +47,7 @@ h1 em{font-style:normal;color:var(--blue2);font-weight:300;}
 .btn-ghost{background:transparent;color:var(--text2);border:0.5px solid var(--border2);padding:10px 24px;border-radius:6px;font-size:13px;font-weight:400;text-decoration:none;cursor:pointer;transition:border-color 0.15s,transform 0.1s;display:inline-block;font-family:var(--font);}
 .btn-ghost:hover{border-color:var(--border3);transform:translateY(-1px);}
 
-.hero-bottom{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start;}
+.hero-bottom{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:stretch;}
 .terminal{background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;overflow:hidden;text-align:left;}
 .terminal-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;border-bottom:0.5px solid var(--border);background:var(--bg3);}
 .dot{width:9px;height:9px;border-radius:50%;}
@@ -77,7 +77,7 @@ hr{border:none;border-top:0.5px solid var(--border);}
 h2{font-size:1.5rem;font-weight:300;letter-spacing:-0.5px;margin-bottom:0.3rem;color:var(--text);}
 .section-sub{color:var(--text2);font-size:13.5px;font-weight:300;margin-bottom:1.75rem;}
 
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:0.5px solid var(--border2);border-radius:10px;overflow:hidden;}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:0.5px solid var(--border2);border-radius:10px;overflow:hidden;}
 .feat{padding:1.4rem;border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border);transition:background 0.2s;}
 .feat:hover{background:var(--bg2);}
 .feat-num{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.5px;margin-bottom:0.75rem;display:block;}
@@ -188,15 +188,10 @@ h2{font-size:1.35rem;}
 .compat-card{padding:0.75rem;}
 .compat-card h4{font-size:9px;margin-bottom:0.5rem;}
 .compat-card li{font-size:12px;}
-.bottom-row{grid-template-columns:1fr;gap:1.5rem;display:flex;flex-direction:column;}
-.bottom-row #faq{order:2;}
-.bottom-row>div:last-child{order:1;}
 .faq-q{padding:0.7rem 1rem;font-size:13.5px;}
 .faq-a{padding:0 1rem 0.7rem;font-size:13px;}
-.bottom-row>div:last-child{overflow:hidden;max-width:100vw;}
-.pricing-stack{display:flex!important;flex-direction:row!important;gap:10px!important;overflow-x:auto!important;overflow-y:visible!important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;}
-.pricing-stack::-webkit-scrollbar{display:none;}
-.pricing-card{min-width:58vw!important;flex-shrink:0!important;scroll-snap-align:start;padding:1.1rem;}
+.pricing-stack{grid-template-columns:1fr!important;gap:10px!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;padding-bottom:8px;}
+.pricing-card{padding:1.1rem;}
 .price-eyebrow{font-size:9px;margin-bottom:0.6rem;}
 .price-num{font-size:1.75rem;}
 .price-note{font-size:11.5px;margin-bottom:1rem;}
@@ -335,60 +330,57 @@ footer{padding:1.25rem;}
 <hr>
 
 <div class="section" id="pricing">
-  <div class="bottom-row">
-    <div id="faq">
-      <span class="section-label">FAQ</span>
-      <h2 style="margin-bottom:1.25rem;">Common questions</h2>
-      <div class="faq-list">
-        <div class="faq-item"><button class="faq-q">Is FlexTPM safe to install?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. FlexTPM is signed with a Microsoft-trusted code signing certificate and installs as a standard Windows driver. It makes no modifications to system files, Windows internals, or any files outside its own installation folder.</div></div>
-        <div class="faq-item"><button class="faq-q">Will it break after a Windows Update?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">FlexTPM does not modify any system files, so Windows Updates have nothing to overwrite. The driver re-registers on every boot through standard Windows mechanisms.</div></div>
-        <div class="faq-item"><button class="faq-q">Does it work with Secure Boot?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. Because FlexTPM is signed with a Microsoft-trusted certificate, Secure Boot does not block it. Works on or off.</div></div>
-        <div class="faq-item"><button class="faq-q">What data does FlexTPM collect?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">None. FlexTPM generates a Machine ID — a one-way hardware fingerprint (HWID) derived from your device's hardware configuration. This binding ensures one license works on one machine and cannot be shared or transferred. The Machine ID cannot be reversed to identify you or your hardware. We do not collect, store, or share any personal information. Your Machine ID and license file remain on your device.</div></div>
-        <div class="faq-item"><button class="faq-q">Does this work on Apple Silicon?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is designed for Intel Macs running Windows via Boot Camp. Apple Silicon Macs do not support Boot Camp and are not compatible at this time.</div></div>
-        <div class="faq-item"><button class="faq-q">Is this open source?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is a commercial product. The source code is proprietary.</div></div>
-        <div class="faq-item"><button class="faq-q">How do I verify it's working?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Open tpm.msc or run Get-Tpm in PowerShell. You should see TpmPresent = True with manufacturer ID SDTM. It also appears in Device Manager under Security Devices.</div></div>
+  <span class="section-label">Pricing</span>
+  <h2 style="margin-bottom:0.3rem;">Simple pricing</h2>
+  <p style="font-size:13px;color:var(--text2);font-weight:300;margin-bottom:1.25rem;">One-time purchase. No subscriptions.</p>
+
+  <div class="pricing-stack" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:3rem;">
+
+    <div class="pricing-card" style="border-color:var(--blue-border);">
+      <span class="price-eyebrow">Personal</span>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.25rem;">
+        <div class="price-num">$34.99</div>
+        <span style="font-size:12px;color:var(--text3);font-weight:300;">one-time</span>
       </div>
+      <div class="price-note">Single machine. Hardware-locked license.</div>
+      <ul class="price-list">
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Full TPM 2.0 functionality</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Works on Boot Camp Macs and legacy PCs</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Lifetime license, one machine</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Free updates</li>
+      </ul>
+      <a href="#notify" class="btn-blue" style="display:block;text-align:center;">Get FlexTPM</a>
     </div>
-    <div>
-      <span class="section-label">Pricing</span>
-      <h2 style="margin-bottom:0.3rem;">Simple pricing</h2>
-      <p style="font-size:13px;color:var(--text2);font-weight:300;margin-bottom:1.25rem;">One-time purchase. No subscriptions.</p>
 
-      <div class="pricing-stack" style="display:flex;flex-direction:column;gap:10px;">
-
-        <div class="pricing-card" style="border-color:var(--blue-border);">
-          <span class="price-eyebrow">Personal</span>
-          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.25rem;">
-            <div class="price-num">$34.99</div>
-            <span style="font-size:12px;color:var(--text3);font-weight:300;">one-time</span>
-          </div>
-          <div class="price-note">Single machine. Hardware-locked license.</div>
-          <ul class="price-list">
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Full TPM 2.0 functionality</li>
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Works on Boot Camp Macs and legacy PCs</li>
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Lifetime license, one machine</li>
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Free updates</li>
-          </ul>
-          <a href="#notify" class="btn-blue" style="display:block;text-align:center;">Get FlexTPM</a>
-        </div>
-
-        <div class="pricing-card">
-          <span class="price-eyebrow">Pro</span>
-          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.25rem;">
-            <div class="price-num">$79.99</div>
-            <span style="font-size:12px;color:var(--text3);font-weight:300;">one-time</span>
-          </div>
-          <div class="price-note">Up to 3 machines. Ideal for developers and IT pros.</div>
-          <ul class="price-list">
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Everything in Personal</li>
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>License up to 3 machines</li>
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Priority support</li>
-            <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Free updates</li>
-          </ul>
-          <a href="#notify" class="btn-blue" style="display:block;text-align:center;">Get FlexTPM</a>
-        </div>
-
+    <div class="pricing-card">
+      <span class="price-eyebrow">Pro</span>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:0.25rem;">
+        <div class="price-num">$79.99</div>
+        <span style="font-size:12px;color:var(--text3);font-weight:300;">one-time</span>
       </div>
+      <div class="price-note">Up to 3 machines. Ideal for developers and IT pros.</div>
+      <ul class="price-list">
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Everything in Personal</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>License up to 3 machines</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Priority support</li>
+        <li><svg class="price-check" viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>Free updates</li>
+      </ul>
+      <a href="#notify" class="btn-blue" style="display:block;text-align:center;">Get FlexTPM</a>
+    </div>
+
+  </div>
+
+  <div id="faq">
+    <span class="section-label">FAQ</span>
+    <h2 style="margin-bottom:1.25rem;">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Is FlexTPM safe to install?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. FlexTPM is signed with a Microsoft-trusted code signing certificate and installs as a standard Windows driver. It makes no modifications to system files, Windows internals, or any files outside its own installation folder.</div></div>
+      <div class="faq-item"><button class="faq-q">Will it break after a Windows Update?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">FlexTPM does not modify any system files, so Windows Updates have nothing to overwrite. The driver re-registers on every boot through standard Windows mechanisms.</div></div>
+      <div class="faq-item"><button class="faq-q">Does it work with Secure Boot?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Yes. Because FlexTPM is signed with a Microsoft-trusted certificate, Secure Boot does not block it. Works on or off.</div></div>
+      <div class="faq-item"><button class="faq-q">What data does FlexTPM collect?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">None. FlexTPM generates a Machine ID — a one-way hardware fingerprint (HWID) derived from your device's hardware configuration. This binding ensures one license works on one machine and cannot be shared or transferred. The Machine ID cannot be reversed to identify you or your hardware. We do not collect, store, or share any personal information. Your Machine ID and license file remain on your device.</div></div>
+      <div class="faq-item"><button class="faq-q">Does this work on Apple Silicon?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is designed for Intel Macs running Windows via Boot Camp. Apple Silicon Macs do not support Boot Camp and are not compatible at this time.</div></div>
+      <div class="faq-item"><button class="faq-q">Is this open source?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">No. FlexTPM is a commercial product. The source code is proprietary.</div></div>
+      <div class="faq-item"><button class="faq-q">How do I verify it's working?<svg class="faq-arrow" viewBox="0 0 16 16"><polyline points="4,6 8,10 12,6"/></svg></button><div class="faq-a">Open tpm.msc or run Get-Tpm in PowerShell. You should see TpmPresent = True with manufacturer ID SDTM. It also appears in Device Manager under Security Devices.</div></div>
     </div>
   </div>
 </div>
