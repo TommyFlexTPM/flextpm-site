@@ -179,11 +179,7 @@ h2{font-size:1.35rem;}
 .feat h3{font-size:13px;}
 .feat p{font-size:12.5px;}
 .two-col{grid-template-columns:1fr;gap:1.25rem;}
-.how-step{padding:0.75rem 0;}
-.how-num{display:none;}
-.how-step{grid-template-columns:1fr;}
-.how-step h3{font-size:14px;}
-.how-step p{font-size:13px;}
+.how-grid{grid-template-columns:1fr!important;gap:10px!important;}
 .compat-grid{grid-template-columns:1fr 1fr 1fr;gap:6px;}
 .compat-card{padding:0.75rem;}
 .compat-card h4{font-size:9px;margin-bottom:0.5rem;}
@@ -291,25 +287,24 @@ footer{padding:1.25rem;}
 <hr>
 
 <div class="section" id="how">
-  <div class="two-col">
-    <div>
-      <span class="section-label">How it works</span>
-      <h2>Installed like a driver.<br>Recognized like hardware.</h2>
-      <p class="section-sub" style="margin-top:0.4rem;">Three steps. No configuration. Nothing to maintain.</p>
+  <span class="section-label">How it works</span>
+  <h2>Installed like a driver. Recognized like hardware.</h2>
+  <p class="section-sub">Three steps. No configuration. Nothing to maintain.</p>
+  <div class="how-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+    <div class="how-card" style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.4rem;">
+      <span class="how-num" style="display:block;margin-bottom:0.75rem;">01</span>
+      <h3 style="font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.35rem;">Install the driver</h3>
+      <p style="font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;">Run the installer. The signed driver and <code>FlexTPM Engine</code> service install automatically. One reboot to activate.</p>
     </div>
-    <div class="how-grid">
-      <div class="how-step">
-        <span class="how-num">01</span>
-        <div><h3>Install the driver</h3><p>Run the installer. The signed driver and <code>FlexTPM Engine</code> service install automatically. One reboot to activate.</p></div>
-      </div>
-      <div class="how-step">
-        <span class="how-num">02</span>
-        <div><h3>Windows discovers a TPM</h3><p>The driver presents a TPM device to Windows through the standard interface. It shows up in Device Manager, tpm.msc, and Get-Tpm as manufacturer <code>SDTM</code>.</p></div>
-      </div>
-      <div class="how-step">
-        <span class="how-num">03</span>
-        <div><h3>Everything just works</h3><p>BitLocker, Windows Hello, compliance checks — all unlocked. Starts on every boot. Nothing to configure or maintain.</p></div>
-      </div>
+    <div class="how-card" style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.4rem;">
+      <span class="how-num" style="display:block;margin-bottom:0.75rem;">02</span>
+      <h3 style="font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.35rem;">Windows discovers a TPM</h3>
+      <p style="font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;">The driver presents a TPM device to Windows through the standard interface. It shows up in Device Manager, tpm.msc, and Get-Tpm as manufacturer <code>SDTM</code>.</p>
+    </div>
+    <div class="how-card" style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:10px;padding:1.4rem;">
+      <span class="how-num" style="display:block;margin-bottom:0.75rem;">03</span>
+      <h3 style="font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:0.35rem;">Everything just works</h3>
+      <p style="font-size:12.5px;color:var(--text2);line-height:1.6;font-weight:300;">BitLocker, Windows Hello, compliance checks — all unlocked. Starts on every boot. Nothing to configure or maintain.</p>
     </div>
   </div>
 </div>
