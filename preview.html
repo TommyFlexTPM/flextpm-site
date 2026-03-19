@@ -117,8 +117,8 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 .pricing h2{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:0.3rem;}
 .pricing-sub{font-size:14px;color:var(--text3);}
 .pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:clamp(1.5rem,2.5vw,2rem);display:flex;flex-direction:column;gap:1.25rem;transition:border-color 0.3s var(--ease);}
-.price-card:hover{border-color:rgba(255,255,255,0.18);}
+.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:clamp(1.5rem,2.5vw,2rem);display:flex;flex-direction:column;gap:1.25rem;transition:border-color 0.3s var(--ease),background 0.3s var(--ease),transform 0.3s var(--ease);}
+.price-card:hover{border-color:rgba(255,255,255,0.18);background:var(--surface2);transform:translateY(-2px);}
 .price-tier{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;}
 .price-amount{font-size:clamp(2rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-2px;line-height:1;}
 .price-amount span{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:400;color:var(--text3);letter-spacing:0;}
