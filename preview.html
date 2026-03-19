@@ -63,8 +63,6 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 .demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.35),0 0 0 1px rgba(255,255,255,0.03);}
 .demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);}
 .demo-shell-head .shell-title{font-size:12px;color:var(--text3);font-weight:500;letter-spacing:0.3px;}
-.win-controls{display:flex;gap:10px;align-items:center;}
-.win-controls span{color:var(--text3);font-size:13px;line-height:1;cursor:default;}
 .demo-shell-body{padding:clamp(14px,2vw,20px);}
 .demo-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
 .demo-chip{padding:7px 13px;border-radius:7px;background:transparent;border:1px solid var(--border2);color:var(--text3);font-size:12px;font-weight:600;font-family:var(--mono);cursor:pointer;transition:all 0.2s var(--ease);user-select:none;letter-spacing:0.2px;}
@@ -196,8 +194,8 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
     <p class="hero-hook">No hardware TPM exposed to Windows. Still works.</p>
     <div class="demo-shell">
       <div class="demo-shell-head">
-        <span class="shell-title">Windows PowerShell</span>
-        <div class="win-controls"><span>&#8212;</span><span>&#9633;</span><span>&times;</span></div>
+        <span class="shell-title"></span>
+        <span class="shell-title">PowerShell</span>
       </div>
       <div class="demo-shell-body">
         <div class="demo-chips">
