@@ -47,161 +47,106 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .mobile-menu a{color:var(--text2);text-decoration:none;font-size:15px;padding:0.75rem clamp(1.25rem,4vw,4rem);transition:background 0.15s,color 0.15s;}
 .mobile-menu a:hover{background:var(--surface2);color:var(--text);}
 
-/* Fluid padding & max-width helpers */
-.section-pad{padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
-.section-wrap{max-width:1400px;margin:0 auto;}
-
-/* HERO — demo-first, single column */
-.hero{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);position:relative;text-align:center;}
+/* HERO */
+.hero{max-width:780px;margin:0 auto;padding:clamp(2.5rem,5vw,4.5rem) clamp(1.25rem,4vw,4rem) clamp(2rem,4vw,3.5rem);text-align:center;position:relative;}
 .hero-glow{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(59,130,246,0.07) 0%,transparent 70%);pointer-events:none;}
-.hero-intro{position:relative;z-index:1;margin-bottom:clamp(1.5rem,3vw,2.5rem);}
-h1{font-size:clamp(1.75rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:0.75rem;color:#fafafa;}
+.hero-intro{position:relative;z-index:1;margin-bottom:clamp(1.25rem,2.5vw,2rem);}
+h1{font-size:clamp(1.75rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;line-height:1.12;margin-bottom:0.6rem;color:#fafafa;}
 .hero-sub{font-size:clamp(14px,1.6vw,16px);color:var(--text3);font-weight:400;}
-.btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;box-shadow:0 0 20px var(--accent-glow);font-family:var(--font);border:none;cursor:pointer;display:inline-block;}
-.btn-primary:hover{opacity:0.9;box-shadow:0 0 30px rgba(59,130,246,0.25);transform:translateY(-1px);}
-.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);cursor:pointer;display:inline-block;}
-.btn-secondary:hover{background:var(--surface3);transform:translateY(-1px);}
 
-/* INTERACTIVE DEMO */
-.hero-demo{position:relative;z-index:1;max-width:680px;margin:0 auto;}
-.demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.3);}
-.demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
+/* DEMO */
+.hero-demo{position:relative;z-index:1;}
+.demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.25);}
+.demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
 .demo-shell-head .dots{display:flex;gap:7px;}
 .demo-shell-head .dots span{width:10px;height:10px;border-radius:50%;}
 .demo-shell-head .dots .dr{background:#ef4444;}.demo-shell-head .dots .dy{background:#eab308;}.demo-shell-head .dots .dg{background:#22c55e;}
 .demo-shell-head .shell-title{font-size:13px;color:var(--text3);font-weight:500;}
-.demo-shell-body{padding:clamp(16px,2vw,24px);}
-.demo-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
-.demo-chip{padding:10px 16px;border-radius:10px;background:var(--surface2);border:1px solid var(--border2);color:var(--text2);font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;transition:all 0.15s;user-select:none;}
+.demo-shell-body{padding:clamp(14px,2vw,20px);}
+.demo-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.demo-chip{padding:8px 14px;border-radius:8px;background:var(--surface2);border:1px solid var(--border2);color:var(--text2);font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:all 0.15s;user-select:none;}
 .demo-chip:hover{border-color:var(--accent);color:var(--text);}
 .demo-chip.active{background:var(--accent-glow);border-color:var(--accent);color:var(--accent2);}
-.demo-prompt{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:12px;font-family:var(--mono);font-size:clamp(12px,1.3vw,14px);color:#d4d4d8;margin-bottom:12px;}
+.demo-prompt{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;font-family:var(--mono);font-size:clamp(12px,1.3vw,13px);color:#d4d4d8;margin-bottom:10px;}
 .demo-prompt .ps{color:var(--accent2);}
-.demo-output{padding:18px;background:var(--bg);border:1px solid var(--border);border-radius:12px;font-family:var(--mono);font-size:clamp(12px,1.3vw,14px);line-height:1.85;color:#d4d4d8;white-space:pre-wrap;min-height:220px;}
+.demo-output{padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px;font-family:var(--mono);font-size:clamp(12px,1.3vw,13px);line-height:1.8;color:#d4d4d8;white-space:pre-wrap;min-height:160px;}
 .demo-output .d-lbl{color:var(--text3);}
 .demo-output .d-val{color:var(--green);}
 .demo-output .d-acc{color:var(--accent2);}
-.demo-output .cursor{display:inline-block;width:8px;height:16px;background:var(--accent2);animation:blink .6s step-end infinite;vertical-align:text-bottom;margin-left:2px;}
+.demo-output .cursor{display:inline-block;width:8px;height:15px;background:var(--accent2);animation:blink .6s step-end infinite;vertical-align:text-bottom;margin-left:2px;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.demo-status{margin-top:10px;padding:8px 14px;border-radius:10px;font-size:13px;font-weight:500;display:none;align-items:center;gap:6px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);color:var(--green);}
+.demo-status{margin-top:8px;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:500;display:none;align-items:center;gap:6px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);color:var(--green);}
 .demo-status.show{display:flex;}
 .demo-status svg{flex-shrink:0;}
 
-/* STATS STRIP */
-.stats-section{max-width:1400px;margin:0 auto;padding:clamp(1.5rem,3vw,3rem) clamp(1.25rem,4vw,4rem);}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.5vw,16px);margin-top:1.5rem;}
-.stat-card{padding:clamp(14px,2vw,20px);border-radius:14px;background:var(--surface);border:1px solid var(--border2);transition:border-color 0.2s;}
-.stat-card:hover{border-color:var(--accent);}
-.stat-label{font-size:12px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;}
-.stat-value{font-size:clamp(14px,1.5vw,16px);font-weight:600;letter-spacing:-0.2px;}
+/* FEATURES — inline strip, not cards */
+.features{max-width:780px;margin:0 auto;padding:0 clamp(1.25rem,4vw,4rem) clamp(2.5rem,4vw,3.5rem);}
+.feat-list{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.feat-item{padding:clamp(1rem,2vw,1.5rem) 0;border-bottom:1px solid var(--border);}
+.feat-item:nth-child(odd){padding-right:clamp(1rem,2vw,2rem);border-right:1px solid var(--border);}
+.feat-item:nth-child(even){padding-left:clamp(1rem,2vw,2rem);}
+.feat-item:nth-last-child(-n+2){border-bottom:none;}
+.feat-item h3{font-size:15px;font-weight:600;margin-bottom:0.25rem;letter-spacing:-0.2px;}
+.feat-item p{font-size:14px;color:var(--text2);line-height:1.55;}
 
-/* FEATURES — full bleed alternating rows */
-.features-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.feat-row{display:grid;grid-template-columns:1fr 1fr;max-width:1400px;margin:0 auto;border-bottom:1px solid var(--border);}
-.feat-row:last-child{border-bottom:none;}
-.feat-block{padding:clamp(2rem,3.5vw,3.5rem) clamp(1.25rem,4vw,4rem);display:flex;align-items:flex-start;gap:1.25rem;}
-.feat-block:first-child{border-right:1px solid var(--border);}
-.feat-num{font-family:var(--mono);font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--surface3);line-height:1;flex-shrink:0;min-width:40px;}
-.feat-content h3{font-size:clamp(16px,1.8vw,20px);font-weight:600;margin-bottom:0.4rem;letter-spacing:-0.3px;}
-.feat-content p{font-size:clamp(14px,1.5vw,16px);color:var(--text2);line-height:1.65;font-weight:400;}
+/* FAQ — compact */
+.faq{max-width:780px;margin:0 auto;padding:clamp(2rem,4vw,3rem) clamp(1.25rem,4vw,4rem);}
+.faq h2{font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;letter-spacing:-0.3px;margin-bottom:1.25rem;}
+.faq-list{display:grid;gap:0;}
+.faq-item{padding:clamp(0.75rem,1.5vw,1.25rem) 0;border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-item h3{font-size:14px;font-weight:600;margin-bottom:0.2rem;}
+.faq-item p{font-size:14px;color:var(--text2);line-height:1.55;}
 
-/* HOW IT WORKS */
-.how-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
-.how-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);transition:all 0.2s;position:relative;}
-.how-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.how-num{font-family:var(--mono);font-size:clamp(28px,3vw,40px);font-weight:700;color:var(--surface3);line-height:1;margin-bottom:1rem;}
-.how-card h3{font-size:clamp(16px,1.8vw,20px);font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.3px;}
-.how-card p{font-size:clamp(14px,1.5vw,16px);color:var(--text2);line-height:1.65;font-weight:400;}
-
-/* FAQ */
-.faq-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
-.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
-.faq-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);transition:all 0.2s;}
-.faq-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.faq-card h3{font-size:clamp(15px,1.6vw,18px);font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.2px;}
-.faq-card p{font-size:clamp(13px,1.4vw,15px);color:var(--text2);line-height:1.65;font-weight:400;}
-
-/* COMPATIBILITY */
-.compat-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
-.compat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
-.compat-card{background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:clamp(1.2rem,2vw,2rem);text-align:center;transition:all 0.2s;}
-.compat-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.compat-icon{margin-bottom:0.75rem;display:block;}
-.compat-icon svg{width:clamp(28px,3vw,40px);height:clamp(28px,3vw,40px);stroke:var(--accent2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.compat-card h4{font-size:clamp(14px,1.5vw,16px);font-weight:600;margin-bottom:0.3rem;letter-spacing:-0.2px;}
-.compat-card p{font-size:clamp(12px,1.3vw,14px);color:var(--text2);line-height:1.5;}
-
-/* PRICING — offset layout */
-.pricing-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(2rem,4vw,5rem);align-items:start;}
-.pricing-left{position:sticky;top:100px;}
-.section-tag{font-size:13px;font-weight:600;color:var(--accent2);margin-bottom:0.75rem;display:block;text-transform:uppercase;letter-spacing:0.5px;}
-h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.5px;margin-bottom:0.5rem;}
-.pricing-left p{color:var(--text2);font-size:clamp(15px,1.6vw,17px);font-weight:400;line-height:1.7;}
-.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);display:flex;flex-direction:column;gap:1.5rem;transition:border-color 0.2s;}
-.price-card:hover{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);transform:translateY(-2px);}
-.price-info{}
-.price-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);padding:4px 10px;border-radius:6px;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}
-.price-amount{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-1.5px;line-height:1;margin-bottom:0.15rem;}
-.price-amount span{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:400;color:var(--text2);}
-.price-period{font-size:13px;color:var(--text3);margin-bottom:0.75rem;}
-.price-features{list-style:none;display:flex;flex-wrap:wrap;gap:6px 16px;}
-.price-features li{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:6px;}
-.check{width:14px;height:14px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.price-action{margin-top:auto;}
-.price-btn{padding:12px 28px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);white-space:nowrap;display:block;text-align:center;width:100%;}
-.price-btn.primary{background:var(--accent);color:#fff;box-shadow:0 0 20px var(--accent-glow);}
-.price-btn.primary:hover{opacity:0.9;}
-.price-btn.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);}
-.price-btn.secondary:hover{background:var(--surface3);}
+/* PRICING */
+.pricing{max-width:780px;margin:0 auto;padding:clamp(2rem,4vw,3rem) clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);}
+.pricing h2{font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;letter-spacing:-0.3px;margin-bottom:0.3rem;}
+.pricing .pricing-sub{font-size:14px;color:var(--text3);margin-bottom:1.25rem;}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:clamp(1.25rem,2vw,2rem);display:flex;flex-direction:column;gap:1.25rem;transition:border-color 0.2s;}
+.price-card:hover{border-color:var(--accent);}
+.price-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent2);background:var(--accent-glow);border:1px solid rgba(59,130,246,0.2);padding:3px 8px;border-radius:5px;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.5px;}
+.price-amount{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:-1.5px;line-height:1;}
+.price-amount span{font-size:clamp(0.9rem,1.3vw,1.1rem);font-weight:400;color:var(--text2);}
+.price-period{font-size:12px;color:var(--text3);margin-top:0.15rem;}
+.price-features{list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;}
+.price-features li{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:5px;}
+.check{width:13px;height:13px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.price-btn{padding:10px 24px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);display:block;text-align:center;width:100%;margin-top:auto;background:var(--accent);color:#fff;box-shadow:0 0 16px var(--accent-glow);}
+.price-btn:hover{opacity:0.9;}
 
 /* CTA */
-.cta-section{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);}
-.cta-left h2{margin-bottom:0.5rem;}
-.cta-left p{font-size:clamp(15px,1.6vw,17px);color:var(--text2);font-weight:400;}
-.email-row{display:flex;gap:8px;}
-.email-input{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.15s;}
+.cta{max-width:780px;margin:0 auto;padding:clamp(2rem,4vw,3rem) clamp(1.25rem,4vw,4rem) clamp(1rem,2vw,1.5rem);text-align:center;}
+.cta h2{font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;letter-spacing:-0.3px;margin-bottom:0.3rem;}
+.cta p{font-size:14px;color:var(--text3);margin-bottom:1rem;}
+.email-row{display:flex;gap:8px;max-width:420px;margin:0 auto;}
+.email-input{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.15s;}
 .email-input::placeholder{color:var(--text3);}
 .email-input:focus{border-color:var(--accent);}
-.fine-print{font-size:12px;color:var(--text3);margin-top:0.6rem;}
+.btn-primary{background:var(--accent);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:all 0.15s;box-shadow:0 0 16px var(--accent-glow);font-family:var(--font);border:none;cursor:pointer;display:inline-block;}
+.btn-primary:hover{opacity:0.9;}
+.fine-print{font-size:11px;color:var(--text3);margin-top:0.5rem;}
 .form-error{font-size:12px;color:#ef4444;margin-top:0.5rem;display:none;}
 .form-success{font-size:14px;color:var(--green);margin-top:0.75rem;display:none;}
 
 /* FOOTER */
-footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.footer-left{font-size:13px;color:var(--text3);}
+footer{padding:1.5rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;}
+.footer-left{font-size:12px;color:var(--text3);}
 .footer-left a{color:var(--text3);text-decoration:none;border-bottom:1px solid var(--border);}
-.footer-disclaimer{font-size:12px;color:var(--text2);opacity:0.7;max-width:1400px;margin:0 auto;padding:1.5rem clamp(1.25rem,4vw,4rem) 2rem;line-height:1.7;border-top:1px solid var(--border);}
+.footer-disclaimer{font-size:11px;color:var(--text2);opacity:0.6;max-width:780px;margin:0 auto;padding:1rem clamp(1.25rem,4vw,4rem) 1.5rem;line-height:1.65;border-top:1px solid var(--border);}
 
-/* TABLET — 600-900px */
-@media(max-width:900px){
+/* TABLET */
+@media(max-width:600px){
 .nav-right a{display:none;}
 .nav-btn{display:none !important;}
 .hamburger{display:block;}
-.feat-row{grid-template-columns:1fr 1fr;}
-.pricing-section{grid-template-columns:1fr;gap:2rem;}
-.pricing-left{position:static;}
+.feat-list{grid-template-columns:1fr;}
+.feat-item:nth-child(odd){padding-right:0;border-right:none;}
+.feat-item:nth-child(even){padding-left:0;}
+.feat-item:nth-last-child(2){border-bottom:1px solid var(--border);}
 .pricing-cards{grid-template-columns:1fr 1fr;}
-.compat-grid{grid-template-columns:repeat(2,1fr);}
-.how-grid{grid-template-columns:repeat(3,1fr);}
-.faq-grid{grid-template-columns:repeat(3,1fr);}
-.stats-grid{grid-template-columns:repeat(3,1fr);}
-.cta-section{grid-template-columns:1fr 1fr;}
-}
-
-/* SMALL TABLET — 600px and below */
-@media(max-width:600px){
-.feat-row{grid-template-columns:1fr;}
-.feat-block:first-child{border-right:none;border-bottom:1px solid var(--border);}
-.pricing-cards{grid-template-columns:1fr 1fr;}
-.compat-grid{grid-template-columns:repeat(2,1fr);}
-.how-grid{grid-template-columns:1fr;}
-.faq-grid{grid-template-columns:1fr;}
-.stats-grid{grid-template-columns:repeat(2,1fr);}
-.cta-section{grid-template-columns:1fr;}
 .email-row{flex-direction:column;}
-footer{flex-direction:column;text-align:center;gap:0.5rem;}
+footer{flex-direction:column;text-align:center;gap:0.4rem;}
 }
 </style>
 </head>
@@ -215,8 +160,6 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     FlexTPM
   </div>
   <div class="nav-right">
-    <a href="#features">Features</a>
-    <a href="#compatibility">Compatibility</a>
     <a href="#faq">FAQ</a>
     <a href="#pricing">Pricing</a>
     <a href="#notify" class="nav-btn">Buy Now</a>
@@ -225,8 +168,6 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#features" onclick="this.parentElement.classList.remove('show')">Features</a>
-    <a href="#compatibility" onclick="this.parentElement.classList.remove('show')">Compatibility</a>
     <a href="#faq" onclick="this.parentElement.classList.remove('show')">FAQ</a>
     <a href="#pricing" onclick="this.parentElement.classList.remove('show')">Pricing</a>
     <a href="#pricing" onclick="this.parentElement.classList.remove('show')" style="color:var(--accent2);font-weight:500;">Buy Now</a>
@@ -262,197 +203,89 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   </div>
 </div>
 
-<div class="features-section" id="features">
-  <div class="feat-row">
-    <div class="feat-block">
-      <span class="feat-num">01</span>
-      <div class="feat-content">
-        <h3>Full TPM 2.0</h3>
-        <p>Windows Hello, attestation, compliance — everything that needs a TPM works like you have a hardware chip.</p>
-      </div>
+<div class="features">
+  <div class="feat-list">
+    <div class="feat-item">
+      <h3>Full TPM 2.0</h3>
+      <p>Windows Hello, attestation, compliance — works like hardware.</p>
     </div>
-    <div class="feat-block">
-      <span class="feat-num">02</span>
-      <div class="feat-content">
-        <h3>Native driver, not a VM</h3>
-        <p>No virtual machine, no hypervisor, no emulation layer. A real Windows driver running in the native OS.</p>
-      </div>
+    <div class="feat-item">
+      <h3>Native driver, not a VM</h3>
+      <p>No hypervisor, no emulation. A real Windows driver.</p>
     </div>
-  </div>
-  <div class="feat-row">
-    <div class="feat-block">
-      <span class="feat-num">03</span>
-      <div class="feat-content">
-        <h3>Signed and trusted</h3>
-        <p>Microsoft-trusted code signing certificate. Works with Secure Boot on or off. No test signing required.</p>
-      </div>
+    <div class="feat-item">
+      <h3>Signed and trusted</h3>
+      <p>Microsoft-trusted certificate. Secure Boot on or off.</p>
     </div>
-    <div class="feat-block">
-      <span class="feat-num">04</span>
-      <div class="feat-content">
-        <h3>Zero maintenance</h3>
-        <p>Installs in one click, starts on every boot. Nothing to configure, nothing for Windows Update to break.</p>
-      </div>
+    <div class="feat-item">
+      <h3>Zero maintenance</h3>
+      <p>One-click install, starts on every boot. Nothing to configure.</p>
     </div>
   </div>
 </div>
 
-<div class="stats-section">
-  <h2>What it unblocks.</h2>
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-label">Windows 11</div>
-      <div class="stat-value">Clears TPM 2.0 requirement</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Boot Camp</div>
-      <div class="stat-value">Fills missing TPM path</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Broken firmware</div>
-      <div class="stat-value">No BIOS scavenger hunt</div>
-    </div>
-  </div>
-</div>
-
-<div class="how-section" id="how">
-  <span class="section-tag">How it works</span>
-  <h2>Three steps. Done.</h2>
-  <div class="how-grid">
-    <div class="how-card">
-      <div class="how-num">01</div>
-      <h3>Install FlexTPM</h3>
-      <p>Run the installer. One click sets up the signed driver and service. No BIOS changes, no registry edits.</p>
-    </div>
-    <div class="how-card">
-      <div class="how-num">02</div>
-      <h3>Windows detects TPM 2.0</h3>
-      <p>After a reboot, the OS sees a fully valid TPM 2.0 device. Device Manager, Get-Tpm, and system checks all pass.</p>
-    </div>
-    <div class="how-card">
-      <div class="how-num">03</div>
-      <h3>Everything just works</h3>
-      <p>BitLocker, Windows Hello, Windows 11 requirements, and TPM-dependent software stop failing. Nothing to maintain.</p>
-    </div>
-  </div>
-</div>
-
-<div class="compat-section" id="compatibility">
-  <span class="section-tag">Compatibility</span>
-  <h2>Works on more than you think.</h2>
-  <div class="compat-grid">
-    <div class="compat-card">
-      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2M7 10h4"/></svg></span>
-      <h4>Custom builds</h4>
-      <p>Desktops and workstations without a TPM chip.</p>
-    </div>
-    <div class="compat-card">
-      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/><path d="M8 16h8v4H8z"/><circle cx="12" cy="10" r="1" fill="var(--accent2)" stroke="none"/></svg></span>
-      <h4>Intel-Based Macs</h4>
-      <p>Intel-based Macs running Windows through Boot Camp.</p>
-    </div>
-    <div class="compat-card">
-      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/><circle cx="16" cy="14" r="1.5" fill="none"/></svg></span>
-      <h4>Older hardware</h4>
-      <p>Pre-2016 machines that never shipped with TPM.</p>
-    </div>
-    <div class="compat-card">
-      <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3"/><rect x="5" y="5" width="14" height="14" rx="1.5" stroke-dasharray="3 2"/><path d="M9 9h6M9 12h6M9 15h3"/></svg></span>
-      <h4>Virtual machines</h4>
-      <p>VMs on any host that need a TPM passthrough.</p>
-    </div>
-  </div>
-</div>
-
-<div class="faq-section" id="faq">
-  <span class="section-tag">FAQ</span>
-  <h2>Clear answers.</h2>
-  <div class="faq-grid">
-    <div class="faq-card">
+<div class="faq" id="faq">
+  <h2>FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item">
       <h3>Who needs this?</h3>
-      <p>Anyone with a missing, broken, or inaccessible TPM on Windows. Boot Camp Mac users, older PCs, custom builds, and VMs that need TPM 2.0 to work.</p>
+      <p>Boot Camp Macs, older PCs, custom builds, VMs — anyone with missing, broken, or inaccessible TPM hardware.</p>
     </div>
-    <div class="faq-card">
-      <h3>Do I need this if I already have TPM?</h3>
-      <p>No. If your hardware TPM works, you don't need FlexTPM. This is for systems where the hardware path is unavailable or failing.</p>
+    <div class="faq-item">
+      <h3>Do I need this if my TPM already works?</h3>
+      <p>No. FlexTPM is a fallback for when the hardware path is unavailable or failing.</p>
     </div>
-    <div class="faq-card">
-      <h3>What does it actually fix?</h3>
-      <p>It removes TPM 2.0 as the blocker. BitLocker, Windows Hello, Windows 11 requirements, and any TPM-dependent software stop failing.</p>
-    </div>
-    <div class="faq-card">
+    <div class="faq-item">
       <h3>Is it a VM or emulator?</h3>
-      <p>No. FlexTPM is a signed native Windows driver. No virtual machine, no hypervisor, no emulation layer. It runs in the real OS.</p>
-    </div>
-    <div class="faq-card">
-      <h3>Does it work with Secure Boot?</h3>
-      <p>Yes. The driver is signed with a Microsoft-trusted certificate. Works with Secure Boot on or off.</p>
-    </div>
-    <div class="faq-card">
-      <h3>Is there a subscription?</h3>
-      <p>No. One-time purchase, yours forever. No recurring fees, no cloud dependency, no forced updates.</p>
+      <p>No. It's a signed native Windows driver. No virtual machine, no emulation layer.</p>
     </div>
   </div>
 </div>
 
-<div class="pricing-section" id="pricing">
-  <div class="pricing-left">
-    <span class="section-tag">Pricing</span>
-    <h2>One-time purchase.<br>No subscriptions.</h2>
-    <p>No recurring fees. Pay once, get the full product.</p>
-  </div>
+<div class="pricing" id="pricing">
+  <h2>Pricing</h2>
+  <p class="pricing-sub">One-time purchase. No subscriptions.</p>
   <div class="pricing-cards">
     <div class="price-card">
-      <div class="price-info">
+      <div>
         <span class="price-tag">Personal</span>
         <div class="price-amount">$34<span>.99</span></div>
-        <div class="price-period">one-time payment</div>
-        <ul class="price-features">
-          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
-          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>1 Machine License</li>
-          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>One-time purchase</li>
-        </ul>
+        <div class="price-period">one-time</div>
       </div>
-      <div class="price-action">
-        <a href="#notify" class="price-btn primary">Buy Now</a>
-      </div>
+      <ul class="price-features">
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>1 machine</li>
+      </ul>
+      <a href="#notify" class="price-btn">Buy Now</a>
     </div>
     <div class="price-card">
-      <div class="price-info">
+      <div>
         <span class="price-tag">Multi-License</span>
         <div class="price-amount">$79<span>.99</span></div>
-        <div class="price-period">one-time payment</div>
-        <ul class="price-features">
-          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
-          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Up to 3 Licenses</li>
-          <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Priority support</li>
-        </ul>
+        <div class="price-period">one-time</div>
       </div>
-      <div class="price-action">
-        <a href="#notify" class="price-btn primary">Buy Now</a>
-      </div>
+      <ul class="price-features">
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Up to 3 machines</li>
+      </ul>
+      <a href="#notify" class="price-btn">Buy Now</a>
     </div>
   </div>
 </div>
 
-<div class="cta-section" id="notify">
-  <div class="cta-left">
-    <span class="section-tag">Early Access</span>
-    <h2>Be the first to know.</h2>
-    <p>Drop your email. We'll notify you when FlexTPM is ready to download.</p>
-  </div>
-  <div>
-    <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
-      <div class="email-row">
-        <input type="email" name="email" class="email-input" placeholder="you@email.com" required/>
-        <button type="submit" class="btn-primary" id="submitBtn" style="white-space:nowrap;">Notify me</button>
-      </div>
-      <p class="fine-print">No spam. Unsubscribe anytime.</p>
-      <p class="form-error" id="formError">Something went wrong. Try again.</p>
-      <p class="form-success" id="formSuccess">You're on the list.</p>
-    </form>
-  </div>
+<div class="cta" id="notify">
+  <h2>Be the first to know.</h2>
+  <p>We'll notify you when FlexTPM is ready.</p>
+  <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
+    <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
+    <div class="email-row">
+      <input type="email" name="email" class="email-input" placeholder="you@email.com" required/>
+      <button type="submit" class="btn-primary" id="submitBtn">Notify me</button>
+    </div>
+    <p class="fine-print">No spam. Unsubscribe anytime.</p>
+    <p class="form-error" id="formError">Something went wrong. Try again.</p>
+    <p class="form-success" id="formSuccess">You're on the list.</p>
+  </form>
 </div>
 
 <footer>
@@ -460,16 +293,12 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <span class="footer-left"><a href="mailto:support@flextpm.com">support@flextpm.com</a></span>
 </footer>
 <div class="footer-disclaimer">
-  <p style="margin-bottom:0.75rem;"><strong style="color:var(--text);font-weight:500;">Disclaimers</strong></p>
-  <p style="margin-bottom:0.5rem;">FlexTPM is provided "as is" without warranty of any kind, express or implied. The developer assumes no liability for any damage, data loss, or system instability arising from the use of this software.</p>
-  <p style="margin-bottom:0.5rem;">FlexTPM is a software-based TPM 2.0 solution and <strong style="font-weight:500;">does not replace a dedicated hardware TPM or hardware security module (HSM)</strong>. It is not intended for use in environments that require hardware-backed key isolation or tamper resistance.</p>
-  <p style="margin-bottom:0.5rem;">A system reboot is required after installation. License keys are hardware-locked to a single machine and are non-transferable.</p>
-  <p style="margin-bottom:0.5rem;">FlexTPM is not affiliated with, endorsed by, or associated with Apple Inc., Microsoft Corporation, or the Trusted Computing Group. All trademarks are property of their respective owners.</p>
-  <p>By installing FlexTPM, you agree to these terms. Use at your own risk.</p>
+  FlexTPM is provided "as is" without warranty. It does not replace a dedicated hardware TPM or HSM.
+  Not affiliated with Apple, Microsoft, or the Trusted Computing Group. A reboot is required after installation.
+  License keys are hardware-locked and non-transferable. Use at your own risk.
 </div>
 
 <script>
-// Interactive demo
 const demoData={
   gettpm:{cmd:"Get-Tpm",status:"Windows recognizes TPM 2.0",out:`<span class="d-lbl">TpmPresent</span>          : <span class="d-val">True</span>
 <span class="d-lbl">TpmReady</span>            : <span class="d-val">True</span>
@@ -491,7 +320,7 @@ const demoChips=document.querySelectorAll('.demo-chip');
 const demoCmd=document.getElementById('demoCmd');
 const demoOut=document.getElementById('demoOut');
 const demoStatus=document.getElementById('demoStatus');
-const checkSvg='<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>';
+const checkSvg='<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>';
 let demoTimer=null;
 let firstLoad=true;
 function setDemo(key){
