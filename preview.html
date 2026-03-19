@@ -58,7 +58,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:100px;padding:6px 14px 6px 8px;font-size:12px;color:var(--text2);font-weight:500;margin-bottom:1.5rem;}
 .badge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1.25rem;background:linear-gradient(180deg,#fff 60%,#a1a1aa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1.25rem;color:#fafafa;}
 .hero-text p{font-size:clamp(15px,1.8vw,18px);color:var(--text2);line-height:1.7;font-weight:400;margin-bottom:2rem;}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;box-shadow:0 0 20px var(--accent-glow);font-family:var(--font);border:none;cursor:pointer;display:inline-block;}
@@ -92,6 +92,34 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .dm-found{color:var(--green);}
 .dm-warn{display:flex;align-items:center;gap:4px;color:#ef4444;font-size:clamp(8px,0.9vw,10px);margin-top:auto;padding:clamp(4px,0.6vw,6px);background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.15);border-radius:4px;}
 .dm-ok{display:flex;align-items:center;gap:4px;color:var(--green);font-size:clamp(8px,0.9vw,10px);margin-top:auto;padding:clamp(4px,0.6vw,6px);background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);border-radius:4px;}
+
+/* INTERACTIVE DEMO */
+.demo-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
+.demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.3);margin-top:2rem;max-width:720px;}
+.demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
+.demo-shell-head .dots{display:flex;gap:7px;}
+.demo-shell-head .dots span{width:10px;height:10px;border-radius:50%;}
+.demo-shell-head .dots .dr{background:#ef4444;}.demo-shell-head .dots .dy{background:#eab308;}.demo-shell-head .dots .dg{background:#22c55e;}
+.demo-shell-head .shell-title{font-size:13px;color:var(--text3);font-weight:500;}
+.demo-shell-body{padding:clamp(16px,2vw,24px);}
+.demo-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.demo-chip{padding:10px 16px;border-radius:10px;background:var(--surface2);border:1px solid var(--border2);color:var(--text2);font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;transition:all 0.15s;user-select:none;}
+.demo-chip:hover{border-color:var(--accent);color:var(--text);}
+.demo-chip.active{background:var(--accent-glow);border-color:var(--accent);color:var(--accent2);}
+.demo-prompt{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:12px;font-family:var(--mono);font-size:clamp(12px,1.3vw,14px);color:#d4d4d8;margin-bottom:12px;}
+.demo-prompt .ps{color:var(--accent2);}
+.demo-output{padding:18px;background:var(--bg);border:1px solid var(--border);border-radius:12px;font-family:var(--mono);font-size:clamp(12px,1.3vw,14px);line-height:1.85;color:#d4d4d8;white-space:pre-wrap;min-height:220px;}
+.demo-output .d-lbl{color:var(--text3);}
+.demo-output .d-val{color:var(--green);}
+.demo-output .d-acc{color:var(--accent2);}
+
+/* STATS STRIP */
+.stats-section{max-width:1400px;margin:0 auto;padding:clamp(1.5rem,3vw,3rem) clamp(1.25rem,4vw,4rem);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.5vw,16px);margin-top:1.5rem;}
+.stat-card{padding:clamp(14px,2vw,20px);border-radius:14px;background:var(--surface);border:1px solid var(--border2);transition:border-color 0.2s;}
+.stat-card:hover{border-color:var(--accent);}
+.stat-label{font-size:12px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;}
+.stat-value{font-size:clamp(14px,1.5vw,16px);font-weight:600;letter-spacing:-0.2px;}
 
 /* FEATURES — full bleed alternating rows */
 .features-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -201,6 +229,7 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .how-grid{grid-template-columns:repeat(3,1fr);}
 .proof-grid{grid-template-columns:1fr 1fr;}
 .faq-grid{grid-template-columns:repeat(3,1fr);}
+.stats-grid{grid-template-columns:repeat(2,1fr);}
 .cta-section{grid-template-columns:1fr 1fr;}
 }
 
@@ -215,6 +244,7 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .how-grid{grid-template-columns:1fr;}
 .proof-grid{grid-template-columns:1fr;}
 .faq-grid{grid-template-columns:1fr;}
+.stats-grid{grid-template-columns:repeat(2,1fr);}
 .cta-section{grid-template-columns:1fr;}
 .email-row{flex-direction:column;}
 footer{flex-direction:column;text-align:center;gap:0.5rem;}
@@ -231,6 +261,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     FlexTPM
   </div>
   <div class="nav-right">
+    <a href="#demo">Demo</a>
     <a href="#features">Features</a>
     <a href="#compatibility">Compatibility</a>
     <a href="#proof">Proof</a>
@@ -242,6 +273,7 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#demo" onclick="this.parentElement.classList.remove('show')">Demo</a>
     <a href="#features" onclick="this.parentElement.classList.remove('show')">Features</a>
     <a href="#compatibility" onclick="this.parentElement.classList.remove('show')">Compatibility</a>
     <a href="#proof" onclick="this.parentElement.classList.remove('show')">Proof</a>
@@ -298,6 +330,30 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   </div>
 </div>
 
+<div class="demo-section" id="demo">
+  <span class="section-tag">Interactive Demo</span>
+  <h2>See what Windows sees.</h2>
+  <p style="color:var(--text2);font-size:clamp(15px,1.6vw,17px);margin-top:0.5rem;">Click a command. This is what your system looks like after FlexTPM is installed.</p>
+  <div class="demo-shell">
+    <div class="demo-shell-head">
+      <div class="dots"><span class="dr"></span><span class="dy"></span><span class="dg"></span></div>
+      <span class="shell-title">Windows PowerShell</span>
+    </div>
+    <div class="demo-shell-body">
+      <div class="demo-chips">
+        <button class="demo-chip active" data-cmd="gettpm">Get-Tpm</button>
+        <button class="demo-chip" data-cmd="bitlocker">manage-bde -status</button>
+        <button class="demo-chip" data-cmd="device">Device check</button>
+      </div>
+      <div class="demo-prompt">
+        <span class="ps">PS C:\WINDOWS\system32&gt;</span>
+        <span id="demoCmd">Get-Tpm</span>
+      </div>
+      <div class="demo-output" id="demoOut"></div>
+    </div>
+  </div>
+</div>
+
 <div class="features-section" id="features">
   <div class="feat-row">
     <div class="feat-block">
@@ -329,6 +385,28 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
         <h3>Zero maintenance</h3>
         <p>Installs in one click, starts on every boot. Nothing to configure, nothing for Windows Update to break.</p>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-section">
+  <h2>This fixes the part people get stuck on.</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">BitLocker</div>
+      <div class="stat-value">Stops failing on TPM</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Windows 11</div>
+      <div class="stat-value">Clears TPM 2.0 requirement</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Boot Camp</div>
+      <div class="stat-value">Fills missing TPM path</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Broken firmware</div>
+      <div class="stat-value">No BIOS scavenger hunt</div>
     </div>
   </div>
 </div>
@@ -522,6 +600,38 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
 </div>
 
 <script>
+// Interactive demo
+const demoData={
+  gettpm:{cmd:"Get-Tpm",out:`<span class="d-lbl">TpmPresent</span>          : <span class="d-val">True</span>
+<span class="d-lbl">TpmReady</span>            : <span class="d-val">True</span>
+<span class="d-lbl">TpmEnabled</span>          : <span class="d-val">True</span>
+<span class="d-lbl">TpmActivated</span>        : <span class="d-val">True</span>
+<span class="d-lbl">TpmOwned</span>            : <span class="d-val">True</span>
+<span class="d-lbl">ManufacturerIdTxt</span>   : INTC
+<span class="d-lbl">SpecVersion</span>         : 2.0, 0, 1.83`},
+  bitlocker:{cmd:"manage-bde -status C:",out:`Volume C:
+<span class="d-lbl">Conversion Status</span>   : <span class="d-val">Fully Encrypted</span>
+<span class="d-lbl">Protection Status</span>   : <span class="d-val">Protection On</span>
+<span class="d-lbl">Lock Status</span>         : Unlocked
+<span class="d-lbl">Key Protectors</span>      : TPM`},
+  device:{cmd:"Get-PnpDevice -Class SecurityDevices",out:`<span class="d-lbl">Status</span>              : <span class="d-val">OK</span>
+<span class="d-lbl">Class</span>               : SecurityDevices
+<span class="d-lbl">FriendlyName</span>        : Trusted Platform Module 2.0
+<span class="d-lbl">InstanceId</span>          : ROOT\\INTC_TPM\\0000
+
+<span class="d-acc">Device is working properly.</span>`}
+};
+const demoChips=document.querySelectorAll('.demo-chip');
+const demoCmd=document.getElementById('demoCmd');
+const demoOut=document.getElementById('demoOut');
+function setDemo(key){
+  demoChips.forEach(c=>c.classList.toggle('active',c.dataset.cmd===key));
+  demoCmd.textContent=demoData[key].cmd;
+  demoOut.innerHTML=demoData[key].out;
+}
+demoChips.forEach(c=>c.addEventListener('click',()=>setDemo(c.dataset.cmd)));
+setDemo('gettpm');
+
 async function handleSubmit(e){
   e.preventDefault();
   const btn=document.getElementById('submitBtn');
