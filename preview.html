@@ -201,9 +201,9 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
       </div>
       <div class="demo-shell-body">
         <div class="demo-chips">
-          <button class="demo-chip active" data-cmd="gettpm">Get-Tpm</button>
-          <button class="demo-chip" data-cmd="bitlocker">manage-bde -status</button>
-          <button class="demo-chip" data-cmd="device">Device check</button>
+          <button class="demo-chip active" data-cmd="gettpm" tabindex="-1">Get-Tpm</button>
+          <button class="demo-chip" data-cmd="bitlocker" tabindex="-1">manage-bde -status</button>
+          <button class="demo-chip" data-cmd="device" tabindex="-1">Device check</button>
         </div>
         <div class="demo-prompt">
           <span class="ps">PS C:\&gt;</span>
@@ -376,7 +376,7 @@ function setDemo(key){
     demoStatus.classList.add('show');
   },delay);
 }
-demoChips.forEach(c=>c.addEventListener('click',()=>setDemo(c.dataset.cmd)));
+demoChips.forEach(c=>c.addEventListener('click',(e)=>{e.preventDefault();setDemo(c.dataset.cmd);c.blur();}));
 setDemo('gettpm');
 
 async function handleSubmit(e){
