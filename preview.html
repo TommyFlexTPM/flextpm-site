@@ -83,6 +83,8 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 .demo-status{margin-top:8px;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:500;display:none;align-items:center;gap:6px;color:var(--green);}
 .demo-status.show{display:flex;}
 .demo-status svg{flex-shrink:0;}
+.demo-flow{margin-top:12px;text-align:center;font-size:11px;color:var(--text3);letter-spacing:0.5px;opacity:0.5;}
+.demo-flow span{margin:0 6px;opacity:0.4;}
 
 /* FEATURES */
 .features{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -120,6 +122,7 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 .check{width:14px;height:14px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 .price-btn{padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s var(--ease);font-family:var(--font);display:block;text-align:center;width:100%;margin-top:auto;background:var(--text);color:var(--bg);}
 .price-btn:hover{opacity:0.85;}
+.pricing-trust{font-size:11px;color:var(--text3);margin-top:1.25rem;opacity:0.6;}
 
 /* CTA */
 .cta{max-width:960px;margin:0 auto;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem) clamp(2rem,4vh,3rem);text-align:center;}
@@ -210,6 +213,7 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
         <div class="demo-status" id="demoStatus"></div>
       </div>
     </div>
+    <div class="demo-flow">Install<span>&rarr;</span>Reboot<span>&rarr;</span>Done</div>
   </div>
 </div>
 
@@ -228,8 +232,8 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
       <p>Microsoft-trusted certificate. Secure Boot on or off.</p>
     </div>
     <div class="feat-item">
-      <h3>Zero maintenance</h3>
-      <p>One-click install, starts every boot. Nothing to configure.</p>
+      <h3>Boot Camp ready</h3>
+      <p>Built for Macs running Windows where TPM isn't exposed.</p>
     </div>
   </div>
 </div>
@@ -288,6 +292,7 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
       <a href="#notify" class="price-btn">Buy Now</a>
     </div>
   </div>
+  <p class="pricing-trust">Signed with a Microsoft-trusted code signing certificate.</p>
   </div>
 </div>
 </div>
@@ -308,7 +313,7 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
 </div>
 
 <footer>
-  <span class="footer-left">FlexTPM &copy; 2026 &middot; Houston, TX</span>
+  <span class="footer-left">FlexTPM &copy; 2026</span>
   <span class="footer-left"><a href="mailto:support@flextpm.com">support@flextpm.com</a></span>
 </footer>
 <div class="footer-disclaimer">
