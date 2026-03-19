@@ -54,9 +54,8 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 /* HERO */
 .hero{max-width:960px;margin:0 auto;padding:clamp(2.5rem,5vh,4rem) clamp(1.5rem,5vw,5rem) clamp(3rem,7vh,5rem);text-align:center;position:relative;}
 .hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(59,130,246,0.05) 0%,transparent 65%);pointer-events:none;}
-.hero-intro{position:relative;z-index:1;margin-bottom:clamp(1.25rem,2.5vw,1.75rem);max-width:640px;margin-left:auto;margin-right:auto;}
-h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:0.75rem;color:var(--text);}
-.hero-sub{font-size:clamp(15px,1.8vw,17px);color:var(--text3);font-weight:400;letter-spacing:0.1px;}
+.hero-intro{position:relative;z-index:1;margin-bottom:clamp(1rem,2vw,1.5rem);max-width:640px;margin-left:auto;margin-right:auto;}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:var(--text);}
 
 /* DEMO */
 .hero-hook{font-size:12px;color:var(--text3);font-weight:500;letter-spacing:0.3px;margin-bottom:clamp(0.75rem,1.5vw,1rem);opacity:0.7;}
@@ -190,10 +189,9 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
   <div class="hero-glow"></div>
   <div class="hero-intro">
     <h1>Software TPM 2.0 for systems<br>where it doesn't work.</h1>
-    <p class="hero-sub">Run a command. See how Windows responds.</p>
   </div>
   <div class="hero-demo">
-    <p class="hero-hook">No hardware TPM exposed. Still works.</p>
+    <p class="hero-hook">No hardware TPM exposed to Windows. Still works.</p>
     <div class="demo-shell">
       <div class="demo-shell-head">
         <div class="dots"><span class="dr"></span><span class="dy"></span><span class="dg"></span></div>
