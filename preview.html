@@ -37,8 +37,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 /* NAV */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem);height:56px;background:rgba(8,8,10,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
 .logo{font-family:'Space Grotesk',var(--font);font-size:16px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;letter-spacing:-0.5px;}
-.logo-icon{width:24px;height:24px;background:var(--text);border-radius:6px;display:flex;align-items:center;justify-content:center;}
-.logo-icon svg{width:14px;height:14px;fill:var(--bg);stroke:none;}
+.logo-icon{display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:20px;height:20px;fill:var(--text);stroke:none;}
 .nav-right{display:flex;align-items:center;gap:2rem;}
 .nav-right a{color:var(--text3);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.2s;letter-spacing:0.2px;}
 .nav-right a:hover{color:var(--text);}
@@ -86,7 +86,7 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 
 /* FEATURES */
 .features{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.feat-inner{max-width:960px;margin:0 auto;padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(2rem,3vw,3rem);}
+.feat-inner{max-width:720px;margin:0 auto;padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3rem) clamp(3rem,6vw,5rem);}
 .feat-item h3{font-size:14px;font-weight:600;margin-bottom:0.3rem;letter-spacing:-0.1px;color:var(--text);}
 .feat-item p{font-size:13px;color:var(--text3);line-height:1.5;font-weight:400;}
 
@@ -144,7 +144,6 @@ footer{padding:2rem clamp(1.5rem,5vw,5rem);border-top:1px solid var(--border);ma
 
 /* RESPONSIVE */
 @media(max-width:900px){
-.feat-inner{grid-template-columns:1fr 1fr;}
 .faq-inner{grid-template-columns:1fr;}
 .faq-label{padding-top:0;margin-bottom:0;}
 .pricing-inner{grid-template-columns:1fr;}
