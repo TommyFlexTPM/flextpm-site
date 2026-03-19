@@ -66,36 +66,9 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border2);padding:12px 28px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.15s;font-family:var(--font);cursor:pointer;display:inline-block;}
 .btn-secondary:hover{background:var(--surface3);transform:translateY(-1px);}
 
-/* LAPTOP MOCKUPS */
+/* INTERACTIVE DEMO (hero) */
 .hero-visual{position:relative;z-index:1;}
-.laptops{display:flex;align-items:flex-end;gap:clamp(12px,2vw,24px);}
-.laptop{flex:1;position:relative;}
-.laptop-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-bottom:10px;text-align:center;}
-.laptop-label.good{color:var(--green);}
-.laptop-screen{background:#0c0c0c;border:2px solid #333;border-bottom:none;border-radius:8px 8px 0 0;padding:0;overflow:hidden;aspect-ratio:16/11;}
-.laptop-base{height:10px;background:linear-gradient(180deg,#333 0%,#222 100%);border-radius:0 0 4px 4px;margin:0 -4px;position:relative;}
-.laptop-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:30%;height:3px;background:#444;border-radius:0 0 3px 3px;}
-.laptop-notch{height:6px;background:#1a1a1a;border-radius:0 0 6px 6px;width:20%;margin:0 auto;position:relative;top:-2px;}
-
-/* Device Manager UI inside screens */
-.dm{padding:clamp(6px,1vw,12px);height:100%;display:flex;flex-direction:column;font-family:'Segoe UI',var(--font);font-size:clamp(9px,1.1vw,12px);}
-.dm-titlebar{display:flex;align-items:center;gap:6px;padding:3px 6px;background:#1f1f1f;border-radius:4px 4px 0 0;margin:-clamp(6px,1vw,12px);margin-bottom:8px;padding:clamp(4px,0.6vw,8px) clamp(6px,1vw,12px);}
-.dm-title{color:#ccc;font-size:clamp(8px,1vw,11px);font-weight:400;}
-.dm-controls{margin-left:auto;display:flex;gap:8px;}
-.dm-controls span{color:#888;font-size:clamp(8px,1vw,10px);line-height:1;}
-.dm-tree{flex:1;padding:clamp(4px,0.8vw,8px);display:flex;flex-direction:column;gap:2px;}
-.dm-item{display:flex;align-items:center;gap:clamp(3px,0.5vw,6px);padding:2px 0;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.dm-item.parent{color:var(--text);font-weight:500;}
-.dm-expand{color:var(--text3);font-size:clamp(7px,0.8vw,10px);width:12px;text-align:center;flex-shrink:0;}
-.dm-icon-tpm{width:clamp(10px,1.2vw,14px);height:clamp(10px,1.2vw,14px);flex-shrink:0;}
-.dm-missing{color:#ef4444;font-style:italic;opacity:0.7;}
-.dm-found{color:var(--green);}
-.dm-warn{display:flex;align-items:center;gap:4px;color:#ef4444;font-size:clamp(8px,0.9vw,10px);margin-top:auto;padding:clamp(4px,0.6vw,6px);background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.15);border-radius:4px;}
-.dm-ok{display:flex;align-items:center;gap:4px;color:var(--green);font-size:clamp(8px,0.9vw,10px);margin-top:auto;padding:clamp(4px,0.6vw,6px);background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);border-radius:4px;}
-
-/* INTERACTIVE DEMO */
-.demo-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
-.demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.3);margin-top:2rem;max-width:720px;}
+.demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.3);}
 .demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
 .demo-shell-head .dots{display:flex;gap:7px;}
 .demo-shell-head .dots span{width:10px;height:10px;border-radius:50%;}
@@ -112,6 +85,11 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .demo-output .d-lbl{color:var(--text3);}
 .demo-output .d-val{color:var(--green);}
 .demo-output .d-acc{color:var(--accent2);}
+.demo-output .cursor{display:inline-block;width:8px;height:16px;background:var(--accent2);animation:blink .6s step-end infinite;vertical-align:text-bottom;margin-left:2px;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.demo-status{margin-top:10px;padding:8px 14px;border-radius:10px;font-size:13px;font-weight:500;display:none;align-items:center;gap:6px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.12);color:var(--green);}
+.demo-status.show{display:flex;}
+.demo-status svg{flex-shrink:0;}
 
 /* STATS STRIP */
 .stats-section{max-width:1400px;margin:0 auto;padding:clamp(1.5rem,3vw,3rem) clamp(1.25rem,4vw,4rem);}
@@ -261,7 +239,6 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     FlexTPM
   </div>
   <div class="nav-right">
-    <a href="#demo">Demo</a>
     <a href="#features">Features</a>
     <a href="#compatibility">Compatibility</a>
     <a href="#proof">Proof</a>
@@ -273,7 +250,6 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#demo" onclick="this.parentElement.classList.remove('show')">Demo</a>
     <a href="#features" onclick="this.parentElement.classList.remove('show')">Features</a>
     <a href="#compatibility" onclick="this.parentElement.classList.remove('show')">Compatibility</a>
     <a href="#proof" onclick="this.parentElement.classList.remove('show')">Proof</a>
@@ -290,66 +266,25 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
     <h1>Software TPM 2.0<br>for any PC.</h1>
     <p>A signed Windows driver that gives your machine a fully functional TPM. No VM, no registry hacks, no maintenance.</p>
   </div>
-  <div class="hero-visual">
-    <div class="laptops">
-      <div class="laptop">
-        <div class="laptop-label">Before</div>
-        <div class="laptop-screen">
-          <div class="dm">
-            <div class="dm-titlebar">
-              <span class="dm-title">Device Manager</span>
-              <div class="dm-controls"><span>&#8212;</span><span>&#9633;</span><span>&times;</span></div>
-            </div>
-            <div class="dm-tree">
-              <div class="dm-item parent"><span class="dm-expand">&#9660;</span> <svg class="dm-icon-tpm" viewBox="0 0 16 16" fill="none" stroke="#888" stroke-width="1.2"><rect x="3" y="5" width="10" height="7" rx="1"/><path d="M5 5V3.5M8 5V3.5M11 5V3.5"/></svg> Security devices</div>
-              <div class="dm-item" style="padding-left:20px;"><span class="dm-missing">No TPM found</span></div>
-            </div>
-            <div class="dm-warn"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#ef4444" stroke-width="1.5"><path d="M8 2L1.5 13h13L8 2z"/><path d="M8 7v3M8 11.5v0"/></svg> TPM not detected</div>
-          </div>
+  <div class="hero-visual" id="demo">
+    <div class="demo-shell">
+      <div class="demo-shell-head">
+        <div class="dots"><span class="dr"></span><span class="dy"></span><span class="dg"></span></div>
+        <span class="shell-title">Windows PowerShell</span>
+      </div>
+      <div class="demo-shell-body">
+        <div class="demo-chips">
+          <button class="demo-chip active" data-cmd="gettpm">Get-Tpm</button>
+          <button class="demo-chip" data-cmd="bitlocker">manage-bde -status</button>
+          <button class="demo-chip" data-cmd="device">Device check</button>
         </div>
-        <div class="laptop-base"></div>
-      </div>
-      <div class="laptop">
-        <div class="laptop-label good">After</div>
-        <div class="laptop-screen">
-          <div class="dm">
-            <div class="dm-titlebar">
-              <span class="dm-title">Device Manager</span>
-              <div class="dm-controls"><span>&#8212;</span><span>&#9633;</span><span>&times;</span></div>
-            </div>
-            <div class="dm-tree">
-              <div class="dm-item parent"><span class="dm-expand">&#9660;</span> <svg class="dm-icon-tpm" viewBox="0 0 16 16" fill="none" stroke="#888" stroke-width="1.2"><rect x="3" y="5" width="10" height="7" rx="1"/><path d="M5 5V3.5M8 5V3.5M11 5V3.5"/></svg> Security devices</div>
-              <div class="dm-item" style="padding-left:20px;"><span class="dm-found">FlexTPM 2.0 Software Device</span></div>
-            </div>
-            <div class="dm-ok"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,11.5 13,4.5"/></svg> TPM 2.0 ready</div>
-          </div>
+        <div class="demo-prompt">
+          <span class="ps">PS C:\WINDOWS\system32&gt;</span>
+          <span id="demoCmd">Get-Tpm</span>
         </div>
-        <div class="laptop-base"></div>
+        <div class="demo-output" id="demoOut"></div>
+        <div class="demo-status" id="demoStatus"></div>
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="demo-section" id="demo">
-  <span class="section-tag">Interactive Demo</span>
-  <h2>See what Windows sees.</h2>
-  <p style="color:var(--text2);font-size:clamp(15px,1.6vw,17px);margin-top:0.5rem;">Click a command. This is what your system looks like after FlexTPM is installed.</p>
-  <div class="demo-shell">
-    <div class="demo-shell-head">
-      <div class="dots"><span class="dr"></span><span class="dy"></span><span class="dg"></span></div>
-      <span class="shell-title">Windows PowerShell</span>
-    </div>
-    <div class="demo-shell-body">
-      <div class="demo-chips">
-        <button class="demo-chip active" data-cmd="gettpm">Get-Tpm</button>
-        <button class="demo-chip" data-cmd="bitlocker">manage-bde -status</button>
-        <button class="demo-chip" data-cmd="device">Device check</button>
-      </div>
-      <div class="demo-prompt">
-        <span class="ps">PS C:\WINDOWS\system32&gt;</span>
-        <span id="demoCmd">Get-Tpm</span>
-      </div>
-      <div class="demo-output" id="demoOut"></div>
     </div>
   </div>
 </div>
@@ -602,19 +537,19 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
 <script>
 // Interactive demo
 const demoData={
-  gettpm:{cmd:"Get-Tpm",out:`<span class="d-lbl">TpmPresent</span>          : <span class="d-val">True</span>
+  gettpm:{cmd:"Get-Tpm",status:"Windows recognizes TPM 2.0",out:`<span class="d-lbl">TpmPresent</span>          : <span class="d-val">True</span>
 <span class="d-lbl">TpmReady</span>            : <span class="d-val">True</span>
 <span class="d-lbl">TpmEnabled</span>          : <span class="d-val">True</span>
 <span class="d-lbl">TpmActivated</span>        : <span class="d-val">True</span>
 <span class="d-lbl">TpmOwned</span>            : <span class="d-val">True</span>
 <span class="d-lbl">ManufacturerIdTxt</span>   : INTC
 <span class="d-lbl">SpecVersion</span>         : 2.0, 0, 1.83`},
-  bitlocker:{cmd:"manage-bde -status C:",out:`Volume C:
+  bitlocker:{cmd:"manage-bde -status C:",status:"BitLocker active, no errors",out:`Volume C:
 <span class="d-lbl">Conversion Status</span>   : <span class="d-val">Fully Encrypted</span>
 <span class="d-lbl">Protection Status</span>   : <span class="d-val">Protection On</span>
 <span class="d-lbl">Lock Status</span>         : Unlocked
 <span class="d-lbl">Key Protectors</span>      : TPM`},
-  device:{cmd:"Get-PnpDevice -Class SecurityDevices",out:`<span class="d-lbl">Status</span>              : <span class="d-val">OK</span>
+  device:{cmd:"Get-PnpDevice -Class SecurityDevices",status:"TPM ready, no errors",out:`<span class="d-lbl">Status</span>              : <span class="d-val">OK</span>
 <span class="d-lbl">Class</span>               : SecurityDevices
 <span class="d-lbl">FriendlyName</span>        : Trusted Platform Module 2.0
 <span class="d-lbl">InstanceId</span>          : ROOT\\INTC_TPM\\0000
@@ -624,10 +559,29 @@ const demoData={
 const demoChips=document.querySelectorAll('.demo-chip');
 const demoCmd=document.getElementById('demoCmd');
 const demoOut=document.getElementById('demoOut');
+const demoStatus=document.getElementById('demoStatus');
+const checkSvg='<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>';
+let demoTimer=null;
+let firstLoad=true;
 function setDemo(key){
+  if(demoTimer){clearTimeout(demoTimer);demoTimer=null;}
   demoChips.forEach(c=>c.classList.toggle('active',c.dataset.cmd===key));
   demoCmd.textContent=demoData[key].cmd;
-  demoOut.innerHTML=demoData[key].out;
+  demoStatus.classList.remove('show');
+  if(firstLoad){
+    demoOut.innerHTML=demoData[key].out;
+    demoStatus.innerHTML=checkSvg+demoData[key].status;
+    demoStatus.classList.add('show');
+    firstLoad=false;
+    return;
+  }
+  demoOut.innerHTML='<span class="cursor"></span>';
+  const delay=350+Math.random()*250;
+  demoTimer=setTimeout(()=>{
+    demoOut.innerHTML=demoData[key].out;
+    demoStatus.innerHTML=checkSvg+demoData[key].status;
+    demoStatus.classList.add('show');
+  },delay);
 }
 demoChips.forEach(c=>c.addEventListener('click',()=>setDemo(c.dataset.cmd)));
 setDemo('gettpm');
