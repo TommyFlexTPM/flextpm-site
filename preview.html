@@ -149,7 +149,7 @@ footer{padding:2rem clamp(1.5rem,5vw,5rem);border-top:1px solid var(--border);ma
 .footer-left{font-size:12px;color:var(--text3);opacity:0.6;}
 .footer-left a{color:var(--text3);text-decoration:none;}
 .footer-left a:hover{color:var(--text2);}
-.footer-disclaimer{font-size:11px;color:var(--text3);opacity:0.4;max-width:960px;margin:0 auto;padding:1rem clamp(1.5rem,5vw,5rem) 2rem;line-height:1.6;}
+.footer-disclaimer{font-size:11px;color:var(--text2);opacity:0.7;max-width:960px;margin:0 auto;padding:1rem clamp(1.5rem,5vw,5rem) 2rem;line-height:1.6;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -166,6 +166,14 @@ footer{padding:2rem clamp(1.5rem,5vw,5rem);border-top:1px solid var(--border);ma
 .pricing-cards{grid-template-columns:1fr 1fr;}
 .email-row{flex-direction:column;}
 footer{flex-direction:column;text-align:center;gap:0.4rem;}
+.hero{padding-left:1rem;padding-right:1rem;}
+.hero-demo{max-width:100%;}
+.demo-chips{justify-content:center;}
+.demo-chip{font-size:11px;padding:6px 10px;}
+.demo-shell-body{padding:12px;}
+.demo-prompt{font-size:12px;padding:8px 10px;}
+.demo-output{font-size:11px;line-height:1.6;height:150px;padding:12px;}
+.demo-flow{font-size:10px;}
 }
 </style>
 </head>
@@ -339,7 +347,7 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
 <div class="footer-disclaimer">
   FlexTPM is provided "as is" without warranty. It does not replace a dedicated hardware TPM or HSM.
   Not affiliated with Apple, Microsoft, or the Trusted Computing Group. A reboot is required after installation.
-  License keys are hardware-locked and non-transferable. Use at your own risk.
+  License keys are hardware-locked. Contact support to transfer a license to a new machine. Use at your own risk.
 </div>
 
 <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
