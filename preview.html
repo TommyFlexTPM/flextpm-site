@@ -103,6 +103,38 @@ h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-1.5px;line-h
 .feat-content h3{font-size:clamp(16px,1.8vw,20px);font-weight:600;margin-bottom:0.4rem;letter-spacing:-0.3px;}
 .feat-content p{font-size:clamp(14px,1.5vw,16px);color:var(--text2);line-height:1.65;font-weight:400;}
 
+/* HOW IT WORKS */
+.how-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
+.how-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);transition:all 0.2s;position:relative;}
+.how-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.how-num{font-family:var(--mono);font-size:clamp(28px,3vw,40px);font-weight:700;color:var(--surface3);line-height:1;margin-bottom:1rem;}
+.how-card h3{font-size:clamp(16px,1.8vw,20px);font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.3px;}
+.how-card p{font-size:clamp(14px,1.5vw,16px);color:var(--text2);line-height:1.65;font-weight:400;}
+
+/* PROOF */
+.proof-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,20px);margin-top:2rem;}
+.proof-terminal{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;transition:border-color 0.2s;}
+.proof-terminal:hover{border-color:var(--accent);}
+.proof-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
+.proof-head-title{font-size:12px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;}
+.proof-dots{display:flex;gap:6px;}
+.proof-dots span{width:10px;height:10px;border-radius:50%;}
+.proof-dots .r{background:#ef4444;}.proof-dots .y{background:#eab308;}.proof-dots .g{background:#22c55e;}
+.proof-body{padding:clamp(14px,2vw,22px);font-family:var(--mono);font-size:clamp(11px,1.2vw,14px);line-height:1.85;color:#d4d4d8;white-space:pre-wrap;}
+.proof-body .cmd{color:var(--accent2);}
+.proof-body .val{color:var(--green);}
+.proof-body .lbl{color:var(--text3);}
+
+/* FAQ */
+.faq-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
+.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
+.faq-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:clamp(1.5rem,2.5vw,2.5rem);transition:all 0.2s;}
+.faq-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.faq-card h3{font-size:clamp(15px,1.6vw,18px);font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.2px;}
+.faq-card p{font-size:clamp(13px,1.4vw,15px);color:var(--text2);line-height:1.65;font-weight:400;}
+
 /* COMPATIBILITY */
 .compat-section{max-width:1400px;margin:0 auto;padding:clamp(2.5rem,5vw,5rem) clamp(1.25rem,4vw,4rem);}
 .compat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);margin-top:2rem;}
@@ -166,6 +198,9 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .pricing-left{position:static;}
 .pricing-cards{grid-template-columns:1fr 1fr;}
 .compat-grid{grid-template-columns:repeat(2,1fr);}
+.how-grid{grid-template-columns:repeat(3,1fr);}
+.proof-grid{grid-template-columns:1fr 1fr;}
+.faq-grid{grid-template-columns:repeat(3,1fr);}
 .cta-section{grid-template-columns:1fr 1fr;}
 }
 
@@ -177,6 +212,9 @@ footer{padding:2rem clamp(1.25rem,4vw,4rem);border-top:1px solid var(--border);m
 .feat-block:first-child{border-right:none;border-bottom:1px solid var(--border);}
 .pricing-cards{grid-template-columns:1fr 1fr;}
 .compat-grid{grid-template-columns:repeat(2,1fr);}
+.how-grid{grid-template-columns:1fr;}
+.proof-grid{grid-template-columns:1fr;}
+.faq-grid{grid-template-columns:1fr;}
 .cta-section{grid-template-columns:1fr;}
 .email-row{flex-direction:column;}
 footer{flex-direction:column;text-align:center;gap:0.5rem;}
@@ -195,6 +233,8 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <div class="nav-right">
     <a href="#features">Features</a>
     <a href="#compatibility">Compatibility</a>
+    <a href="#proof">Proof</a>
+    <a href="#faq">FAQ</a>
     <a href="#pricing">Pricing</a>
     <a href="#notify" class="nav-btn">Buy Now</a>
     <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('show')" aria-label="Menu">
@@ -204,6 +244,8 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   <div class="mobile-menu" id="mobileMenu">
     <a href="#features" onclick="this.parentElement.classList.remove('show')">Features</a>
     <a href="#compatibility" onclick="this.parentElement.classList.remove('show')">Compatibility</a>
+    <a href="#proof" onclick="this.parentElement.classList.remove('show')">Proof</a>
+    <a href="#faq" onclick="this.parentElement.classList.remove('show')">FAQ</a>
     <a href="#pricing" onclick="this.parentElement.classList.remove('show')">Pricing</a>
     <a href="#pricing" onclick="this.parentElement.classList.remove('show')" style="color:var(--accent2);font-weight:500;">Buy Now</a>
   </div>
@@ -291,6 +333,28 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
   </div>
 </div>
 
+<div class="how-section" id="how">
+  <span class="section-tag">How it works</span>
+  <h2>Three steps. Done.</h2>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">01</div>
+      <h3>Install FlexTPM</h3>
+      <p>Run the installer. One click sets up the signed driver and service. No BIOS changes, no registry edits.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">02</div>
+      <h3>Windows detects TPM 2.0</h3>
+      <p>After a reboot, the OS sees a fully valid TPM 2.0 device. Device Manager, Get-Tpm, and system checks all pass.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">03</div>
+      <h3>Everything just works</h3>
+      <p>BitLocker, Windows Hello, Windows 11 requirements, and TPM-dependent software stop failing. Nothing to maintain.</p>
+    </div>
+  </div>
+</div>
+
 <div class="compat-section" id="compatibility">
   <span class="section-tag">Compatibility</span>
   <h2>Works on more than you think.</h2>
@@ -314,6 +378,72 @@ footer{flex-direction:column;text-align:center;gap:0.5rem;}
       <span class="compat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3"/><rect x="5" y="5" width="14" height="14" rx="1.5" stroke-dasharray="3 2"/><path d="M9 9h6M9 12h6M9 15h3"/></svg></span>
       <h4>Virtual machines</h4>
       <p>VMs on any host that need a TPM passthrough.</p>
+    </div>
+  </div>
+</div>
+
+<div class="proof-section" id="proof">
+  <span class="section-tag">Proof</span>
+  <h2>Proof, not promises.</h2>
+  <p style="color:var(--text2);font-size:clamp(15px,1.6vw,17px);margin-top:0.5rem;">Windows sees TPM 2.0. BitLocker stops complaining. The machine moves forward.</p>
+  <div class="proof-grid">
+    <div class="proof-terminal">
+      <div class="proof-head">
+        <div class="proof-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+        <span class="proof-head-title">Windows PowerShell</span>
+      </div>
+      <div class="proof-body"><span class="cmd">PS C:\&gt;</span> Get-Tpm
+
+<span class="lbl">TpmPresent</span>          : <span class="val">True</span>
+<span class="lbl">TpmReady</span>            : <span class="val">True</span>
+<span class="lbl">TpmEnabled</span>          : <span class="val">True</span>
+<span class="lbl">TpmActivated</span>        : <span class="val">True</span>
+<span class="lbl">TpmOwned</span>            : <span class="val">True</span>
+<span class="lbl">ManufacturerIdTxt</span>   : INTC
+<span class="lbl">SpecVersion</span>         : 2.0, 0, 1.83</div>
+    </div>
+    <div class="proof-terminal">
+      <div class="proof-head">
+        <div class="proof-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+        <span class="proof-head-title">Windows PowerShell</span>
+      </div>
+      <div class="proof-body"><span class="cmd">PS C:\&gt;</span> manage-bde -status C:
+
+<span class="lbl">Conversion Status</span>   : <span class="val">Fully Encrypted</span>
+<span class="lbl">Protection Status</span>   : <span class="val">Protection On</span>
+<span class="lbl">Lock Status</span>         : Unlocked
+<span class="lbl">Key Protectors</span>      : TPM</div>
+    </div>
+  </div>
+</div>
+
+<div class="faq-section" id="faq">
+  <span class="section-tag">FAQ</span>
+  <h2>Clear answers.</h2>
+  <div class="faq-grid">
+    <div class="faq-card">
+      <h3>Who needs this?</h3>
+      <p>Anyone with a missing, broken, or inaccessible TPM on Windows. Boot Camp Mac users, older PCs, custom builds, and VMs that need TPM 2.0 to work.</p>
+    </div>
+    <div class="faq-card">
+      <h3>Do I need this if I already have TPM?</h3>
+      <p>No. If your hardware TPM works, you don't need FlexTPM. This is for systems where the hardware path is unavailable or failing.</p>
+    </div>
+    <div class="faq-card">
+      <h3>What does it actually fix?</h3>
+      <p>It removes TPM 2.0 as the blocker. BitLocker, Windows Hello, Windows 11 requirements, and any TPM-dependent software stop failing.</p>
+    </div>
+    <div class="faq-card">
+      <h3>Is it a VM or emulator?</h3>
+      <p>No. FlexTPM is a signed native Windows driver. No virtual machine, no hypervisor, no emulation layer. It runs in the real OS.</p>
+    </div>
+    <div class="faq-card">
+      <h3>Does it work with Secure Boot?</h3>
+      <p>Yes. The driver is signed with a Microsoft-trusted certificate. Works with Secure Boot on or off.</p>
+    </div>
+    <div class="faq-card">
+      <h3>Is there a subscription?</h3>
+      <p>No. One-time purchase, yours forever. No recurring fees, no cloud dependency, no forced updates.</p>
     </div>
   </div>
 </div>
