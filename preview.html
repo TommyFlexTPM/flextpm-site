@@ -52,13 +52,14 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .mobile-menu a:hover{color:var(--text);}
 
 /* HERO */
-.hero{max-width:960px;margin:0 auto;padding:clamp(4rem,10vh,7rem) clamp(1.5rem,5vw,5rem) clamp(3rem,7vh,5rem);text-align:center;position:relative;}
+.hero{max-width:960px;margin:0 auto;padding:clamp(2.5rem,5vh,4rem) clamp(1.5rem,5vw,5rem) clamp(3rem,7vh,5rem);text-align:center;position:relative;}
 .hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(59,130,246,0.05) 0%,transparent 65%);pointer-events:none;}
-.hero-intro{position:relative;z-index:1;margin-bottom:clamp(2rem,4vw,3rem);max-width:640px;margin-left:auto;margin-right:auto;}
+.hero-intro{position:relative;z-index:1;margin-bottom:clamp(1.25rem,2.5vw,1.75rem);max-width:640px;margin-left:auto;margin-right:auto;}
 h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:0.75rem;color:var(--text);}
 .hero-sub{font-size:clamp(15px,1.8vw,17px);color:var(--text3);font-weight:400;letter-spacing:0.1px;}
 
 /* DEMO */
+.hero-hook{font-size:12px;color:var(--text3);font-weight:500;letter-spacing:0.3px;margin-bottom:clamp(0.75rem,1.5vw,1rem);opacity:0.7;}
 .hero-demo{position:relative;z-index:1;max-width:720px;margin:0 auto;}
 .demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.35),0 0 0 1px rgba(255,255,255,0.03);}
 .demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border);}
@@ -69,6 +70,7 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 .demo-shell-body{padding:clamp(14px,2vw,20px);}
 .demo-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
 .demo-chip{padding:7px 13px;border-radius:7px;background:transparent;border:1px solid var(--border2);color:var(--text3);font-size:12px;font-weight:600;font-family:var(--mono);cursor:pointer;transition:all 0.2s var(--ease);user-select:none;letter-spacing:0.2px;}
+.demo-chip::before{content:'> ';opacity:0.4;}
 .demo-chip:hover{border-color:rgba(255,255,255,0.2);color:var(--text2);}
 .demo-chip.active{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--text);}
 .demo-prompt{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(0,0,0,0.3);border-radius:10px;font-family:var(--mono);font-size:13px;color:#d4d4d8;margin-bottom:8px;}
@@ -79,7 +81,7 @@ h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-h
 .demo-output .d-acc{color:var(--accent2);}
 .demo-output .cursor{display:inline-block;width:7px;height:14px;background:var(--text3);animation:blink .6s step-end infinite;vertical-align:text-bottom;margin-left:2px;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.demo-status{margin-top:8px;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:500;display:none;align-items:center;gap:6px;color:var(--green);opacity:0.8;}
+.demo-status{margin-top:8px;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:500;display:none;align-items:center;gap:6px;color:var(--green);}
 .demo-status.show{display:flex;}
 .demo-status svg{flex-shrink:0;}
 
@@ -191,6 +193,7 @@ footer{flex-direction:column;text-align:center;gap:0.4rem;}
     <p class="hero-sub">Run a command. See how Windows responds.</p>
   </div>
   <div class="hero-demo">
+    <p class="hero-hook">No hardware TPM exposed. Still works.</p>
     <div class="demo-shell">
       <div class="demo-shell-head">
         <div class="dots"><span class="dr"></span><span class="dy"></span><span class="dg"></span></div>
