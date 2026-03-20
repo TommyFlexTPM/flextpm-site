@@ -10,16 +10,18 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
---bg:#0c0c0d;--bg2:#131315;--bg3:#1a1a1d;
---border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--border3:rgba(255,255,255,0.16);
---text:#e8e8ea;--text2:#a0a0a8;--text3:#606068;
---blue:#4a9eff;--blue2:#93c5fd;--blue-bg:rgba(74,158,255,0.07);--blue-border:rgba(74,158,255,0.18);
---grn:#4ade80;
+--bg:#08080a;--surface:#111114;--surface2:#19191d;
+--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.10);
+--text:#f4f4f5;--text2:#a0a0ab;--text3:#63636e;
+--accent:#3b82f6;--accent2:#60a5fa;
+--green:#22c55e;
 --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 --mono:'JetBrains Mono','SF Mono',monospace;
+--ease:cubic-bezier(0.16,1,0.3,1);
 }
 
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}
+html{overflow-x:hidden;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;overflow-x:hidden;}
 
 .container{text-align:center;max-width:460px;width:100%;}
 
@@ -27,33 +29,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 .logo-icon{display:flex;align-items:center;justify-content:center;}
 .logo-icon svg{width:20px;height:20px;fill:var(--text);stroke:none;}
 
-h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;letter-spacing:-0.5px;line-height:1.15;margin-bottom:1rem;color:var(--text);}
-h1 em{font-style:normal;color:var(--blue2);font-weight:300;}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:1rem;color:var(--text);}
+h1 em{font-style:normal;color:var(--accent2);font-weight:800;}
 
-.subtitle{font-size:15px;color:var(--text2);line-height:1.7;font-weight:300;margin-bottom:2.5rem;}
+.subtitle{font-size:14px;color:var(--text3);line-height:1.55;font-weight:400;margin-bottom:2.5rem;}
 
 .email-form{margin-bottom:1rem;}
 .email-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
-.email-input{flex:1;min-width:200px;max-width:280px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:6px;padding:10px 14px;font-size:13px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.15s;}
+.email-input{flex:1;min-width:200px;max-width:280px;background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:11px 16px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.2s var(--ease);}
 .email-input::placeholder{color:var(--text3);}
-.email-input:focus{border-color:var(--blue-border);}
-.btn-blue{background:var(--blue-bg);color:var(--blue2);border:0.5px solid var(--blue-border);padding:10px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:opacity 0.15s;font-family:var(--font);}
-.btn-blue:hover{opacity:0.75;}
-.fine-print{font-size:11px;color:var(--text3);margin-top:0.75rem;font-weight:300;}
-.form-error{font-size:11px;color:#f87171;margin-top:0.5rem;display:none;}
-.form-success{font-size:13px;color:var(--grn);margin-top:0.75rem;display:none;}
+.email-input:focus{border-color:rgba(255,255,255,0.2);}
+.btn-primary{background:var(--text);color:var(--bg);padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity 0.15s;font-family:var(--font);border:none;white-space:nowrap;}
+.btn-primary:hover{opacity:0.85;}
+.fine-print{font-size:11px;color:var(--text3);margin-top:0.6rem;opacity:0.7;}
+.form-error{font-size:12px;color:#ef4444;margin-top:0.5rem;display:none;}
+.form-success{font-size:14px;color:var(--green);margin-top:0.75rem;display:none;}
 
-.footer{margin-top:4rem;font-size:11px;color:var(--text3);font-weight:300;opacity:0.5;}
+.footer{margin-top:4rem;font-size:12px;color:var(--text3);opacity:0.6;}
 
-@media(prefers-color-scheme:light){
-:root{
---bg:#f8f8f7;--bg2:#ffffff;--bg3:#f0f0ee;
---border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.1);--border3:rgba(0,0,0,0.18);
---text:#0f0f10;--text2:#4a4a52;--text3:#9a9aa4;
---blue:#1a6fd4;--blue2:#1558b0;--blue-bg:rgba(26,111,212,0.07);--blue-border:rgba(26,111,212,0.2);
---grn:#16a34a;
-}
-}
 </style>
 </head>
 <body>
@@ -74,7 +67,7 @@ h1 em{font-style:normal;color:var(--blue2);font-weight:300;}
       <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
       <div class="email-row">
         <input type="email" name="email" class="email-input" placeholder="your@email.com" required/>
-        <button type="submit" class="btn-blue" id="submitBtn">Notify me</button>
+        <button type="submit" class="btn-primary" id="submitBtn">Notify me</button>
       </div>
       <p class="fine-print">No spam. Unsubscribe anytime.</p>
       <p class="form-error" id="formError">Something went wrong. Please try again.</p>
@@ -82,7 +75,7 @@ h1 em{font-style:normal;color:var(--blue2);font-weight:300;}
     </form>
   </div>
 
-  <p class="footer">&copy; 2026 FlexTPM &middot; Houston, TX</p>
+  <p class="footer">FlexTPM &copy; 2026</p>
 </div>
 
 <script>
