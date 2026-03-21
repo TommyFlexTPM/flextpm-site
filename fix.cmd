@@ -6,14 +6,10 @@ if %errorlevel% neq 0 (
 )
 echo === FlexTPM Provisioning ===
 echo.
-echo Downloading repair script...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest 'https://flextpm.com/repair_tpm.ps1' -OutFile 'C:\FlexTPM\repair_tpm.ps1'; Write-Host 'Downloaded'"
+echo Downloading provisioning script...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest 'https://flextpm.com/provision.ps1' -OutFile 'C:\FlexTPM\provision.ps1'; Write-Host 'Done'"
 echo.
-echo Running repair...
-powershell -NoProfile -ExecutionPolicy Bypass -File "C:\FlexTPM\repair_tpm.ps1" -InstallDir "C:\FlexTPM" -Force
+echo Running...
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:\FlexTPM\provision.ps1"
 echo.
-echo === Get-Tpm ===
-powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-Tpm | fl TpmPresent, TpmReady"
-echo.
-echo Done.
-pause >/dev/null
+pause
