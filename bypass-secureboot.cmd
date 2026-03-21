@@ -1,22 +1,26 @@
 @echo off
 title FlexTPM - Bypass Secure Boot Check
 echo.
-echo  FlexTPM - Windows 11 Secure Boot Requirement Bypass
-echo  ====================================================
+echo  FlexTPM - Windows 11 Requirement Bypass
+echo  =========================================
 echo.
-echo  This bypasses the Windows 11 Secure Boot check
+echo  Bypasses Windows 11 hardware checks (Secure Boot, TPM, etc.)
 echo  for both upgrades and clean installs.
-echo  TPM requirement remains enforced.
+echo  Run as administrator before starting Windows 11 setup.
 echo.
 
 :: For in-place upgrades (setup.exe from inside Windows)
 reg add "HKLM\SYSTEM\Setup\MoSetup" /v AllowUpgradesWithUnsupportedTPMOrCPU /t REG_DWORD /d 1 /f >nul 2>&1
 
-:: For clean installs (booting from USB)
+:: LabConfig keys for setup checks
 reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassSecureBootCheck /t REG_DWORD /d 1 /f >nul 2>&1
+reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassTPMCheck /t REG_DWORD /d 1 /f >nul 2>&1
+reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassRAMCheck /t REG_DWORD /d 1 /f >nul 2>&1
+reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassStorageCheck /t REG_DWORD /d 1 /f >nul 2>&1
+reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassCPUCheck /t REG_DWORD /d 1 /f >nul 2>&1
 
 if %errorlevel%==0 (
-    echo  [OK] Secure Boot check bypassed successfully.
+    echo  [OK] All hardware checks bypassed successfully.
     echo.
     echo  You can now run Windows 11 setup.
 ) else (
