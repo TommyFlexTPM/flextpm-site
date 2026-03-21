@@ -13,5 +13,7 @@ echo.
 echo Running...
 powershell -NoProfile -ExecutionPolicy Bypass -File "C:\FlexTPM\provision.ps1"
 echo.
-echo Press any key...
-pause >/dev/null
+echo =====================
+echo DONE. Window will stay open.
+echo =====================
+cmd /k
