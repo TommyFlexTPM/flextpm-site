@@ -5,6 +5,9 @@ if %errorlevel% neq 0 (
     exit /b
 )
 echo === FlexTPM Fix ===
+echo Downloading latest repair script...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://flextpm.com/repair_tpm.ps1' -OutFile 'C:\FlexTPM\repair_tpm.ps1'"
+echo Starting services...
 sc config FlexTpmEngine start= auto >/dev/null 2>&1
 sc config FlexTpmLink start= auto >/dev/null 2>&1
 sc config TBS start= auto >/dev/null 2>&1
@@ -15,5 +18,9 @@ timeout /t 2 /nobreak >/dev/null
 sc start TBS >/dev/null 2>&1
 timeout /t 3 /nobreak >/dev/null
 echo Running repair...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\FlexTPM\repair_tpm.ps1' -InstallDir 'C:\FlexTPM' -Force 2>&1; Write-Host ''; Write-Host '=== Get-Tpm ===' -Fore Cyan; Get-Tpm | fl"
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:\FlexTPM\repair_tpm.ps1" -InstallDir "C:\FlexTPM" -Force
+timeout /t 3 /nobreak >/dev/null
+echo.
+echo === Get-Tpm ===
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-Tpm | fl"
 pause

@@ -1,0 +1,7 @@
+{
+    "version": "1.0.0",
+    "download_url": "https://github.com/flextpm/releases/download/v1.0.0/flextpm_setup.exe",
+    "changelog": "Initial release",
+    "min_os": "10.0.17763",
+    "released": "2026-04-01"
+}
