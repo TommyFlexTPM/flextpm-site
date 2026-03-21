@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlexTPM — TPM 2.0 for any PC</title>
+<meta name="description" content="TPM 2.0 for Windows. Works on Boot Camp Macs, older PCs, custom builds, and VMs. Signed native driver.">
+<meta property="og:title" content="FlexTPM — TPM 2.0 for any PC">
+<meta property="og:description" content="Full TPM 2.0 for Windows — works anywhere. One-time purchase, signed native driver.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flextpm.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FlexTPM — TPM 2.0 for any PC">
+<meta name="twitter:description" content="Full TPM 2.0 for Windows — works anywhere. One-time purchase, signed native driver.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+--bg:#08080a;
+--surface:#111114;
+--surface2:#19191d;
+--border:rgba(255,255,255,0.06);
+--border2:rgba(255,255,255,0.10);
+--text:#f4f4f5;
+--text2:#a0a0ab;
+--text3:#63636e;
+--accent:#3b82f6;
+--accent2:#60a5fa;
+--accent-glow:rgba(59,130,246,0.12);
+--green:#22c55e;
+--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--mono:'JetBrains Mono','SF Mono',monospace;
+--ease:cubic-bezier(0.16,1,0.3,1);
+}
+
+html{overflow-x:hidden;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease);}
+.reveal.visible{opacity:1;transform:none;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,5rem);height:56px;background:rgba(8,8,10,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Space Grotesk',var(--font);font-size:16px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;letter-spacing:-0.5px;}
+.logo-icon{display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:20px;height:20px;fill:var(--text);stroke:none;}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-right a{color:var(--text3);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.2s;letter-spacing:0.2px;}
+.nav-right a:hover{color:var(--text);}
+.nav-btn{background:var(--text);color:var(--bg) !important;padding:7px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.15s;}
+.nav-btn:hover{opacity:0.85;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:18px;height:1.5px;background:var(--text2);margin:4px 0;border-radius:2px;}
+.mobile-menu{display:none;position:absolute;top:56px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:0.75rem 0;z-index:99;flex-direction:column;}
+.mobile-menu.show{display:flex;}
+.mobile-menu a{color:var(--text2);text-decoration:none;font-size:15px;padding:0.75rem clamp(1.5rem,5vw,5rem);transition:color 0.15s;}
+.mobile-menu a:hover{color:var(--text);}
+
+/* HERO */
+.hero{max-width:960px;margin:0 auto;padding:clamp(2.5rem,5vh,4rem) clamp(1.5rem,5vw,5rem) clamp(3rem,7vh,5rem);text-align:center;position:relative;}
+.hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(59,130,246,0.05) 0%,transparent 65%);pointer-events:none;}
+.hero-intro{position:relative;z-index:1;margin-bottom:clamp(1rem,2vw,1.5rem);max-width:640px;margin-left:auto;margin-right:auto;}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:var(--text);}
+
+/* DEMO */
+.hero-hook{font-size:12px;color:var(--text3);font-weight:500;letter-spacing:0.3px;margin-bottom:clamp(0.75rem,1.5vw,1rem);opacity:0.7;}
+.hero-demo{position:relative;z-index:1;max-width:720px;margin:0 auto;}
+.demo-shell{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.35),0 0 0 1px rgba(255,255,255,0.03);}
+.demo-shell-head{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);}
+.demo-shell-head .shell-title{font-size:12px;color:var(--text3);font-weight:500;letter-spacing:0.3px;}
+.demo-shell-body{padding:clamp(14px,2vw,20px);}
+.demo-chips{display:flex;gap:6px;flex-wrap:nowrap;margin-bottom:14px;justify-content:center;}
+.demo-chip{padding:7px 13px;border-radius:7px;background:transparent;border:1px solid var(--border2);color:var(--text3);font-size:12px;font-weight:600;font-family:var(--mono);cursor:pointer;transition:all 0.2s var(--ease);user-select:none;letter-spacing:0.2px;}
+.demo-chip::before{content:'> ';opacity:0.4;}
+.demo-chip:hover{border-color:rgba(255,255,255,0.2);color:var(--text2);}
+.demo-chip.active{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:var(--text);}
+.demo-prompt{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(0,0,0,0.3);border-radius:10px;font-family:var(--mono);font-size:13px;color:#d4d4d8;margin-bottom:8px;}
+.demo-prompt .ps{color:var(--text3);}
+.demo-output{padding:16px;background:rgba(0,0,0,0.3);border-radius:10px;font-family:var(--mono);font-size:13px;line-height:1.8;color:#d4d4d8;white-space:pre-wrap;height:180px;overflow-y:auto;overflow-anchor:none;}
+.demo-output .d-lbl{color:var(--text3);}
+.demo-output .d-val{color:var(--green);}
+.demo-output .d-acc{color:var(--accent2);}
+.demo-output .cursor{display:inline-block;width:7px;height:14px;background:var(--text3);animation:blink .6s step-end infinite;vertical-align:text-bottom;margin-left:2px;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.demo-foot{height:52px;overflow:hidden;}
+.demo-status{margin-top:8px;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:500;display:none;align-items:center;gap:6px;color:var(--green);overflow-anchor:none;}
+.demo-status.show{display:flex;}
+.demo-status svg{flex-shrink:0;}
+.demo-flow{margin-top:6px;text-align:center;font-size:11px;color:var(--text3);letter-spacing:0.5px;opacity:0.5;}
+.demo-flow span{margin:0 6px;opacity:0.4;}
+
+/* FEATURES */
+.features{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.feat-inner{max-width:720px;margin:0 auto;padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3rem) clamp(3rem,6vw,5rem);}
+.feat-item h3{font-size:14px;font-weight:600;margin-bottom:0.3rem;letter-spacing:-0.1px;color:var(--text);}
+.feat-item p{font-size:13px;color:var(--text3);line-height:1.5;font-weight:400;}
+
+/* FAQ */
+.faq{max-width:960px;margin:0 auto;padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem);}
+.faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:clamp(2rem,4vw,4rem);align-items:start;}
+.faq-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;padding-top:clamp(1rem,2vw,1.5rem);}
+.faq-list{display:grid;gap:0;}
+.faq-item{padding:clamp(1rem,2vw,1.5rem) 0;border-top:1px solid var(--border);}
+.faq-item:last-child{border-bottom:1px solid var(--border);}
+.faq-item h3{font-size:15px;font-weight:600;margin-bottom:0.3rem;color:var(--text);letter-spacing:-0.2px;}
+.faq-item p{font-size:14px;color:var(--text3);line-height:1.55;}
+
+/* PRICING */
+.pricing-wrap{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.pricing{max-width:960px;margin:0 auto;padding:clamp(4rem,8vh,6rem) clamp(1.5rem,5vw,5rem);}
+.pricing-inner{display:grid;grid-template-columns:1fr 2fr;gap:clamp(2rem,4vw,4rem);align-items:start;}
+.pricing-text{}
+.pricing-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;}
+.pricing h2{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:0.3rem;}
+.pricing-sub{font-size:14px;color:var(--text3);}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.price-card{background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:clamp(1.5rem,2.5vw,2rem);display:flex;flex-direction:column;gap:1.25rem;transition:border-color 0.3s var(--ease),background 0.3s var(--ease),transform 0.3s var(--ease);}
+.price-card:hover{border-color:rgba(255,255,255,0.18);background:var(--surface2);transform:translateY(-2px);}
+.price-tier{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;}
+.price-amount{font-size:clamp(2rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-2px;line-height:1;}
+.price-amount span{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:400;color:var(--text3);letter-spacing:0;}
+.price-period{font-size:12px;color:var(--text3);margin-top:0.1rem;}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.price-features li{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:6px;}
+.check{width:14px;height:14px;flex-shrink:0;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.price-btn{padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s var(--ease);font-family:var(--font);display:block;text-align:center;width:100%;margin-top:auto;background:var(--text);color:var(--bg);}
+.price-btn:hover{opacity:0.85;}
+.pricing-trust{font-size:11px;color:var(--text3);margin-top:1.25rem;opacity:0.6;}
+
+/* CTA */
+.cta{max-width:960px;margin:0 auto;padding:clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,5rem) clamp(2rem,4vh,3rem);text-align:center;}
+.cta h2{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;letter-spacing:-0.5px;margin-bottom:0.4rem;}
+.cta p{font-size:14px;color:var(--text3);margin-bottom:1.25rem;}
+.email-row{display:flex;gap:8px;max-width:400px;margin:0 auto;}
+.email-input{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:11px 16px;font-size:14px;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.2s var(--ease);}
+.email-input::placeholder{color:var(--text3);}
+.email-input:focus{border-color:rgba(255,255,255,0.2);}
+.btn-primary{background:var(--text);color:var(--bg);padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.15s;font-family:var(--font);border:none;cursor:pointer;display:inline-block;white-space:nowrap;}
+.btn-primary:hover{opacity:0.85;}
+.fine-print{font-size:11px;color:var(--text3);margin-top:0.6rem;opacity:0.7;}
+.form-error{font-size:12px;color:#ef4444;margin-top:0.5rem;display:none;}
+.form-success{font-size:14px;color:var(--green);margin-top:0.75rem;display:none;}
+
+/* FOOTER */
+footer{padding:2rem clamp(1.5rem,5vw,5rem);border-top:1px solid var(--border);max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;}
+.footer-left{font-size:12px;color:var(--text3);opacity:0.6;}
+.footer-left a{color:var(--text3);text-decoration:none;}
+.footer-left a:hover{color:var(--text2);}
+.footer-disclaimer{font-size:11px;color:var(--text3);line-height:1.6;margin:0;padding:0;opacity:0.4;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.faq-inner{grid-template-columns:1fr;}
+.faq-label{padding-top:0;margin-bottom:0;}
+.pricing-inner{grid-template-columns:1fr;}
+.pricing-sub{margin-bottom:1.5rem;}
+}
+@media(max-width:600px){
+.nav-right a{display:none;}
+.nav-btn{display:none !important;}
+.hamburger{display:block;}
+.feat-inner{grid-template-columns:1fr;gap:1.5rem;}
+.pricing-cards{grid-template-columns:1fr 1fr;}
+.email-row{flex-direction:column;}
+footer{flex-direction:column;text-align:center;gap:0.4rem;}
+.hero{padding-left:1rem;padding-right:1rem;}
+.demo-chip{font-size:10px;padding:5px 8px;letter-spacing:0;}
+.demo-output{font-size:11px;line-height:1.6;height:150px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 16 16" fill-rule="evenodd"><path d="M8 .5L1.5 3.5v4C1.5 12 4.5 15 8 16c3.5-1 6.5-4 6.5-8.5v-4L8 .5zM8 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+    </div>
+    FlexTPM
+  </div>
+  <div class="nav-right">
+    <a href="#faq">FAQ</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#pricing" class="nav-btn">Buy Now</a>
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('show')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#faq" onclick="this.parentElement.classList.remove('show')">FAQ</a>
+    <a href="#pricing" onclick="this.parentElement.classList.remove('show')">Pricing</a>
+    <a href="#pricing" onclick="this.parentElement.classList.remove('show')" style="color:var(--text);font-weight:600;">Buy Now</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-intro">
+    <h1>TPM 2.0 without the headache.</h1>
+  </div>
+  <div class="hero-demo">
+    <p class="hero-hook">No hardware TPM? No problem.</p>
+    <div class="demo-shell">
+      <div class="demo-shell-head">
+        <span class="shell-title"></span>
+        <span class="shell-title">PowerShell</span>
+      </div>
+      <div class="demo-shell-body">
+        <div class="demo-chips">
+          <button class="demo-chip active" data-cmd="gettpm" tabindex="-1">Get-Tpm</button>
+          <button class="demo-chip" data-cmd="bitlocker" tabindex="-1">manage-bde -status</button>
+          <button class="demo-chip" data-cmd="device" tabindex="-1">Device check</button>
+        </div>
+        <div class="demo-prompt">
+          <span class="ps">PS C:\&gt;</span>
+          <span id="demoCmd">Get-Tpm</span>
+        </div>
+        <div class="demo-output" id="demoOut"></div>
+        <div class="demo-foot">
+          <div class="demo-status" id="demoStatus"></div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-flow">Install<span>&rarr;</span>Reboot<span>&rarr;</span>Done — takes under two minutes</div>
+  </div>
+</div>
+
+<div class="features reveal">
+  <div class="feat-inner">
+    <div class="feat-item">
+      <h3>Full TPM 2.0</h3>
+      <p>Windows Hello, attestation, compliance — works like hardware.</p>
+    </div>
+    <div class="feat-item">
+      <h3>Native driver</h3>
+      <p>No hypervisor, no emulation. A real Windows driver.</p>
+    </div>
+    <div class="feat-item">
+      <h3>Signed and trusted</h3>
+      <p>Microsoft-trusted certificate. Secure Boot on or off.</p>
+    </div>
+    <div class="feat-item">
+      <h3>Works everywhere</h3>
+      <p>Boot Camp, older PCs, custom builds, VMs — if it runs Windows, it works.</p>
+    </div>
+  </div>
+</div>
+
+<div class="pricing-wrap">
+<div class="pricing reveal" id="pricing">
+  <div class="pricing-inner">
+  <div class="pricing-text">
+    <span class="pricing-label">Pricing</span>
+    <h2>One-time purchase.</h2>
+    <p class="pricing-sub">No subscriptions. No recurring fees.</p>
+  </div>
+  <div class="pricing-cards">
+    <div class="price-card">
+      <div>
+        <div class="price-tier">Personal</div>
+        <div class="price-amount">$29<span>.99</span></div>
+        <div class="price-period">one-time</div>
+      </div>
+      <ul class="price-features">
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>1 machine</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Free updates</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Email support</li>
+      </ul>
+      <a href="https://flextpm.lemonsqueezy.com/checkout/buy/b8f36bed-d63f-4acd-96c5-e792c18bf488?embed=1" class="lemonsqueezy-button price-btn">Buy Now</a>
+    </div>
+    <div class="price-card">
+      <div>
+        <div class="price-tier">Multi-Machine</div>
+        <div class="price-amount">$49<span>.99</span></div>
+        <div class="price-period">one-time</div>
+      </div>
+      <ul class="price-features">
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Full TPM 2.0</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Up to 3 machines</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Free updates</li>
+        <li><svg class="check" viewBox="0 0 16 16"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>Priority support</li>
+      </ul>
+      <a href="https://flextpm.lemonsqueezy.com/checkout/buy/4fde4b70-7dbd-46c2-ae32-1013f9b6444c?embed=1" class="lemonsqueezy-button price-btn">Buy Now</a>
+    </div>
+  </div>
+  <p class="pricing-trust">Signed with a Microsoft-trusted code signing certificate.</p>
+  </div>
+</div>
+</div>
+
+<div class="faq reveal" id="faq">
+  <div class="faq-inner">
+  <div class="faq-label">FAQ</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>Who needs this?</h3>
+      <p>Boot Camp Macs, older PCs, custom builds, VMs — anyone with missing or broken TPM hardware.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need this if my TPM already works?</h3>
+      <p>No. FlexTPM is for when the hardware path is unavailable or failing.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is it a VM or emulator?</h3>
+      <p>Neither. It's a signed native Windows driver.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it work with BitLocker?</h3>
+      <p>Yes. BitLocker sees it as a standard TPM 2.0 and encrypts normally.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I transfer my license?</h3>
+      <p>Licenses are hardware-locked to a single machine and cannot be transferred. A new license is required for each machine.</p>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="cta reveal" id="notify">
+  <h2>Be the first to know.</h2>
+  <p>We'll notify you when FlexTPM is ready.</p>
+  <form id="waitlistForm" action="https://formspree.io/f/xyknboaa" method="POST" onsubmit="handleSubmit(event)">
+    <input type="hidden" name="_subject" value="FlexTPM Waitlist Signup">
+    <div class="email-row">
+      <input type="email" name="email" class="email-input" placeholder="you@email.com" required/>
+      <button type="submit" class="btn-primary" id="submitBtn">Notify me</button>
+    </div>
+    <p class="fine-print">No spam. Unsubscribe anytime.</p>
+    <p class="form-error" id="formError">Something went wrong. Try again.</p>
+    <p class="form-success" id="formSuccess">You're on the list.</p>
+  </form>
+</div>
+
+<footer>
+  <div style="width:100%;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;margin-bottom:1rem;">
+      <span class="footer-left">FlexTPM &copy; 2026</span>
+      <span class="footer-left"><a href="mailto:support@flextpm.com">support@flextpm.com</a></span>
+    </div>
+    <p class="footer-disclaimer">
+      FlexTPM is provided "as is" without warranty. It does not replace a dedicated hardware TPM or HSM.
+      Not affiliated with Apple, Microsoft, or the Trusted Computing Group. A reboot is required after installation.
+      License keys are hardware-locked and non-transferable. A new license is required for each machine. Use at your own risk.
+    </p>
+  </div>
+</footer>
+
+<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+<script>
+// Smooth scroll for nav links only
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Demo
+const demoData={
+  gettpm:{cmd:"Get-Tpm",status:"Windows recognizes TPM 2.0",out:`<span class="d-lbl">TpmPresent</span>          : <span class="d-val">True</span>
+<span class="d-lbl">TpmReady</span>            : <span class="d-val">True</span>
+<span class="d-lbl">TpmEnabled</span>          : <span class="d-val">True</span>
+<span class="d-lbl">TpmActivated</span>        : <span class="d-val">True</span>
+<span class="d-lbl">TpmOwned</span>            : <span class="d-val">True</span>`},
+  bitlocker:{cmd:"manage-bde -status C:",status:"BitLocker active, no errors",out:`Volume C:
+<span class="d-lbl">Conversion Status</span>   : <span class="d-val">Fully Encrypted</span>
+<span class="d-lbl">Protection Status</span>   : <span class="d-val">Protection On</span>
+<span class="d-lbl">Key Protectors</span>      : TPM`},
+  device:{cmd:"Get-PnpDevice -Class SecurityDevices",status:"TPM ready, no errors",out:`<span class="d-lbl">Status</span>              : <span class="d-val">OK</span>
+<span class="d-lbl">Class</span>               : SecurityDevices
+<span class="d-lbl">FriendlyName</span>        : Trusted Platform Module 2.0
+
+<span class="d-acc">Device is working properly.</span>`}
+};
+const demoChips=document.querySelectorAll('.demo-chip');
+const demoCmd=document.getElementById('demoCmd');
+const demoOut=document.getElementById('demoOut');
+const demoStatus=document.getElementById('demoStatus');
+const checkSvg='<svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,8 6.5,11.5 13,4.5"/></svg>';
+let demoTimer=null;
+let firstLoad=true;
+function setDemo(key){
+  if(demoTimer){clearTimeout(demoTimer);demoTimer=null;}
+  demoChips.forEach(c=>c.classList.toggle('active',c.dataset.cmd===key));
+  demoCmd.textContent=demoData[key].cmd;
+  demoStatus.classList.remove('show');
+  if(firstLoad){
+    demoOut.innerHTML=demoData[key].out;
+    demoStatus.innerHTML=checkSvg+demoData[key].status;
+    demoStatus.classList.add('show');
+    firstLoad=false;
+    return;
+  }
+  demoOut.innerHTML='<span class="cursor"></span>';
+  const delay=350+Math.random()*250;
+  demoTimer=setTimeout(()=>{
+    demoOut.innerHTML=demoData[key].out;
+    demoStatus.innerHTML=checkSvg+demoData[key].status;
+    demoStatus.classList.add('show');
+  },delay);
+}
+demoChips.forEach(c=>c.addEventListener('click',(e)=>{e.preventDefault();setDemo(c.dataset.cmd);}));
+setDemo('gettpm');
+
+async function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  const error=document.getElementById('formError');
+  const success=document.getElementById('formSuccess');
+  const form=document.getElementById('waitlistForm');
+  btn.textContent='Sending\u2026';btn.disabled=true;error.style.display='none';
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(res.ok){btn.style.display='none';form.querySelector('.email-input').style.display='none';form.querySelector('.fine-print').style.display='none';success.style.display='block';}
+    else throw new Error('fail');
+  }catch(err){error.style.display='block';btn.textContent='Notify me';btn.disabled=false;}
+}
+</script>
+
+</body>
+</html>
