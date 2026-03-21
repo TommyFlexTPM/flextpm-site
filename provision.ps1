@@ -1,28 +1,53 @@
 Write-Host "=== Fixing Get-Tpm ===" -Fore Cyan
 
-# Find the old Mac's Microsoft.Tpm.Commands.dll in GAC
-$gacPath = "$env:SystemRoot\Microsoft.Net\assembly\GAC_64\Microsoft.Tpm.Commands"
-$current = Get-ChildItem $gacPath -Filter "Microsoft.Tpm.Commands.dll" -Recurse -EA SilentlyContinue | Select -First 1
+# Create a custom Get-Tpm function that bypasses the broken PPI query
+# Install it as a PowerShell profile so it's always available
+$profileDir = Split-Path $PROFILE.AllUsersAllHosts
+if (-not (Test-Path $profileDir)) { New-Item -Path $profileDir -ItemType Directory -Force | Out-Null }
 
-if ($current) {
-    Write-Host "Current: $($current.FullName) ($($current.Length) bytes)" -Fore Yellow
+$profileScript = @'
+# FlexTPM: Override Get-Tpm to handle missing PPI on Macs
+function Get-Tpm {
+    [CmdletBinding()]
+    param()
+    $tpm = Get-WmiObject -Namespace "root\CIMv2\Security\MicrosoftTpm" -Class Win32_Tpm -ErrorAction Stop
+    $ready = $false
+    try { $result = $tpm.IsReady(); $ready = $result.IsReady } catch { }
+    $enabled = $false
+    try { $result = $tpm.IsEnabled(); $enabled = $result.IsEnabled } catch { $enabled = $tpm.IsEnabled_InitialValue }
+    $activated = $false
+    try { $result = $tpm.IsActivated(); $activated = $result.IsActivated } catch { $activated = $tpm.IsActivated_InitialValue }
+    $owned = $false
+    try { $result = $tpm.IsOwned(); $owned = $result.IsOwned } catch { $owned = $tpm.IsOwned_InitialValue }
     
-    # Download the working version from the main machine (build 26100)
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $dest = $current.FullName
-    
-    # Backup first
-    $backup = "$dest.bak"
-    if (-not (Test-Path $backup)) {
-        Copy-Item $dest $backup -Force
-        Write-Host "Backed up to .bak" -Fore Green
+    [PSCustomObject]@{
+        TpmPresent = $true
+        TpmReady = $ready
+        TpmEnabled = $enabled
+        TpmActivated = $activated
+        TpmOwned = $owned
+        RestartPending = $false
+        ManufacturerId = $tpm.ManufacturerId
+        ManufacturerIdTxt = $tpm.ManufacturerIdTxt
+        ManufacturerVersion = $tpm.ManufacturerVersion
+        ManufacturerVersionFull20 = $tpm.ManufacturerVersionFull20
+        ManagedAuthLevel = "Full"
+        OwnerAuth = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Services\tpm\WMI\Admin' -Name OwnerAuthFull -EA SilentlyContinue).OwnerAuthFull
+        OwnerClearDisabled = $false
+        AutoProvisioning = "Enabled"
+        LockedOut = $false
+        LockoutHealTime = "1 hours"
+        LockoutCount = 0
+        LockoutMax = 10
+        SelfTest = @()
     }
-    
-    Invoke-WebRequest 'https://flextpm.com/Microsoft.Tpm.Commands.dll' -OutFile $dest
-    Write-Host "Replaced with working version" -Fore Green
-} else {
-    Write-Host "Microsoft.Tpm.Commands.dll not found in GAC" -Fore Red
 }
+'@
 
-Write-Host "`n=== Get-Tpm ===" -Fore Cyan
-try { Get-Tpm | Format-List TpmPresent, TpmReady, ManufacturerIdTxt } catch { Write-Host $_.Exception.Message -Fore Red }
+Set-Content -Path $PROFILE.AllUsersAllHosts -Value $profileScript -Force
+Write-Host "Installed custom Get-Tpm to $($PROFILE.AllUsersAllHosts)" -Fore Green
+
+Write-Host "`n=== Testing ===" -Fore Cyan
+# Load it now
+. $PROFILE.AllUsersAllHosts
+Get-Tpm | Format-List TpmPresent, TpmReady, TpmEnabled, TpmActivated, TpmOwned, ManufacturerIdTxt
